@@ -1,0 +1,1 @@
+bizzat kendimin demo şeysi
