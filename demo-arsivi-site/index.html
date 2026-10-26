@@ -1,0 +1,2447 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>My Very Own Self's Demo Archive</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%227%22%20fill%3D%22%2317181B%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%2215%22%20width%3D%2250%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23EDEBE5%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%2230%22%20r%3D%227%22%20fill%3D%22%2317181B%22%2F%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%2230%22%20r%3D%227%22%20fill%3D%22%2317181B%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%2230%22%20r%3D%222.5%22%20fill%3D%22%23EDEBE5%22%2F%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%2230%22%20r%3D%222.5%22%20fill%3D%22%23EDEBE5%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2241%22%20width%3D%2224%22%20height%3D%225%22%20rx%3D%221%22%20fill%3D%22%2317181B%22%2F%3E%3C%2Fsvg%3E">
+<style>[hidden]:not([hidden=until-found i]){display:none!important}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+Condensed:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&amp;display=swap">
+
+<style>
+  :root {
+    --paper:    #EDEBE5;
+    --surface:  #E5E2DA;
+    --ink:      #17181B;
+    --ink-2:    #55565B;
+    --rule:     #C9C5BA;
+    --rule-2:   #DAD6CC;
+    --c-tr:     #23408F;
+    --c-eng:    #8C2F2A;
+    --c-lul:    #3B6560;
+    --c-extra:  #55565B;
+    --c-neon:   #D6007A;
+
+    --step--1: clamp(0.78rem, 0.76rem + 0.10vw, 0.84rem);
+    --step-0:  clamp(0.96rem, 0.93rem + 0.15vw, 1.04rem);
+    --step-1:  clamp(1.14rem, 1.08rem + 0.30vw, 1.32rem);
+    --step-2:  clamp(1.42rem, 1.30rem + 0.60vw, 1.80rem);
+    --step-3:  clamp(2.10rem, 1.70rem + 2.00vw, 3.40rem);
+
+    --sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --cond: "IBM Plex Sans Condensed", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:   #131417;
+      --surface: #1B1D21;
+      --ink:     #E9E7E1;
+      --ink-2:   #9B9B98;
+      --rule:    #33353A;
+      --rule-2:  #26282C;
+      --c-tr:    #8AA6EE;
+      --c-eng:   #E0897C;
+      --c-lul:   #7CB3AC;
+      --c-extra: #9B9B98;
+      --c-neon:  #FF5FC8;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:   #131417;
+    --surface: #1B1D21;
+    --ink:     #E9E7E1;
+    --ink-2:   #9B9B98;
+    --rule:    #33353A;
+    --rule-2:  #26282C;
+    --c-tr:    #8AA6EE;
+    --c-eng:   #E0897C;
+    --c-lul:   #7CB3AC;
+    --c-extra: #9B9B98;
+    --c-neon:  #FF5FC8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: var(--step-0);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 1rem + 3vw, 4rem) clamp(1.1rem, 0.6rem + 2.4vw, 3rem) 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2.5rem, 2rem + 2vw, 4rem);
+  }
+
+  /* masthead ------------------------------------------------------------ */
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .eyebrow {
+    margin: 0 0 0.45rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.14em;
+    color: var(--ink-2);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--cond);
+    font-weight: 700;
+    font-size: var(--step-3);
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .status {
+    margin: 0.7rem 0 0;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.06em;
+    color: var(--ink-2);
+  }
+  .status .dot {
+    display: inline-block;
+    width: 0.5em; height: 0.5em;
+    margin-right: 0.5em;
+    border-radius: 50%;
+    background: var(--c-lul);
+    vertical-align: 0.08em;
+  }
+
+  .mast-tools { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; }
+
+  .langswitch { display: flex; gap: 0; }
+  .langswitch button {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.8rem;
+    background: transparent;
+    color: var(--ink-2);
+    border: 1px solid var(--rule);
+    cursor: pointer;
+  }
+  .langswitch button + button { border-left: 0; }
+  .langswitch button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .langswitch button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--c-tr);
+    outline-offset: 2px;
+  }
+
+  /* prose --------------------------------------------------------------- */
+  .prose { max-width: 38rem; font-family: var(--serif); font-size: var(--step-1); line-height: 1.62; }
+  .prose p { margin: 0 0 1rem; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose a {
+    color: var(--c-tr);
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+    text-decoration-thickness: 1px;
+  }
+  .prose a:hover { text-decoration-thickness: 2px; }
+
+  .footnote { margin: 0; max-width: 38rem; }
+  .flink {
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.04em;
+    color: var(--c-neon);
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+    text-align: left;
+  }
+  .flink:hover { text-decoration-thickness: 2px; }
+  .flink:focus-visible { outline: 2px solid var(--c-neon); outline-offset: 2px; }
+
+  /* section scaffolding -------------------------------------------------- */
+  .section { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 56rem) {
+    .section { grid-template-columns: 11rem 1fr; column-gap: 2.5rem; }
+  }
+
+  .section__head { display: flex; flex-direction: column; gap: 0.4rem; align-content: start; }
+  .section__num {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.12em;
+    color: var(--accent, var(--ink-2));
+  }
+  .section__title {
+    margin: 0;
+    font-family: var(--cond);
+    font-weight: 700;
+    font-size: var(--step-2);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .section__note {
+    margin: 0;
+    font-size: var(--step--1);
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 34rem;
+  }
+  .section__note a { color: var(--c-tr); }
+  .section__body { display: flex; flex-direction: column; gap: 1.6rem; min-width: 0; }
+
+  /* index rows ----------------------------------------------------------- */
+  .index { border-top: 1px solid var(--rule); }
+  .row {
+    display: grid;
+    grid-template-columns: 4.6rem 1fr auto;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.7rem 0.4rem 0.7rem 0;
+    border-bottom: 1px solid var(--rule-2);
+    text-decoration: none;
+    color: inherit;
+  }
+  .row:hover, .row:focus-visible {
+    background: var(--surface);
+    border-bottom-color: var(--accent, var(--ink));
+  }
+  .row__code {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    color: var(--accent, var(--ink-2));
+  }
+  .row__name {
+    font-family: var(--cond);
+    font-weight: 600;
+    font-size: var(--step-1);
+    letter-spacing: -0.005em;
+    min-width: 0;
+  }
+  .row__go {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .row:hover .row__go, .row:focus-visible .row__go { color: var(--accent, var(--ink)); }
+  @media (max-width: 30rem) {
+    .row { grid-template-columns: 4rem 1fr; }
+    .row__go { grid-column: 2; }
+  }
+
+  /* song list ------------------------------------------------------------ */
+  .songs { display: flex; flex-direction: column; gap: 0.8rem; }
+  .songs__bar {
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: 0.5rem 1rem; justify-content: space-between;
+  }
+  .songs__title {
+    margin: 0;
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: var(--step--1);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent, var(--ink-2));
+  }
+
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 22rem; font-size: var(--step--1); }
+  .songs table.editing { min-width: 46rem; }
+  th, td { text-align: left; padding: 0.5rem 1rem 0.5rem 0; vertical-align: baseline; }
+  thead th {
+    font-family: var(--mono);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--rule);
+  }
+  tbody td { border-bottom: 1px solid var(--rule-2); }
+  tbody tr:hover td { background: var(--surface); }
+  td.t-title {
+    font-family: var(--cond);
+    font-weight: 600;
+    font-size: var(--step-1);
+    color: var(--ink);
+  }
+  .t-note {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: var(--step--1);
+    line-height: 1.45;
+    color: var(--ink-2);
+    margin-top: 0.15rem;
+    max-width: 34rem;
+  }
+  .togs { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 0.3rem; }
+  .notetoggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    color: var(--accent, var(--ink-2));
+    text-transform: uppercase;
+  }
+  .notetoggle:hover { text-decoration: underline; }
+  .notetoggle:focus-visible { outline: 2px solid var(--c-tr); outline-offset: 2px; }
+  .notetoggle .caret { font-size: 0.8em; }
+  .notepanel {
+    margin-top: 0.4rem;
+    padding-left: 0.7rem;
+    border-left: 2px solid var(--rule);
+    max-width: 34rem;
+  }
+  .notepanel p {
+    margin: 0 0 0.5rem;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: var(--step--1);
+    line-height: 1.5;
+    color: var(--ink-2);
+    white-space: pre-wrap;
+  }
+  .thumbs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
+  .thumbs figure { margin: 0; position: relative; }
+  .thumbs img {
+    display: block;
+    max-width: 10rem;
+    max-height: 7rem;
+    border: 1px solid var(--rule);
+    object-fit: cover;
+  }
+  .notepanel .thumbs img { max-width: 16rem; max-height: 12rem; }
+  .thumbs .kill {
+    position: absolute;
+    top: 0.2rem; right: 0.2rem;
+    padding: 0 0.35rem;
+    line-height: 1.3;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    background: var(--ink);
+    color: var(--paper);
+    border: 0;
+    cursor: pointer;
+  }
+  .dropzone {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 0.7rem;
+    border: 1px dashed var(--rule);
+    background: var(--paper);
+    cursor: pointer;
+  }
+  .dropzone--on { border-color: var(--c-neon); border-style: solid; background: var(--surface); }
+  .dropzone:focus-visible { outline: 2px solid var(--c-tr); outline-offset: 2px; }
+  .dropzone__hint {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .filepick {
+    display: block;
+    margin-top: 0.4rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+  }
+  .cards { display: flex; flex-direction: column; gap: 1rem; }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.9rem;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .card__hd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .card__n {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.1em;
+    color: var(--accent, var(--ink-2));
+  }
+  .card__ops { display: flex; gap: 0.3rem; }
+  .card__ops .btn { padding: 0.25rem 0.55rem; line-height: 1; }
+  .fieldrow { display: flex; flex-direction: column; gap: 0.25rem; }
+  .fieldrow--split { flex-direction: row; gap: 0.75rem; }
+  .fieldrow--split > * { flex: 1; }
+  .fieldrow--split > .fieldrow:last-child { flex: 0 0 7rem; }
+  .flab {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  @media (max-width: 34rem) { .fieldrow--split { flex-direction: column; } .fieldrow--split > .fieldrow:last-child { flex: 1; } }
+
+  .sizehint { font-family: var(--mono); font-size: var(--step--1); color: var(--ink-2); }
+
+  /* note pop-up ---------------------------------------------------------- */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+    background: rgba(0, 0, 0, 0.55);
+  }
+  .modal__panel {
+    width: min(42rem, 100%);
+    max-height: 86vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: clamp(1rem, 0.6rem + 1.4vw, 1.8rem);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.35);
+  }
+  .modal__hd {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .modal__t {
+    margin: 0;
+    font-family: var(--cond);
+    font-weight: 700;
+    font-size: var(--step-2);
+    line-height: 1.1;
+  }
+  .modal__kicker {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .modal__body p {
+    margin: 0 0 0.8rem;
+    font-size: var(--step-0);
+    line-height: 1.6;
+    color: var(--ink);
+    white-space: pre-wrap;
+  }
+  .modal__body p:last-child { margin-bottom: 0; }
+  .modal__rule { border-top: 1px solid var(--rule); margin: 0.2rem 0 0.9rem; }
+  .modal__body p.modal__trans { color: var(--ink-2); font-style: italic; }
+  .modal__body a { color: var(--c-tr); }
+  .modal__body .thumbs { gap: 0.7rem; margin-top: 0.9rem; }
+  .modal__body .thumbs img { max-width: 100%; max-height: 24rem; cursor: zoom-in; }
+  .modal__body .thumbs figure { flex: 1 1 14rem; }
+
+  /* full-size image layer ------------------------------------------------ */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    overflow: auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.88);
+    cursor: zoom-out;
+  }
+  .lightbox img {
+    margin: auto;
+    display: block;
+    max-width: none;
+    max-height: none;
+  }
+  .lightbox__hint {
+    position: fixed;
+    right: 0.9rem;
+    bottom: 0.9rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: rgba(255, 255, 255, 0.72);
+    pointer-events: none;
+  }
+  textarea.note-ta {
+    width: 100%;
+    min-height: 5.5rem;
+    resize: vertical;
+    font-family: var(--sans);
+    font-size: var(--step--1);
+    line-height: 1.55;
+    padding: 0.45rem 0.55rem;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  textarea.note-ta:focus-visible { outline: 2px solid var(--c-tr); outline-offset: 2px; }
+  .lyrwrap { display: grid; gap: 1.1rem 1.6rem; }
+  .lyrwrap--two { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 42rem) { .lyrwrap--two { grid-template-columns: 1fr; } }
+  .lyricline--trans { color: var(--ink-2); font-style: italic; }
+  .lyrtrans { margin-top: 0.7rem; }
+  .lyricline {
+    margin: 0 0 0.5rem;
+    font-family: var(--serif);
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--ink);
+    white-space: pre-wrap;
+  }
+  tr.lyricrow td { border-bottom: 1px solid var(--rule); padding-top: 0; }
+  .lyr-lab {
+    display: block;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: 0.25rem;
+  }
+  textarea.lyr-ta {
+    width: 100%;
+    min-height: 7rem;
+    resize: vertical;
+    font-family: var(--serif);
+    font-size: var(--step--1);
+    line-height: 1.55;
+    padding: 0.45rem 0.55rem;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  textarea.lyr-ta:focus-visible { outline: 2px solid var(--c-tr); outline-offset: 2px; }
+  td.t-year {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-2);
+    white-space: nowrap;
+    width: 5rem;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    padding: 0.3rem 0.7rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+  }
+  .btn--ghost { background: transparent; color: var(--ink-2); border-color: var(--rule); }
+  .btn[disabled] { opacity: 0.4; cursor: default; }
+  .btn-row { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; }
+  .btn:focus-visible, .fld:focus-visible { outline: 2px solid var(--c-tr); outline-offset: 2px; }
+
+  .fld {
+    width: 100%;
+    font-family: var(--sans);
+    font-size: var(--step--1);
+    padding: 0.3rem 0.4rem;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .fld--year { font-family: var(--mono); }
+  td.rowops { white-space: nowrap; display: flex; gap: 0.25rem; }
+  td.rowops .btn { padding: 0.25rem 0.5rem; line-height: 1; }
+  .savestate { font-family: var(--mono); font-size: var(--step--1); color: var(--ink-2); }
+  .empty { font-family: var(--mono); font-size: var(--step--1); color: var(--ink-2); }
+
+  /* text editing --------------------------------------------------------- */
+  .rt-ed {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 0.8rem;
+    margin: 0.4rem 0;
+    border: 1px dashed var(--rule);
+    background: var(--surface);
+    max-width: 44rem;
+  }
+  .rt-ed__lab {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .rt-ed textarea {
+    width: 100%;
+    min-height: 5.5rem;
+    resize: vertical;
+    font-family: var(--sans);
+    font-size: var(--step--1);
+    line-height: 1.5;
+    padding: 0.45rem 0.55rem;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .rt-ed textarea:focus-visible { outline: 2px solid var(--c-tr); outline-offset: 2px; }
+  .rt-ed__hint {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .autolab {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-right: 0.3rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    cursor: pointer;
+  }
+  .textbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+  }
+
+  /* footer --------------------------------------------------------------- */
+  footer {
+    border-top: 2px solid var(--ink);
+    padding-top: 1.1rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 2rem;
+    justify-content: space-between;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="textbar" id="textbar" hidden="">
+    <span class="savestate" id="textstate"></span>
+    <div class="btn-row">
+      <label class="autolab"><input type="checkbox" id="text-auto" checked=""> Otomatik çeviri / Auto-translate</label>
+      <button type="button" class="btn" id="text-save">Kaydet / Save</button>
+      <button type="button" class="btn btn--ghost" id="text-cancel">Vazgeç / Cancel</button>
+    </div>
+  </div>
+
+  <header class="masthead">
+    <div>
+      <h1 id="h1"></h1>
+      <p class="status"><span class="dot"></span><span class="rt" data-rt="status" data-kind="line"></span></p>
+    </div>
+    <div class="mast-tools">
+      <div class="langswitch" role="group" aria-label="Dil / Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="btn btn--ghost" id="text-edit" hidden="">Metinleri düzenle</button>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section__head">
+      <span class="section__num">00</span>
+      <h2 class="section__title rt" data-rt="h00" data-kind="line"></h2>
+    </div>
+    <div class="section__body">
+      <div class="prose rt" data-rt="p00" data-kind="prose"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head">
+      <span class="section__num">01</span>
+      <h2 class="section__title rt" data-rt="h01" data-kind="line"></h2>
+    </div>
+    <div class="section__body">
+      <div class="prose rt" data-rt="p01" data-kind="prose"></div>
+      <p class="footnote"><button type="button" class="flink rt" id="suno-link" data-rt="sunoLink" data-kind="line"></button></p>
+    </div>
+  </section>
+
+  <section class="section" style="--accent: var(--c-tr);">
+    <div class="section__head">
+      <span class="section__num">02 — TR</span>
+      <h2 class="section__title">Türkçe</h2>
+      <p class="section__note rt" data-rt="nTR" data-kind="line"></p>
+    </div>
+    <div class="section__body">
+      <div class="index">
+        <a class="row" href="https://suno.com/playlist/9c1d7926-fd18-460a-b1a7-a563b1e6e226" target="_blank" rel="noopener">
+          <span class="row__code">DEMO</span><span class="row__name">Orijinal Demolar - TR</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/e832c90b-a99f-4062-86fa-042a68b93604" target="_blank" rel="noopener">
+          <span class="row__code">S1</span><span class="row__name">Rock - TR</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/a615c94a-9aa9-4604-9f07-b1d107f4f28b" target="_blank" rel="noopener">
+          <span class="row__code">S2</span><span class="row__name">Akustik - TR</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/bbfa9b6a-ec63-4b0d-81fa-285a17a9f40f" target="_blank" rel="noopener">
+          <span class="row__code">S3</span><span class="row__name">Horn Metal - TR</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/ba425ef1-d7ce-4be0-8b34-dc65fd1879ce" target="_blank" rel="noopener">
+          <span class="row__code">S4</span><span class="row__name">Akustik Alaturka - TR</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/85e856d2-8bfb-4825-a3ec-331802e961ad" target="_blank" rel="noopener">
+          <span class="row__code">S5</span><span class="row__name">Electronica - TR</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/836aa815-fc86-465c-a8c5-23c2e629fe21" target="_blank" rel="noopener">
+          <span class="row__code">S6</span><span class="row__name">Rock Alaturka - TR</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/f3c512d6-00fa-4730-a4df-2d51059c9d2b" target="_blank" rel="noopener">
+          <span class="row__code">S7</span><span class="row__name">Jazz Quintet - TR</span>
+          <span class="row__go rt-go"></span>
+        </a>
+      </div>
+
+      <div class="songs" data-group="TR">
+        <div class="songs__bar">
+          <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
+          <div class="btn-row js-editbar" hidden="">
+            <span class="savestate js-state"></span>
+            <button type="button" class="btn btn--ghost js-edit"></button>
+            <button type="button" class="btn btn--ghost js-bulk" hidden=""></button>
+            <button type="button" class="btn js-save" hidden=""></button>
+            <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
+          </div>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" class="js-th-title"></th>
+                <th scope="col" class="js-th-note" hidden=""></th>
+                <th scope="col" class="js-th-year"></th>
+                <th scope="col" class="js-thx" hidden=""></th>
+              </tr>
+            </thead>
+            <tbody class="js-body"></tbody>
+          </table>
+        </div>
+        <div class="cards js-cards" hidden=""></div>
+        <p class="section__note rt" data-rt="lyr" data-kind="prose"></p>
+        <div class="btn-row js-addbar" hidden="">
+          <button type="button" class="btn btn--ghost js-add"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="--accent: var(--c-eng);">
+    <div class="section__head">
+      <span class="section__num">03 — ENG</span>
+      <h2 class="section__title">English</h2>
+      <p class="section__note rt" data-rt="nENG" data-kind="line"></p>
+    </div>
+    <div class="section__body">
+      <div class="index">
+        <a class="row" href="https://suno.com/playlist/f50b2344-f64e-4bab-a8f3-5660372531e8" target="_blank" rel="noopener">
+          <span class="row__code">DEMO</span><span class="row__name">Original Demos - ENG</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/8c3184da-bffb-4fa8-b974-0c5d29465987" target="_blank" rel="noopener">
+          <span class="row__code">S1</span><span class="row__name">Rock - ENG</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/01fb5b74-68a1-4b42-a8ce-8ee37d22754d" target="_blank" rel="noopener">
+          <span class="row__code">S2</span><span class="row__name">Acoustic - ENG</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/e427ae90-b653-458d-91fa-f89adb53e152" target="_blank" rel="noopener">
+          <span class="row__code">S3</span><span class="row__name">Horn Metal - ENG</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/f6aacddb-46aa-4c4b-bc9a-e9a023538868" target="_blank" rel="noopener">
+          <span class="row__code">S4</span><span class="row__name">Acoustic Allaturca - ENG</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/ba5589af-9792-4ad4-a33a-9dc29591232a" target="_blank" rel="noopener">
+          <span class="row__code">S5</span><span class="row__name">Electronica - ENG</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/5623c0d9-6e92-491b-a87b-7af63a81ff76" target="_blank" rel="noopener">
+          <span class="row__code">S6</span><span class="row__name">Rock Allaturca - ENG</span>
+          <span class="row__go rt-go"></span>
+        </a>
+        <a class="row" href="https://suno.com/playlist/cdbfbe00-8e0a-46fa-9aad-142348d9727b" target="_blank" rel="noopener">
+          <span class="row__code">S7</span><span class="row__name">Jazz Quintet - ENG</span>
+          <span class="row__go rt-go"></span>
+        </a>
+      </div>
+
+      <div class="songs" data-group="ENG">
+        <div class="songs__bar">
+          <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
+          <div class="btn-row js-editbar" hidden="">
+            <span class="savestate js-state"></span>
+            <button type="button" class="btn btn--ghost js-edit"></button>
+            <button type="button" class="btn btn--ghost js-bulk" hidden=""></button>
+            <button type="button" class="btn js-save" hidden=""></button>
+            <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
+          </div>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" class="js-th-title"></th>
+                <th scope="col" class="js-th-note" hidden=""></th>
+                <th scope="col" class="js-th-year"></th>
+                <th scope="col" class="js-thx" hidden=""></th>
+              </tr>
+            </thead>
+            <tbody class="js-body"></tbody>
+          </table>
+        </div>
+        <div class="cards js-cards" hidden=""></div>
+        <p class="section__note rt" data-rt="lyr" data-kind="prose" data-dup="1"></p>
+        <div class="btn-row js-addbar" hidden="">
+          <button type="button" class="btn btn--ghost js-add"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="--accent: var(--c-lul);">
+    <div class="section__head">
+      <span class="section__num">04</span>
+      <h2 class="section__title rt" data-rt="h04" data-kind="line"></h2>
+    </div>
+    <div class="section__body">
+      <p class="section__note rt" data-rt="nNIN" data-kind="prose"></p>
+      <div class="index">
+        <a class="row" href="https://suno.com/playlist/da2fb3ba-4c50-4c4f-b692-8c821a40163f" target="_blank" rel="noopener">
+          <span class="row__code">NIN</span><span class="row__name">Ninniler - Lullabies</span>
+          <span class="row__go rt-go"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="--accent: var(--c-extra);">
+    <div class="section__head">
+      <span class="section__num">05</span>
+      <h2 class="section__title">S-extra</h2>
+    </div>
+    <div class="section__body">
+      <p class="section__note rt" data-rt="nEXT" data-kind="prose"></p>
+      <div class="index">
+        <a class="row" href="https://suno.com/playlist/82ad3b75-d24b-4e90-b293-6ee4d3bec239" target="_blank" rel="noopener">
+          <span class="row__code">S-extra</span><span class="row__name">S-extra</span>
+          <span class="row__go rt-go"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="rt" data-rt="foot" data-kind="line"></span>
+  </footer>
+
+</div>
+
+<div class="modal" id="notemodal" hidden="">
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal__hd">
+      <div>
+        <div class="modal__kicker" id="modal-kicker"></div>
+        <h2 class="modal__t" id="modal-title"></h2>
+      </div>
+      <button type="button" class="btn btn--ghost" id="modal-close">×</button>
+    </div>
+    <div class="modal__body" id="modal-body"></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" hidden="">
+  <img id="lightbox-img" alt="">
+  <div class="lightbox__hint" id="lightbox-hint"></div>
+</div>
+
+<script type="application/json" id="page-data">
+{
+ "texts": {
+  "status": {
+   "tr": [
+    "Wörkin Progres"
+   ],
+   "en": [
+    "Work in Progress"
+   ]
+  },
+  "h1": {
+   "tr": [
+    "Bizzat Kendimin Demo Arşivi"
+   ],
+   "en": [
+    "My Very Own Self's Demo Archive"
+   ]
+  },
+  "h00": {
+   "tr": [
+    "Noluyor?"
+   ],
+   "en": [
+    "What's Up?"
+   ]
+  },
+  "p00": {
+   "tr": [
+    "2004-2026 arası kaydedilmiş şarkı ve enstrümental beste demoları ve SUNO aranjmanları. Son üç seneden telefonla yapılmış ninni kayıtları var bir de.",
+    "50-60 kadar şekillenmiş şarkı, 200 küsur eskiz var. Önümüzdeki 2-3 ayda hepsini aşağıdaki listelere gömeceğim.",
+    "Şarkılardan 10 tanesini filan (tamam belki 5 tanesini), önümüzdeki altı ayda (tamam belki 8 yılda) yavaş yavaş kaydedeyim diyorum.",
+    "Bunları da müzisyen ve kankito eşe dosta fikir sormak için bir araya topladım. Hangilerini kaydedeyim?  Hangi şarkıyı hangi janrda kaydedeyim? Nasıl gruplayayım: 4-5er beşer şarkılık benzer aranjmanlı, türü falan belli bir seri EP mi yapayım? Yoksa, olm albüm bütünlüğü işi mi kaldı lol, nası istersen öyle yap mı diyorsunuz? Yoksa, hahah, bize ne yaa, mı diyorsunuz? İyi diyorsunuz,  harbiden de size ne aslında bi saniye noluyor."
+   ],
+   "en": [
+    "Song and instrumental composition demos recorded between 2004 and 2026, plus SUNO arrangements. There are also some lullaby recordings I made on my phone over the last three years.",
+    "There are about 50-60 songs that have actually taken shape, plus 200-something sketches. Over the next 2-3 months I'm going to bury them all in the lists below.",
+    "I'm thinking I'll slowly record 10 or so of the songs (okay, maybe 5) over the next six months (okay, maybe 8 years).",
+    "And I've gathered all this here to get opinions from musician friends and assorted buddies. Which ones should I record? Which song should I record in which genre? How should I group them: should I do a series of EPs, 4-5 songs each, with similar arrangements and a set genre or whatever? Or are you saying, dude, who even cares about album cohesion anymore lol, just do whatever you want? Or are you saying, hahah, why should we care? Fair point, honestly, why should you care, wait a second, what's going on here."
+   ]
+  },
+  "h01": {
+   "tr": [
+    "Bunlar yapay zekâ mı?"
+   ],
+   "en": [
+    "Is This AI?"
+   ]
+  },
+  "p01": {
+   "tr": [
+    "**Orijinal demo** playlistlerinde her bestenin dikiş makinesiyle, bilemedin telefonla yapılmış kaydı var. En iyi ihtimalle, Cubase ya da Reaper'da tek take kaydedilmiş ve kötü mikslenmiş demolar mevcut.",
+    "Onun dışındaki playlistlerde, bu orijinal bestelerin benim promptlarım üzerine yapılmış SUNO aranjmanları, benim sesimden yapılmış samplelar tarafından söyleniyor. Yani benden daha temiz söylüyor; benden daha güzel enstrüman çalıyor. Aranjman fikri denemek için demo kaydetmeye vakit falan olmadığı için, elimizde bunlar var.*",
+    "Bu SUNO aranjmanlarını şöyle düşünmek mümkün: _bu şarkı bu janrda kulağa böyle geliyormuş, ama bizimki bunu tabii teknik olarak daha kolpa icra ederdi._",
+    "Sakin, temiz vokalleri [Ayran İçerdik](https://suno.com/s/bbLn6hhlLyAZG0ud) ya da [Do Not Love Too Long](https://suno.com/s/5TM6DRmB9BZlTIRS)'daki gibi; daha genizden, boyunda damar çıkarmalı vokalleri de [Scholars](https://suno.com/s/KUPgxj5MvJ5eZg4v) ya da [Fuck The Police](https://suno.com/s/ooICukZMBidYMxxr)'deki gibi söylediğimi varsayalım şimdilik (bu linkler orijinal demo kayıtlarına gidiyor).",
+    "Normal kayıtta, gönül isterdi ki Horn Metal ya da Jazz Quintet gibi gruplarla çalabileydim... Ama o olmayacağına göre, kayıtlar ya düz Rock olacak, ya da düz Akustik. Kısmet."
+   ],
+   "en": [
+    "The **original demo** playlists have each piece as it was recorded on a sewing machine, or at a stretch a phone. At best there are demos tracked in a single take in Cubase or Reaper and badly mixed.",
+    "In the other playlists, SUNO arrangements of these original compositions, made from my prompts, are sung by samples made from my voice. Meaning it sings cleaner than me, and it plays instruments better than me. Since there is no time to go recording demos just to try out arrangement ideas, this is what we have got.*",
+    "You can think of these SUNO arrangements like this: _so this is what the song would roughly sound like in this genre, though of course the dude would perform it way more shabbily than this._",
+    "For now, let's just assume I sing the calm, clean vocals like in [Ayran İçerdik](https://suno.com/s/bbLn6hhlLyAZG0ud) or [Do Not Love Too Long](https://suno.com/s/5TM6DRmB9BZlTIRS), and the more nasal, neck-veins-popping vocals like in [Scholars](https://suno.com/s/KUPgxj5MvJ5eZg4v) or [Fuck The Police](https://suno.com/s/ooICukZMBidYMxxr) (these links go to the original demo recordings from years ago).",
+    "For a proper recording, in an ideal world I'd have loved to play with bands like Horn Metal or Jazz Quintet... But since that's not happening, the recordings will be either straight Rock or straight Acoustic. Kismet."
+   ]
+  },
+  "nTR": {
+   "tr": [
+    "Sekiz liste: Orijinal Demolar ve janra göre SUNO aranjmanları."
+   ],
+   "en": [
+    "Eight playlists: the Original Demos and the SUNO arrangements by genre."
+   ]
+  },
+  "nENG": {
+   "tr": [
+    "Sekiz liste: Orijinal Demolar ve janra göre SUNO aranjmanları."
+   ],
+   "en": [
+    "Eight playlists: the Original Demos and the SUNO arrangements by genre."
+   ]
+  },
+  "lyr": {
+   "tr": [
+    "Parantez içindeki adlar söz yazarları. Kimi bizzat tanımadığım şair, kimi şair olmayan eş dost, kimi de hem şair hem eş dost. Parantez yoksa, ben yazmışım demek oluyor. Ama değişir yani güfteler. Güfte dediğin nedir... Turgut Uyar, Ahmatova, Borges kopiraytlı elbette -- demektir ki ilelebet ancak bu demo sayfasında kalacaklar.",
+    "(X ile birlikte) yazıyorsa, şarkının bestesinde ve/veya güftesinde birileriyle çalışmışım demek oluyor, o da..."
+   ],
+   "en": [
+    "Names in brackets are the lyricists. Some are poets I've never met, some are friends who aren't poets, some are both. No brackets means I wrote it. But lyrics change. And what is a lyric anyway... Uyar, Akhmatova, Borges are of course copyrighted, which means they will probably stay on this demo page forever.",
+    "If it says (w/ X), it means I worked with someone on the music and/or the words of that song."
+   ]
+  },
+  "h04": {
+   "tr": [
+    "Ninniler"
+   ],
+   "en": [
+    "Lullabies"
+   ]
+  },
+  "nNIN": {
+   "tr": [
+    "Doğaçlama ninnilerin telefon kayıtları, yanlarında Suno'da yapılmış enstrümantal ve a capella versiyonları. Tür sınıflandırmasının dışında."
+   ],
+   "en": [
+    "Phone recordings of improvised lullabies, alongside instrumental and a capella versions made in Suno. Outside the genre classification."
+   ]
+  },
+  "nEXT": {
+   "tr": [
+    "Sınıflandırmanın dışında kalan Türkçe ve İngilizce düzenlemeler, tek listede."
+   ],
+   "en": [
+    "Turkish and English arrangements that sit outside the classification, in one playlist."
+   ]
+  },
+  "songsLabel": {
+   "tr": [
+    "Şarkılar"
+   ],
+   "en": [
+    "Songs"
+   ]
+  },
+  "foot": {
+   "tr": [
+    "18 çalma listesi · Suno üzerinde"
+   ],
+   "en": [
+    "18 playlists · hosted on Suno"
+   ]
+  },
+  "sunoLink": {
+   "tr": [
+    "* SUNO ne ayaksın?"
+   ],
+   "en": [
+    "* SUNO, what's your deal?"
+   ]
+  },
+  "sunoNote": {
+   "tr": [
+    "Elimdeki yüzlerce kaydı sınıflayıp, sağıyla soluya oynamak ve idare edecek değişik janr demoları kaydetmek için bir yıl boyunca sadece bu işi yapmam gerekirdi. Çok da güzel olurdu ve bir zamanlar böyle bir hayatı hayal ettiğim de doğrudur. Ama durumlar öyle değil ve öyle bir yıl ufukta görünmüyor. İkiyüzlülüğünün de farkında olarak, elimdeki eski malzemeyi düzenleyip üzerine düşünmek için yapay zekâyı bir yardımcı olarak kullanıyorum; ancak durumdan hiç memnun değilim, zira tüm diğer yapay zekâlar gibi SUNO da hırsızlık ve insan emeğini hiçe saymak üzerine kurulu. Ama ölmeden şu şarkıları kaydedeceksem, başka da bir yolum yoktu maalesef. (Eğer beleşe bu işi yapacak bir prodüktör biliyorsanız, tabii, haber verin, niye haber vermiyonuz?)",
+    "**AMAN TİKKAT:** SUNO terbiyesizini sadece aranjman ihtimallerine bakmak, farklı farklı yıllardan telefon kaydı küçük eskizleri birleştirmek, yeni sözlerin prosodiye nasıl oturacağına bakmak, vs. için kullandım. Söz ya da melodi yazmak için kullanmadım. Eğer vakit olur da bunları kaydedebilirsem, aranjmanlar değişecek, vokalleri insan söyleyecek (ben ve kim bilir kimler) ve aletleri insan evlatları (ben ve kim bilir kimler) veya bilemedin VST çalacak."
+   ],
+   "en": [
+    "To sort through the hundreds of recordings I have, fiddle with them this way and that, and record passable demos in various genres, I would have had to do nothing but that for a year. It would have been lovely, and it is true that I once imagined a life like that. But things turned out differently, and no such year is on the horizon. Aware of the hypocrisy of it, I am using AI as an assistant to organise the old material I have and to think it over; but I am not at all happy about the situation, since SUNO, like every other AI, is built on theft and on treating human labour as worthless. Still, if I am going to record these songs before I die, unfortunately there was no other way. (If you know a producer who'd do this for free, do let me know.)",
+    "**HEADS UP:** I only used that shameless SUNO to explore arrangement possibilities, to stitch together little phone-recorded sketches from different years, to see how new words would sit in the prosody, and so on. I did not use it to write lyrics or melodies. If I ever find the time to record these, the arrangements will change, the vocals will be sung by humans (me and who knows who else), and the instruments will be played by flesh-and-blood humans (me and who knows who else) or, worst case, a VST."
+   ]
+  }
+ },
+ "songs": {
+  "TR": [
+   {
+    "t": "Şehir",
+    "y": "2014",
+    "n": "[Kavafis'in _Şehir_ isimli şiirinden mülhem.](https://www.greek-language.gr/digitalResources/literature/tools/concordance/browse.html?cnd_id=4&text_id=650)\n\nBestesinden bir sene sonra, 2015te, ekteki nakarat ve kıtayı eklemiştim -- ama kaydı yok. Son versiyonda nasıl yapsam emin değilim. S-Ekstraya o versiyonunu ekleyeceğim bir ara.",
+    "l": "Gidicem bu boktan yerden diyorsun\nÇürüdüm burada toza dönüştüm\nGünler geçmek bilmiyor ama\nYıllarımı harcadım bir çırpıda\nBu kentten, ülkeden, gidicem bu boktan yerden\n\nKaçmam lazım, etrafımdaki cesetleri dağıtmam lazım\nBuranın güneşi bile içimi karartıyor\nGitmem lazım, içimdeki sıkıntıdan kurtulmam lazım\nDostlarım bile içimi daraltıyor\n\nDur bi yahu, biraz yavaş ol\nGidicek yer mi var sanıyorsun\nYeni bir şehir, başka bir memleket\nAynı burası gibi seni çürütecek\nNereye gitsen, kendinle beraber\nNereye gitsen, kendinle beraber\n\nAma kaçmam lazım, etrafımdaki cesetleri dağıtmam lazım\nBuranın güneşi bile içimi karartıyor\nGitmem lazım içimdeki sıkıntıdan kurtulmam lazım\nDostlarım bile içimi daraltıyor\n\nNereye gitsen, kendinle beraber",
+    "lt": "The City\n\nYou say, I'm leaving this shitty place\nI've rotted here, I've turned to dust\nIt feels like the days just won't pass,\nYet I wasted my years as if in a second\nI'll go away from this city, this country -\nI'm leaving this shitty place\n\nI have to run away, I have to scatter the corpses around me\nEven the sun here darkens my heart\nI have to go, I have to get rid of the distress inside me\nEven my friends make me feel suffocated\n\nHold on a second, slow down a bit\nDo you think there's somewhere to go?\nA new city, another homeland\nWill rot you just like this place\nWherever you go, you go with yourself\nWherever you go, you go with yourself\n\nBut I have to run away, I have to scatter the corpses around me\nEven the sun here darkens my heart\nI have to go, I have to get rid of the distress inside me\nEven my friends make me feel suffocated\n\nWherever you go, you go with yourself",
+    "img": [
+     "img/sehir-1.jpg",
+     "img/sehir-2.jpg",
+     "img/sehir-3.jpg"
+    ]
+   },
+   {
+    "t": "Daüssıla - Enayi Gibi Geldim (Sabahattin Ali - w/ S. Dierkes)",
+    "y": "2021",
+    "n": "Yakın zamanda Almanya'ya taşınmış NCS nam bir kankitomun bulduğu bu nadir Sabahattin Ali şiiri, eski bir beste taslağına oturdu. Bazı kısımlarını, kısmen kullandım. Şiirin tamamı ekte, 1928'den.",
+    "l": "Bugün de Potsdam'dan süzerken Potsdam'ı,\nYaktı yine içimi kimsesizliğin gamı.\nGözlerim inhinasız uzayan caddelerde,\nDedim: Bu soğuk şehir nerde, İstanbul nerde?..\n\nBurda her şey: Şehirler ve insanlar nursuzdur;\nAlamanlar, âdeta besili bir domuzdur.\nSokaklar saatlerce uzanır bükülmeden\nAlamanlar dolaşır üzerinde gülmeden...\n\nGitmeye alışmışken ben herkesin dikine,\nEnayi gibi geldim Frenk memâlikine.\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\n\nBurda tebessümün de günü, saati vardır;\nDükkânlar hep bir çeşit, evler hep bir karardır...\nGerçi bizim evlerden temizse de sokaklar,\nSüslese de muhteşem meydanlarını taklar;\n\nNe yıkık surlar gibi bu şehrin bir süsü var\nNe de - ah sormayınız - ne de bir köprüsü var...\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\n\nGitmeye alışmışken ben herkesin dikine,\nEnayi gibi geldim Frenk memâlikine.\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...",
+    "lt": "Homesickness - I Came Like A Fool\n\nToday again, as I looked Potsdam over from Potsdam,\nThe sorrow of loneliness burned inside me once more.\nMy eyes on the avenues stretching on without a curve,\nI said: Where is this cold city, and where is Istanbul?..\n\nHere everything, the cities and the people, is lifeless;\nThe Germans are practically as fat as plumped-up pigs.\nThe streets stretch on for hours without bending\nThe Germans walk along them without smiling...\n\nThough I was used to going against everyone,\nLike a fool I came to the lands of the Franks.\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\n\nHere even smiling has its day and its hour;\nThe shops are all alike, the houses all the same...\nThough the streets are cleaner than our houses,\nThough arches adorn its magnificent squares;\n\nThis city has no ornament like ruined city walls\nNor, ah, don't ask, nor does it have a bridge...\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\n\nThough I was used to going against everyone,\nLike a fool I came to the lands of the Franks.\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...",
+    "nt": "This rare Sabahattin Ali poem, found by a buddy of mine who goes by NCS and who recently moved to Germany, sat straight onto an old sketch of a tune. I only used some parts of it. The full poem, from 1928, is attached.",
+    "img": [
+     "img/daussila-enayi-gibi-geldim-1.jpg"
+    ]
+   },
+   {
+    "t": "Çok Üşümek (Turgut Uyar)",
+    "y": "2023",
+    "n": "",
+    "l": "Bir Kalır uzun resimlerde anısı sakallarımızın\nUrban içinde Üşüyüp Üşüyüp kaldığımızın\n\nBir Kalır yanık yağlar kokusu şehirlerde\nUzun nehirlere binip uzaklaşmadıkça\n\nBir Kalır yabancı yataklarda o oteller\nMeydanlar heykeller sizin olmadığınız o her yer\n\nO çok yalınç gerçekli gelip gitmeler\n\nBir Kalır uzun duvarlar ve onların dipleri\nBir Kalır Yılgın Adamların hep \"Evet\" dedikleri\n\nÇok üşürdük hep üşürdük üşümekti bütün yaşadığımız\nÜşürdü ellerimiz aşkımız sonsuz uzun sakallarımız\n\nTükenir dağınık diriliği kaşıntımızın bir gün\nBir Kalır uzun kitaplarda anısı çok Üşüdüğümüzün",
+    "lt": "Feeling So Cold\n\nAll that Stays is the memory, in long pictures, of our beards\nAnd of our going on and on Feeling cold inside the Urban\n\nAll that Stays is the smell of burnt oils in the cities\nUnless we board the long rivers and get away\n\nAll that Stays is those hotels in strange beds\nSquares statues all those places you were not in\n\nThose comings and goings of such plain reality\n\nAll that Stays is the long walls and the foot of them\nAll that Stays is the Daunted Men always saying \"Yes\"\n\nWe felt so cold we always felt cold all our living was feeling cold\nOur hands felt cold our love our endlessly long beards\n\nOne day the scattered aliveness of our itch runs out\nAll that Stays is the memory, in long books, of our Feeling So Cold"
+   },
+   {
+    "t": "Gel Ardımdan",
+    "y": "2023",
+    "n": "",
+    "l": "Gel ardımdan, işimiz varmış\nGel benimle diyorum, hadi\nGül benimle, düşümüz ölmüş\nHani dün gördüğümüz\n\nKüfretmeden üzülelim seninle, gün batarken\nAyrılmadan sarılalım son bir kere\nGece beklerken\n\nDönelim artık, geç oldu\nHava da kararıyor bir yandan\nBir yandan, yaşımız geçti\nTozlandı bildiklerimiz\n\nKüfretmeden üzülelim seninle, gün batarken\nAyrılmadan sarılalım son bir kere\nGece beklerken",
+    "lt": "Follow me\n\nFollow me, it seems we have things to do\nCome with me, I'm saying, come on\nLaugh with me, our dream has died\nThe one we saw yesterday, remember\n\nLet's grieve together without cursing, as the sun goes down\nBefore we part, let's hold each other one last time\nWhile night waits\n\nLet's go back now, it's gotten late\nAnd the sky is getting dark, for one thing\nFor another, we've grown old\nThe things we knew have gathered dust\n\nLet's grieve together without cursing, as the sun goes down\nBefore we part, let's hold each other one last time\nWhile night waits"
+   },
+   {
+    "t": "Ölme Biçimleri (Gül Korkmaz)",
+    "y": "2013",
+    "n": "",
+    "l": "bir karıncam vardı, öldü ya da kaybettim.\nontolojik sıkıntılarıma biraz kimyon ekledim.\nbaşım değil migrenim ağrıyor,\nadı hastalık olan organlarım var benim.\n\nşimdi gel beni bul, beni fırlat, beni bir daha yarat\nyeniden değil, baştan değil, hiç yoktan\n\nbir karıncam vardı, öldü ya da kaybettim\nçoktular çünki ve ben çokluğu sevmezdim\nölüm gazete manşeti, bana pek uğramıyor\nvızıltıları duyuyorum, üstümde sinekler uçuşuyor\n\nşimdi gel beni bul, beni fırlat, beni bir daha yarat\nAdem'in kaburgasından değil Aşil'in topuğundan\n\nbir karıncam vardı, öldü ya da kaybettim.\nben bu çağdan bir kere bile geçemedim.\nşeref, onur, haysiyet ve diğer abur cuburlar\nputları yıktığımdan değil, mitlere taptığımdan.\n\nşimdi gel beni bul, beni fırlat, beni bir daha yarat\ntopu sana attım neslim, beni kendimden fırlat\n\nşimdi gel beni bul, beni fırlat, beni bir daha yarat\ntopu sana attım neslim, beni kendimden fırlat",
+    "hold": 1
+   },
+   {
+    "t": "Zaaf (Mehmet Said Aydın)",
+    "y": "2013",
+    "n": "",
+    "l": "uzun bir cümlenin başlangıcındaki kıvrımlı harfim ben\nkâğıdım bazen dağılan, dağılan, toplayacak biri bulsam\n— toplayacak biri bulsam\nkâğıdım diyelim karılmış şimdi - şimdi dağıt sen dağıtacaksan\nuzun bir hecenin iki harfiyim bir hecede ne kadar uzarsam\n— bir hecede ne kadar uzarsam\n\nbu seslerin hepsi — plastik kapılardan geliyor olamaz değil mi?\ndört dizede bir dize söylüyor olmak — söylüyor olmak şairlik midir?\nşair değilim, sadece bir kelimeyle, hiç, hırsızlıktan kurtulan\nParis, babam, uyuyan adam, kâğıt, deste, karılan karılan\n— kâğıt, deste, karılan karılan\n\nbenim adım said sus söyleme — sus söyleme billahi talan.\nbenim adım said sus söyleme — sus söyleme billahi talan.\n— sus söyleme billahi talan.\n— sus söyleme billahi talan.\n— sus söyleme billahi talan.",
+    "hold": 1
+   },
+   {
+    "t": "Kimsin Sen (w/ T. Şen)",
+    "y": "2009",
+    "n": "Çekilmemiş bir dizi için soundtrack olarak yazılmıştı - ana karakter hakkında.\nHaliyle yeni güfte lazım; dizinin bağlamı dışında sözlerin anlamı pek kalmıyor.",
+    "l": "Toz pembe dünyanda bir hayal\n(bir hayalin içinde)\nNeylersin herkes eşit doğmuyor\n(halini düşündüğünde)\nNe kadar istesen de bunu\nBiliyorsun sen de maalesef\nYalan hiç gerçek gibi olmuyor\n\nKimsin, kimsin sen söyle\n(maskeni çıkarmasan da)\nNarin bir çiçek misin sahiden\n(öyle narin, ince, kırılgan)\nZehirli sarmaşık mı yoksa\n(azimle tırmanan yükseklere)\nKimsin, kimsin sen gerçekten\n\nArdına bakmadan\nKaç kendinden\n\nKimsin, kimsin sen söyle\n(maskeni çıkarmasan da)\nNarin bir çiçek misin sahiden\n(öyle narin, ince, kırılgan)\nZehirli sarmaşık mı yoksa\n(azimle tırmanan yükseklere)\nKimsin, kimsin sen gerçekten\n\nArdına bakmadan\nKaç kendinden",
+    "lt": "A dream in your rose-tinted world\n(inside a dream)\nWhat can you do, not everyone is born equal\n(when you think about your situation)\nNo matter how much you want it\nYou know it too, unfortunately\nA lie never becomes like the truth\n\nWho are you, who are you, tell me\n(even if you don't take off your mask)\nAre you really a delicate flower\n(so delicate, slender, fragile)\nOr are you poison ivy\n(climbing with determination to the heights)\nWho are you, who are you really\n\nWithout looking back\nRun from yourself\n\nWho are you, who are you, tell me\n(even if you don't take off your mask)\nAre you really a delicate flower\n(so delicate, slender, fragile)\nOr are you poison ivy\n(climbing with determination to the heights)\nWho are you, who are you really\n\nWithout looking back\nRun from yourself",
+    "nt": "It was written as the soundtrack for a TV series that never got shot - it was about the protagonist.\nNeeds new words, obviously; without the context of the series the lyrics don't make much sense."
+   },
+   {
+    "t": "Ayran İçerdik (G. Eren)",
+    "y": "2013",
+    "n": "",
+    "l": "Tütün kokardı\nSoğuk eserdi\nGüneş batardı\n\nBaca tüterdi\nAkşam olurdu\nAkıl biterdi\n\nUyku sanmıştı\nDüşe dalmıştı\nSonu kötüydü\nGizli saklıydı\n\nBiz susardık\nAyran içerdik\nBiz hep susardık\nİç geçirirdik\n\nToprak ağlardı\nÇayır donardı\nAy yükselirdi\n\nDağlar uzaktı\nGözleri kemdi\nDünya yanardı\n\nUyku sanmıştı\nDüşe dalmıştı\nSonu kötüydü\nGizli saklıydı\n\nBiz susardık\nAyran içerdik\nBiz hep susardık\nİç geçirirdik\n\nBiz hep susardık\nİç geçirirdik",
+    "nt": "[Ayran](https://en.wikipedia.org/wiki/Ayran)",
+    "hold": 1
+   },
+   {
+    "t": "Kuzeye Doğru (Seyif)",
+    "y": "2013",
+    "n": "Bestesi 2002 gibi bitmişti. Güftesi 2013te geldi.",
+    "l": "Son adımını izliycem, tepeye çıkan\nRüzgara iki yumruk çakan bakışımı gizliycem\nBekliyor seni büyücü kadın, küresine bakıyor\nÇok yorgunum, hassiktir, gözümden uyku akıyor\nUyku akıyor\nUyku akıyor\n\nİki kıl çektim sakalından, bunak dünyanın, pis\nArdında ses bile geçmeyen, kalın berbat bir sis\nGüven mezkur büyücüye, yaldızlı sözlerine pus\nUykun varsa al yatak, git yat zıbar ve sus\nYat zıbar ve sus\nYat zıbar ve sus",
+    "lt": "Northward\n\nI'll watch your last step, the one climbing to the summit\nI'll hide my gaze that throws two punches at the wind\nThe sorceress is waiting for you, looking into her crystal ball\nI'm so tired, fuck it, sleep is flowing from my eyes\nSleep is flowing\nSleep is flowing\n\nI plucked two hairs from the beard of the senile world, filthy\nBehind it a thick, awful fog that not even sound gets through\nTrust the aforementioned sorceress, cower before her gilded words\nIf you're sleepy, take a bed, go lie down, crash out and shut up\nCrash out and shut up\nCrash out and shut up",
+    "nt": "The music was done around 2002. The words arrived in 2013.",
+    "hold": 1
+   },
+   {
+    "t": "Sarıasma (Anna Akhmatova)",
+    "y": "2023",
+    "n": "Emprovize ninni olarak kaydedildiği için çok düzenli bir yapısı yok.\nŞiir isimsiz,  antolojilerde ilk dizesiyle isimlendiriliyor.\nSarıasma bir kuşmuş, bitki değil! Yahu asma nasıl güneyden geliyor hahah falan derken, cevap bir gugıl uzaktaymış.\n\nŞiir 1917 baharından, Anna Akhmatova'nın erken döneminden. Devrim öncesi, mayıslara denk kentte kalmanın ayıplandığı zamanlar...",
+    "l": "Peki artık hoşçakal başkent\nHoşça kal ilkyaz\nŞimdi artık ben\nKarelya'ya hasretim\n\nKırlar, bahçeler\nSakin ve yeşiller\nSular hala derin\nGökyüzü solgun\n\nBataklık perisi\nKraliçesi buraların\nBakıyor hüzünle iç çekerek\nÇan kulesindeki haça\n\nDün güneyden dönen\nMasum yıllarımın dostu\nSarıasma\nDalların arasından sesleniyor\nSesleniyor bana\n\nNe ayıp kentte kalmak\nMayıslara dek\nSoluksuz kalmak tiyatrolarda\nAdalarda sıkılıp durmak\n\nAma sarıasma nerden bilsin\nBataklık perisi nasıl anlasın\nAdamımı öpmenin\nNe hoş olduğunu\n\nAma yine de bugün\nDönerken gün akşama\nGidiyorum ey kutsal toprak\nBas beni bağrına",
+    "lt": "The Oriole\n\nNow farewell, capital,\nFarewell, my spring.\nKarelia's earth,\nAlready, yearns for me.\n\nFields and gardens,\nTranquil and green,\nThe waters there still deep,\nThe heavens pale.\n\nThe marsh water-nymph,\nMistress of those spaces\nGazes, sadly sighing,\nAt the bell-tower's cross.\n\nAnd the oriole, my friend\nOf innocent days,\nFlew north yesterday,\nAnd cries, among the branches,\n\nThat it's shameful to stay\nTill May in the city,\nStifle in the theatres,\nBe bored on the islands.\n\nThough the oriole can't know,\nThe nymph can't understand,\nHow sweet it is for me,\nKissing him!\n\nAnd yet, this evening,\nIn the day's quiet decline,\nI shall leave. God's country,\nTake me in!",
+    "nt": "Recorded as an improvised lullaby, so it hasn't got much of a regular structure.\nThe poem is untitled; anthologies name it by its first line, 'Now farewell, capital,'\n\nThe poem is from the spring of 1917, Akhmatova's early period. Pre-revolution, back when staying in the city into May was something to be ashamed of...\n\nTranslation from https://monoskop.org/images/e/e7/Akhmatova_Anna_Selected_Poems_2012.pdf, by A. S. Kline"
+   },
+   {
+    "t": "Mayıs (Sabahattin Ali)",
+    "y": "2023",
+    "n": "Emprovize ninni olarak kaydedildiği için çok düzenli bir yapısı yok.\nŞiir 1932'den",
+    "l": "Mayıs ayların gülüdür\nTaze bir çiçek dalıdır hey\nİçerim ateş doludur\nMayısta gönlüm delidir\n\nYeşil dağlara göçülür\nKızıl şaraplar içilir hey\nYarim dökülüp saçılır\nMayısta gönlüm delidir\n\nGöklere karşı yatılır\nDertlerimiz unutulur hey\nEski sevgiler atılır\nMayısta gönlüm delidir\n\nUzakta kuşlar seslenir\nGönlüm genişler beslenir\nYaşamaya heveslenir\nMayısta gönlüm delidir\n\nYumuşak rüzgarlar eser\nÇimenlerde yarim gezer hey\nYanılır bana gülümser\nMayısta gönlüm delidir",
+    "lt": "May is the rose of the months\nIt is a fresh flowering branch, hey\nMy insides are full of fire\nIn May my heart is crazy\n\nWe migrate to the green mountains\nRed wines are drunk, hey\nMy beloved spills over and lets loose\nIn May my heart is crazy\n\nWe lie down facing the skies\nOur troubles are forgotten, hey\nOld loves are cast aside\nIn May my heart is crazy\n\nIn the distance birds call out\nMy heart expands and is nourished\nIt grows eager to live\nIn May my heart is crazy\n\nGentle winds blow\nMy beloved wanders on the grass, hey\nBy mistake she smiles at me\nIn May my heart is crazy",
+    "nt": "Recorded as an improvised lullaby, so it hasn't got much of a regular structure.\nWritten in 1932."
+   },
+   {
+    "t": "Teselli",
+    "y": "2021",
+    "n": "la seule petite consolation au grand malheur d'etre né c'est quand meme l'amitié - E. Ionesco",
+    "l": "Hayat kısa\nBana zaten dinler degman\nO kısmında şüphem yok\nSeninle bir daha\nSarılamıycaz\nOnu kavrayamadım henüz çok\n\nVardın şimdi yoksun\nTek kaidesi varoluşun\nBundan ibaret\nElimizde kalan yalnızca anıların\nbiz de kaybolana dek\n\nBir büyük plan yok\nEvren amaçsız\nO mevzuları biliyorum\nSana bir daha\nOğlum nağber lan diyemiycem\nOnun idrakine varamıyorum\n\nVardın şimdi yoksun\nTek kaidesi varoluşun\nBundan ibaret\nElimizde kalan yalnızca anıların\nBiz de kaybolana dek\n\nDoğmuş olmanın\no garip mefhumun\nTek tesellisi\nbelki de\ndostluk yine de\nDoğmuş olmanın\no garip mefhumun\nTek tesellisi\nbelki de\ndostluk yine de",
+    "lt": "Life is short\nReligions don't get to me anyway\nI have no doubt about that part\nWith you never again\nWill we hug\nThat I still haven't really grasped\n\nYou were here, now you're gone\nThe only rule of existence\ncomes down to this\nAll we have left are memories of you\nuntil we too disappear\n\nThere is no grand plan\nThe universe is purposeless\nI know all that stuff\nTo you, never again\nWill I be able to say \"hey man, what's up\"\nThat I can't come to comprehend\n\nYou were here, now you're gone\nThe only rule of existence\nIs just this\nAll we have left is your memories\nUntil we too disappear\n\nOf having been born\nthat strange notion\nThe only consolation\nperhaps\nis friendship, still\nOf having been born\nthat strange notion\nThe only consolation\nperhaps\nis friendship, still",
+    "nt": "la seule petite consolation au grand malheur d'etre né c'est quand meme l'amitié - E. Ionesco"
+   },
+   {
+    "t": "Voltamı Almam Gerek (w/ D. Taşel)",
+    "y": "2006",
+    "n": "",
+    "l": "İstediğin kadar konuş\nDinleyesim yok\nNaza çektiğimden değil\n\nİşim var, gitmem lazım - acilen\nKonuşsan da bir\nSussan da bir...\n\nVoltamı almam gerek\nİçimde öyle bir his var\nBudur elimden gelen,\nArtık olduğu kadar.\n\nHava da kuru mu kuru\nHiç çıkasım yok\nGötün denkliğinden değil\n\nBiraz uyumam lazım - acilen\nDüş görsem de bir,\nGörmesem de bir...\n\nVoltamı almam gerek\nİçimde öyle bir his var\nBudur elimden gelen,\nArtık olduğu kadar.",
+    "lt": "Talk as much as you want\nI don't feel like listening\nIt's not that I'm playing hard to get\n\nI have things to do, I need to go - urgently\nWhether you talk, it's all the same\nOr keep quiet, it's all the same...\n\nI need to take my leave\nThere's such a feeling inside me\nThis is all I can do,\nIt'll be what it'll be now.\n\nAnd the weather is so very dry\nI don't feel like going out at all\nIt's not that my ass is too comfortable\n\nI need to sleep a little - urgently\nWhether I dream, it's all the same,\nOr don't dream, it's all the same...\n\nI need to take my leave\nThere's such a feeling inside me\nThis is all I can do,\nIt'll be what it'll be now."
+   },
+   {
+    "t": "Sal (w/ M. Yakut)",
+    "y": "2026",
+    "n": "Orijinali 7 dakika içinde bir Turgut Uyar şiiri için (Çokluk Senindir) bestelenmişti -- ama ilk iki mısradan sonra şiirin gerisi melodiye oturmadı. Bir B bölümü eklemek lazım.",
+    "l": "Elimdeki bilgiye göre\nTek hayat var yaşayacağımız\nOnda da sana denk geldik, olacak iş mi?\nHassiktir lan, nasıl yapacağız?\n\nLan olm senden kurtuluş yok mu\nManyak olduk, komple sıyırdık\nBir canımız var, o da böyle harcandı\nSinirden basur çıkardık\n\nArtık sal bizi, sikerler\nKendimizi sikicez gayri sinirden\nSal artık, bırak lan\nEller titriyor, yüzde sivilceler\nLan olm, sal, sal artık\nSal bizi artık, valla sikerler",
+    "lt": "According to the information I have\nThere's only one life we'll get to live\nAnd in that one we ran into you, how is that even possible?\nHoly fuck, man, how are we going to manage this?\n\nDude, man, is there no escaping you\nWe've gone crazy, completely lost it\nWe have one life, and it got wasted like this\nWe got hemorrhoids from the stress\n\nLet us go now, fuck this\nWe're going to fuck ourselves up from rage now\nLet go already, drop it, man\nHands are shaking, pimples on our faces\nDude, man, let go, let go already\nLet us go already, fuck this",
+    "nt": "The original was composed in seven minutes for a Turgut Uyar poem (Multitude is Yours) -- but after the first two lines, the rest of the poem wouldn't sit on the melody. Needs a B section."
+   },
+   {
+    "t": "Yelek",
+    "y": "2016",
+    "n": "Bir dakikalık bir telefon kaydından uzadı. Orijinalinde nedense yaralı kedi gibi söylemişim, halbuki ne gerek var.",
+    "l": "insan dediğin uzayda yaşar\nevler yapar, kumpas kurar\n\ninsan dediğin bön bön bakar\nkıtır atar, dövme yapar\n\ninsan dediğin üşür bazen\nyelek giyer üşenmeden\n\ninsan dediğin ölür sıksık\nkimi zaman kavga döğüş\nkimi zaman etmeden siksik",
+    "lt": "a human, as they say, lives in space\nbuilds houses, hatches schemes\n\na human, as they say, stares blankly\ntells fibs, gets tattoos\n\na human, as they say, gets cold sometimes\nputs on a vest without being lazy about it\n\na human, as they say, dies often\nsometimes in fights and brawls\nsometimes without even having had a fuck",
+    "nt": "It grew out of a one-minute phone recording. On the original, I sang it like a wounded cat for no reason."
+   }
+  ],
+  "ENG": [
+   {
+    "t": "Birthday Song For a Friend",
+    "y": "2014",
+    "n": "",
+    "l": "Congratulations on the anniversary of your\nparticipation in the ranks of the living\nIt's overrated, undoubtedly, but maybe\nHaving been born is not that bad a thing\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise\n\nYou're alive, unlike all the tables and the musketeers of the world\nYou're alive, that's the natural result of your successful birth\nYou're alive, in a way just out of sheer luck, one could say\nYou're you now, and you could easily have been someone else or merely dirt\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise\n\nIt's great that you managed to get out of that womb, unwillingly\nIt's nice though, truly, it is my opinion that you aced that shit\nYou did well! Now you walk about, no Roman general can do that\nYou did good! Born once, nothing you can do now to undo it\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise",
+    "lt": "Yaşayanların saflarına katılışının\nyıldönümü kutlu olsun\nAbartılıyor, şüphesiz, ama belki de\nDoğmuş olmak o kadar da kötü bir şey değil\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun\n\nYaşıyorsun, dünyadaki bütün masaların ve silahşörlerin aksine\nYaşıyorsun, bu başarılı doğumunun doğal sonucu\nYaşıyorsun, bir bakıma sırf şans eseri, denebilir\nŞimdi sen sensin, oysa kolayca başka biri ya da sadece toprak olabilirdin\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun\n\nİstemeden de olsa, çıkmayı başardın ana karnından, harika\nGüzel oldu bayağı, gerçekten, bence o mevzuu süper hallettin\nİyi iş çıkardın! Artık ortalıkta dolaşıyorsun, hiçbir Romalı general bunu yapamaz\nAferin sana! Bir kez doğdun, artık geri dönüşü de yok.\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun"
+   },
+   {
+    "t": "Do Not Love Too Long (William Butler Yeats)",
+    "y": "2015",
+    "n": "",
+    "l": "SWEETHEART, do not love too long:\nI loved long and long,\nAnd grew to be out of fashion\nLike an old song.\n\nAll through the years of our youth\nNeither could have known\nTheir own thought from the other's,\nWe were so much at one.\n\nBut O, in a minute she changed —\nO do not love too long,\nOr you will grow out of fashion\nLike an old song.",
+    "lt": "SEVGİLİM, çok uzun sevme:\nBen uzun, çok uzun sevdim,\nVe modası geçmiş biri oldum\nEski bir şarkı gibi.\n\nGençliğimizin bütün yılları boyunca\nİkimiz de ayırt edemezdik\nKendi düşüncemizi ötekininkinden,\nÖylesine bir olmuştuk.\n\nAma ah, bir dakikada değişti o:\nAh, çok uzun sevme,\nYoksa modası geçmiş biri olursun\nEski bir şarkı gibi."
+   },
+   {
+    "t": "Fuck The Police",
+    "y": "2020",
+    "n": "Probably the only recording on this list that had any real time spent on it (an afternoon + an entire night). The mix is still meh, though.",
+    "l": "There is no deeper meaning to things\nBelieve me, I hate to say it bluntly like this\nBy things I mean you and me\nAnd all the other stuff that happens to be\n\nWhat are we supposed to do then?\nIf our existence is just happenstance\nWhere is our dummy's guide to life?\nA fundamental principle to be guided by...\n\nI know several, but the main rule is this:\n(anywhere, anytime)\nFuck. The. Police.\n\nMaybe you lost faith in a higher truth\nMaybe your politics are confused\nAre you too cynical to believe in something?\nI feel you, these are the times, but that's no excuse\n\nThere is a maxim to help you out\nA universal truth known by the stars\nFuck the Police, you heard it before\nTho the whole sentence has a lil' bit more\n\nFuck the Police, yeah- ah let's yell!\nAnd fuck those whose bidding they do, as well\n\nDo you feel lost sometimes, dear?\nDo you feel disconnected from the world?\nAre you depressed with no goals in life?\nAre you angry because bullshit is rife?\n\nRemember the rule that unites the humankind\nThe one creed believed in every land\nIf you're suspicious, ask any immigrant,\nA Roma, a Kurd, a Black American\n\nFuck the Police, yeah- ah\nDoo doo doo doo doo doo dooo\nAnd fuck those whose bidding they do, too...\n\nFuck the Police, yeah - ah\nlet's yell!\nAnd fuck those whose bidding they do, as well",
+    "lt": "Şeylerin daha derin bir anlamı yok\nİnan bana, bunu böyle açık etmek de istemezdim\nŞeyler derken seni ve beni kastediyorum\nVe tesadüfen var olan diğer her şeyi\n\nPeki o zaman ne yapmamız gerekiyor?\nEğer varoluş sadece bir tesadüfse\nAptallar için hayat rehberimiz nerede?\nBize yol gösterecek temel bir ilke...\n\nBirkaç tane biliyorum ama ana ilke şu:\n(her yerde, her zaman)\nPolisi Sikeyim.\n\nBelki daha yüce bir hakikate olan inancını yitirdin\nBelki siyasi mevzularda kafan karışık\nBir şeye inanamayacak kadar kuşkucu musun?\nAnlıyorum seni, devir böyle, ama bu bir mazeret değil\n\nSana yardım edecek bir özdeyiş var\nYıldızların bildiği evrensel bir hakikat\nPolisi sikeyim, bunu daha önce duydun\nGerçi cümlenin tamamı biraz daha uzun\n\nPolisi sikeyim, haydi bağır!\nVe emirlerini yerine getirdikleri kişileri de sikeyim\n\nBazen kendini kaybolmuş hissediyor musun, canım?\nDünyadan kopmuş hissediyor musun?\nHayatta hiçbir hedefin olmadan depresyonda mısın?\nHer yer saçmalıkla dolu diye öfkeli misin?\n\nİnsanlığı birleştiren kuralı hatırla\nHer diyarda inanılan o tek inancı\nŞüphen varsa, herhangi bir göçmene sor,\nBir Romana, bir Kürde, bir Amerikalı bi Siyaha.\n\nPolisi sikeyim\nVe emirlerini yerine getirdikleri kişileri de...\n\nPolisi sikeyim, haydi bağır\nVe emirlerini yerine getirdikleri kişileri de.",
+    "nt": "Bu listedeki üzerine zaman harcanmış tek kayıt (bir öğleden sonra + bir gecenin tamamı) muhtemelen. Yine de miksi filan prff.."
+   },
+   {
+    "t": "Surrounded by Fog (w/ C. Campbell)",
+    "y": "2008",
+    "n": "A fake Tom Waits song with pseudo-grumpy lyrics was the idea, as far as I can remember...",
+    "l": "Sometimes when it's too cold to walk outside\nI wander in between the tombstones at night\nEverybody knows that they're not on my side\nAnd they know that they're right\n\nThe street lamps are surrounded by fog\nSo am I\nEverybody says I'm wrong\nSo do I\n\nThe street lamps are surrounded by fog\nSo am I\nEverybody says I'm wrong\nSo do I",
+    "lt": "Bazen dışarıda yürümek için hava fazla soğuk olduğunda\nGeceleri mezar taşlarının arasında dolaşırım\nHerkes biliyor ki yanımda değiller -- Ve haklılar da...\n\nSokak lambalarının etrafı sisle çevrili\nBenim de öyle\nHerkes yanıldığımı söylüyor\nBen de öyle söylüyorum\n\nSokak lambalarının etrafı sisle çevrili\nBenim de öyle\nHerkes yanıldığımı söylüyor\nBen de öyle söylüyorum",
+    "nt": "Hatırladığım kadarıyla fikir, kolpadan huysuz sözleri olan bir Tom Waits şarkısı yapmaktı..."
+   },
+   {
+    "t": "Neither Your Ways (Gün Geçmiş)",
+    "y": "2013",
+    "n": "There was a Turkish version of this poem as well, and that is the one I put in the translation -- not the same as the English, of course...",
+    "l": "You have a fine-tuned taste\nAnd a street with stairs\nYou're not straight, neither your ways\nYou're not straight, neither your ways\n\nYour door swings\nYour door swings upstairs\nAnd it's just right enough\nEven when you act rough\nAnd it's just right enough\nEven when you act rough\n\nThat red outgrows the room\nBut it still fits somehow\nYou're not straight\nNeither your house\nYou're not straight\nNeither your house\n\nTwo stairs up from Cave Alley\nThe windy house on Soul Street\nDoor number six, year six\nGonna walk, need to count the stairs\n\nYou're not straight, neither your ways\nYou're not straight, neither your ways",
+    "lt": "Beğenin ince ayar, sokağın merdivenli;\nne sen düzsün ne yolların.\nYolların merdivenli, hoyratlığın bile milimi milimine;\no oda dar o kırmızıya ama oldu.\nNe sen düzsün ne de yolların.\n  \nMağara sokağından iki merdiven çık,\nRüzgarlı  sokakta can apartmanı.\ndaire 5 sene 5.\nYürümek güzel, saymıyorum basamakları.",
+    "nt": "Bu şiirin Türkçesi de vardı, çeviriye onu koydum -- İngilizcesinin aynısı değil tabii...",
+    "hold": 1
+   },
+   {
+    "t": "Ballad of Debaters",
+    "y": "2017",
+    "n": "About a hypothetical debate with a snake",
+    "l": "I think we need not talk any longer\nThings you tell me don't make any sense\nLet's not waste our time, we're not getting any younger\nYour words are bland, somehow your stare is tense\n\nForgive me if I need to go\nI can't do this anymore\n\nMister, I don't approve of your position\nYour argumentation is inherently flawed\nI have no energy to try to change your conviction\nI really don't care if you die in the wrong\n\nForgive me if I need to go\nI can't do this anymore\n\nI tried to talk some sense but you don't listen\nYou fix your eyes on the wall awaiting your turn\nThen you raise your brow and say \"I think you're mistaken\"\nFuck you and your thoughts, I hope forever you'll burn\n\nForgive me if I need to split\nI don't have time for this shit\n\nBring it on, drop those names\nThrow a red herring, if that's your game\nI brought these straws so you can build a man\nHe's a cherry tree, pick away\nThere are many options, you'll find a way\nIf nothing works, resort to ad hominem, man\nI hope you understand\n\nI think we need not talk any longer\nThings you tell me don't make any sense\nLet's not waste my time, we're not getting any younger\nYour words are bland, somehow your stare is tense\n\nForgive me if I need to go\nI can't do this anymore",
+    "lt": "Bence artık konuşmamıza gerek yok\nBana söylediğiniz şeyler anlamsız\nVaktimizi boşa harcamayalım, gençleşmiyoruz\nSözleriniz yavan, nedense bakışlarınız gergin\n\nGitmem gerekiyor, kusura bakmayın\nDayanılacak gibi değil artık buna\n\nBeyefendi, tutumunuzu onaylamıyorum\nArgümanlarınız özünden kusurlu\nKanaatinizi değiştirmeye çalışacak enerjim yok\nYanlışlar içinde ölseniz de gerçekten umurumda değil\n\nGitmem gerekiyor, kusura bakmayın\nDayanılacak gibi değil artık buna\n\nSize biraz mantık aşılamaya çalıştım ama dinlemiyorsunuz\nGözlerinizi duvara dikip sıranızı bekliyorsunuz\nSonra kaşınızı kaldırıp \"Bence yanılıyorsun\" diyorsunuz\nSikeyim sizi de, düşüncelerinizi de, umarım sonsuza dek yanarsınız\n\nGitmem gerekiyor, kusura bakmayın\nBu kepazeliğe zamanım yok\n\nHadi gelin, bol bol isim zikredin\nHedef şaşırtın, işinize geliyorsa\nKorkuluk yapın diye saman getirdim size\nYa da bir iki detay cımbızlayın isterseniz\nBirçok seçenek var, yolunuzu bulursunuz\nHiçbiri olmadıysa, ad hominem'e başvurunuz\nAnladınız beni umarım\n\nBence artık konuşmamıza gerek yok\nBana söylediğiniz şeyler anlamsız\nVaktimizi boşa harcamayalım, gençleşmiyoruz\nSözleriniz yavan, nedense bakışlarınız gergin\n\nGitmem gerekiyor, kusura bakmayın\nDayanılacak gibi değil artık buna"
+   },
+   {
+    "t": "Manuel Flores (Jorge Luis Borges)",
+    "y": "2022",
+    "n": "",
+    "l": "Manuel Flores is doomed to die\nThat's as sure as your money\nDying is a custom\nwell known to many\n\nBut even so, it pains me\nto say goodbye to living\nThat state so well known now,\nso sweet, so solid-seeming\n\nI look at my hand in the dawning\nLook at the veins contained there\nI look at them in amazement\nas I would look at a stranger\n\nTomorrow comes the bullet,\noblivion descending\nMerlin the magus said it,\nbeing born has an ending\n\nSo much these eyes have seen,\nsuch things, such places\nWho knows what they will see\nwhen I've been judged by Jesus\n\nManuel Flores is doomed to die\nThat's as sure as your money\nDying is a custom\nwell known to many",
+    "lt": "Manuel Flores ölmeye mahkûm\nBu, paran kadar kesin\nÖlmek, birçoklarının\niyi bildiği bir âdettir\n\nAma yine de içimi acıtıyor\nyaşamaya veda etmek\nArtık o kadar iyi bilinen o hal,\no kadar tatlı, o kadar sağlam görünen\n\nŞafak sökerken elime bakıyorum\nOrada barınan damarlara bakıyorum\nOnlara hayretle bakıyorum\nbir yabancıya bakar gibi\n\nYarın kurşun gelecek,\nunutuluş inecek\nBüyücü Merlin söyledi,\ndoğmanın bir sonu var\n\nBu gözler ne çok şey gördü,\nöyle şeyler, öyle yerler\nKim bilir neler görecekler\nİsa tarafından yargılandığımda\n\nManuel Flores ölmeye mahkûm\nBu, paran kadar kesin\nÖlmek, birçoklarının\niyi bildiği bir âdettir"
+   },
+   {
+    "t": "Cooler Than Him",
+    "y": "2008",
+    "n": "This one was composed as a joke for a genuinely extremely cool friend -- the lyrics are only slightly exaggerated.",
+    "l": "This guy is a cool young dude\nWith a friendly attitude\nEverybody, of course, knows his name\nIf you don't know him, that's a shame\n\nHe is such a super learned guy\nHe gave lectures on the Frankfurt School\nI was just on the phone with Adorno\nHe also thinks that he is very cool\n\nDon't get me wrong, he's not a nerd\nHe made a cross-country bicycle trip once\nHe also climbed Mount Everest\nOh, my man, will you ever get a rest?\n\nThis fucking guy is the coolest dude around\nThis fucking guy is the coolest dude in town\n\nAll the grad schools accepted him\nEven those he didn't apply to\nIn the ring, he's the best in the nation\nHis best friend is at a space station\n\nHe can drink from dusk till dawn\nHe never sleeps, never gets angry\nHe knows he's cool, but he's not a snob, no\nHe won a modesty contest two years ago\n\nThis fucking guy is the coolest dude around\nThis fucking guy is the coolest dude in town\n\nHe knows history, he knows politics\nPrime minister of Finland calls him for advice\nIf you need help, he'll give you a hand\nAnd he used to play trombone in a jazz band\n\nHe's been everywhere and done everything\nWhen he goes to Peru, he knows everyone\nEven the Inuit still tell his tales\nClearly, he could talk to whales\n\nThis fucking guy is the coolest dude around\nThis fucking guy is the coolest dude in town\n\nThis fucking guy is the coolest dude around\nThis fucking guy is the coolest dude in town\n\nI think I'm somewhat cooler\nI believe that\nI- I'd be very glad if it's true\nI think I'm also cool",
+    "lt": "Bu adam havalı, genç bir delikanlı\nArkadaş canlısı bir tavrı var\nHerkes elbette onun adını bilir\nOnu tanımıyorsan, bu çok yazık\n\nO çok ama çok bilgili bir adam\nFrankfurt Okulu üzerine dersler verdi\nAz önce Adorno ile telefonda konuşuyordum\nO da onun çok havalı olduğunu düşünüyor\n\nBeni yanlış anlama, o inek değil\nBir keresinde bisikletle ülkeyi baştan başa geçti\nEverest Dağı'na da tırmandı\nAh dostum, hiç dinlenecek misin?\n\nBu herif buralardaki en havalı adam\nBu herif şehirdeki en havalı adam\n\nBütün lisansüstü okulları onu kabul etti\nBaşvurmadıkları bile\nRingde ülkenin en iyisi o\nEn yakın arkadaşı bir uzay istasyonunda\n\nAkşamdan sabaha kadar içebilir\nHiç uyumaz, hiç sinirlenmez\nHavalı olduğunu bilir ama burnu havada değil, hayır\nİki yıl önce bir alçakgönüllülük yarışması kazandı\n\nBu herif buralardaki en havalı adam\nBu herif şehirdeki en havalı adam\n\nTarih bilir, siyaset bilir\nFinlandiya başbakanı ona akıl danışmak için arar\nYardıma ihtiyacın olursa sana el uzatır\nBir de eskiden bir caz grubunda trombon çalardı\n\nHer yere gitmiş, her şeyi yapmış\nPeru'ya gittiğinde herkesi tanır\nİnuitler bile hâlâ onun hikâyelerini anlatır\nBelli ki balinalarla konuşuyormuş\n\nBu herif buralardaki en havalı adam\nBu herif şehirdeki en havalı adam\n\nBence ben biraz daha havalıyım\nBuna inanıyorum\nBen - Doğruysa çok sevinirim\nBence ben de havalıyım",
+    "nt": "Bu, sahiden aşırı cool bir arkadaş için şaka olarak bestelenmişti -- sözler sadece hafiften abartılı."
+   },
+   {
+    "t": "The Scholars (William Butler Yeats)",
+    "y": "2015",
+    "n": "",
+    "l": "BALD heads forgetful of their sins,\nOld, learned, respectable bald heads\nEdit and annotate the lines\nThat young men, tossing on their beds,\nRhymed out in love's despair\nTo flatter beauty's ignorant ear.\n\nAll shuffle there; all cough in ink;\nAll wear the carpet with their shoes;\nAll think what other people think;\nAll know the man their neighbour knows.\nLord, what would they say\nDid their Catullus walk that way?",
+    "lt": "Günahlarını unutmuş kel kafalar,\nYaşlı, bilgili, saygın kel kafalar\nDüzenleyip şerh ederler o dizeleri\nKi genç adamlar, yataklarında dönüp dururken,\nAşkın çaresizliği içinde kafiyeye dökmüştü\nGüzelliğin cahil kulağını okşamak için.\n\nHepsi orada ayak sürür; hepsi mürekkebe öksürür;\nHepsi ayakkabılarıyla halıyı aşındırır;\nHepsi başkalarının düşündüğünü düşünür;\nHepsi komşusunun tanıdığı adamı tanır.\nTanrım, ne derlerdi\nOnların Catullus'u o yoldan yürüseydi?"
+   },
+   {
+    "t": "The Moon is Falling (w/ F. Dibble & J. Lillywhite)",
+    "y": "2010",
+    "n": "On a drunken night, we wanted an upbeat, funky song with pretentiously sad-sounding lyrics to have some fun contrast. Then I broke some bones and couldn't play any instruments, so it was recorded like this, only using my right hand on a keyboard. A return to an upbeat tempo is overdue.",
+    "l": "Run away\nThe moon is falling\nThe tide is rising high\nRun away\nThe burning sky is weaving wool\nGloomy times are drawing nigh\nI see\n\nThere's no going back from now\nTime has taken its toll\nJokers are lying on the ground\nThe moon can never be sold\nThey say\nRun away, the moon is falling below\nIt's falling, I'm told\n\nThe earth is oozing wine\nThe cups are full of holes\nAt least you had a little fun\nYour brain aches from the irony\nOf your changing roles\nRun away from yourself now, just run\n\nRun away, the seeds grow upside down\nAnd the leaves are bruising,\nRun away, the poet can't write a sound, you see\nAnd the tired play has yet to begin\n\nThere's no going back from now, it's too late for everything\nJokers are crying on the ground. \"We can't change anything\", they say\nRun away, the moon is falling below, it's falling I'm told\n\nThe earth is oozing wine\nThe cups are full of holes\nAt least you had a little fun\nYour brain aches from the irony\nOf your changing roles\nRun away from yourself now, just run\n\nThere's no going back from now, it's too late for everything\nJokers are crying on the ground. \"We can't change anything\", they say\nRun away, the moon is falling below, it's falling I'm told",
+    "lt": "Kaç\nAy düşüyor\nSular yükseliyor\nKaç\nYanan gökyüzü yün örüyor\nKasvetli zamanlar yaklaşıyor\nGörüyorum\n\nArtık geri dönüş yok\nZaman bedelini aldı\nSoytarılar yerde yatıyor\nAy asla satılamaz\nDiyorlar ki\nKaç, ay aşağı düşüyor\nDüşüyor, bana öyle söylendi\n\nToprak şarap sızdırıyor\nKadehler delik deşik\nEn azından biraz eğlendin\nBeynin ironisinden sızlıyor\nDeğişen rollerinin\nŞimdi kendinden kaç, sadece kaç\n\nKaç, tohumlar ters büyüyor\nVe yapraklar morarıyor,\nKaç, şair tek bir ses yazamıyor, görüyorsun\nVe yorgun oyun henüz başlamadı\n\nArtık geri dönüş yok, her şey için çok geç\nSoytarılar yerde ağlıyor. \"Hiçbir şeyi değiştiremeyiz\" diyorlar\nKaç, ay aşağı düşüyor, düşüyor, bana öyle söylendi\n\nToprak şarap sızdırıyor\nKadehler delik deşik\nEn azından biraz eğlendin\nBeynin ironisinden sızlıyor\nDeğişen rollerinin\nŞimdi kendinden kaç, sadece kaç\n\nArtık geri dönüş yok, her şey için çok geç\nSoytarılar yerde ağlıyor. \"Hiçbir şeyi değiştiremeyiz\" diyorlar\nKaç, ay aşağı düşüyor, düşüyor, bana öyle söylendi",
+    "nt": "Sarhoş bir gecede, eğlenceli bir tezat olsun diye, hareketli ve funk bir şarkının hüzünlü duran sözleri olsun dedik. Sonra bir yerlerimi kırdım ve enstrüman çalamadım, o yüzden böyle kaydedildi, sadece sağ elimle klavyede. Hareketli tempoya dönmek gerek, geç bile kaldı."
+   },
+   {
+    "t": "The Girl and The Pubs (Selman)",
+    "y": "2017",
+    "n": "",
+    "l": "four dame lane, four pints\nicy cold weather entice\ndroplets on my beard\nmore green on her eyes\n\ngeorge street was the longest in dublin that night,\ni walked her and her cigarette to a taxi.\n\nlate in the bleeding horse\ndrunk irishmen dance, of course\nhead tipsy with affection\nfingers burn like coals\n\ni will never know if it was the pints or her giggles,\nbut never before wooden pub benches were more comfortable.\n\nthe mezz there was music\na folk band, two guys and a chic\nsimon sang she looks lovely\ngarfunkel said she is unique\n\nthe drummer took off his shirt. we both thought it’s silly.\nyoung singles were chasing after young singles.",
+    "hold": 1
+   },
+   {
+    "t": "Solomon to Sheba (William Butler Yeats)",
+    "y": "2015",
+    "n": "",
+    "l": "SANG Solomon to Sheba,\nAnd kissed her dusky face,\n\"All day long from mid-day\nWe have talked in the one place,\nAll day long from shadowless noon\nWe have gone round and round\nIn the narrow theme of love\nLike an old horse in a pound.-\n\nTo Solomon sang Sheba,\nPlated on his knees,\n'If you had broached a matter\nThat might the learned please,\nYou had before the sun had thrown\nOur shadows on the ground\nDiscovered that my thoughts, not it,\nAre but a narrow pound.'\n\nSaid Solomon to Sheba,\nAnd kissed her Arab eyes,\n'There's not a man or woman\nBorn under the skies\nDare match in learning with us two,\nAnd all day long we have found\nThere's not a thing but love can make\nThe world a narrow pound.'",
+    "lt": "ŞARKI söyledi Süleyman Belkıs'a,\nVe öptü onun esmer yüzünü,\n\"Bütün gün öğleden beri\nAynı yerde konuştuk,\nBütün gün gölgesiz öğle vaktinden beri\nDönüp durduk\nAşkın dar konusunda\nAğıldaki yaşlı bir at gibi.-\n\nSüleyman'a şarkı söyledi Belkıs,\nDizlerine kurulmuş halde,\n'Eğer açsaydın bir konu\nBilginleri memnun edebilecek,\nGüneş daha düşürmeden\nGölgelerimizi yere\nKeşfederdin ki o değil, benim düşüncelerim\nDar bir ağıldan ibarettir.'\n\nSüleyman dedi Belkıs'a,\nVe öptü onun Arap gözlerini,\n'Yoktur ne bir erkek ne bir kadın\nGökler altında doğmuş\nBilgide ikimizle yarışmaya cesaret edecek,\nVe bütün gün şunu bulduk:\nAşktan başka hiçbir şey yapamaz\nDünyayı dar bir ağıl.'"
+   },
+   {
+    "t": "The Wheel (William Butler Yeats)",
+    "y": "2015",
+    "n": "Of all the Yeats songs, this is the one that wasn’t composed spontaneously in a single take, so the chord progression is trying a bit too hard to show off.",
+    "l": "THROUGH winter-time we call on spring,\nAnd through the spring on summer call,\nAnd when abounding hedges ring\nDeclare that winter's best of all;\nAnd after that there's nothing good\nBecause the spring-time has not come —\nNor know that what disturbs our blood\nIs but its longing for the tomb.",
+    "nt": "Bütün Yeats şarkıları içinde, spontane olarak tek take'te bestelenmemiş olan sadece bu, o yüzden akor gidişatı filan biraz şekil yapmaya çalışmış.",
+    "hold": 1
+   }
+  ]
+ }
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* Pristine template, cloned before any rendering touches the document. */
+  var TEMPLATE = document.documentElement.cloneNode(true);
+  ['data-theme', 'data-ui', 'lang', 'style'].forEach(function (a) {
+    TEMPLATE.removeAttribute(a);
+  });
+
+  var root = document.documentElement;
+  var island = document.getElementById('page-data');
+
+  var DATA = { texts: {}, songs: { TR: [], ENG: [] } };
+  try {
+    var parsed = JSON.parse(island.textContent);
+    if (parsed && typeof parsed === 'object') {
+      DATA.texts = parsed.texts && typeof parsed.texts === 'object' ? parsed.texts : {};
+      if (parsed.songs && typeof parsed.songs === 'object') {
+        DATA.songs.TR = Array.isArray(parsed.songs.TR) ? parsed.songs.TR : [];
+        DATA.songs.ENG = Array.isArray(parsed.songs.ENG) ? parsed.songs.ENG : [];
+      }
+    }
+  } catch (e) {}
+
+  var api = null;
+  var sample = null;
+  var widgets = [];
+  var lockedBy = null;
+  var textEditing = false;
+
+  var UI = {
+    edit:   { tr: 'Düzenle', en: 'Edit' },
+    save:   { tr: 'Kaydet', en: 'Save' },
+    cancel: { tr: 'Vazgeç', en: 'Cancel' },
+    add:    { tr: '+ Şarkı ekle', en: '+ Add song' },
+    song:   { tr: 'Şarkı', en: 'Song' },
+    note:   { tr: 'Notlar', en: 'Notes' },
+    year:   { tr: 'Yıl', en: 'Year' },
+    ops:    { tr: 'Sıra / Sil', en: 'Order / Delete' },
+    open:   { tr: "Suno'da aç →", en: 'Open on Suno →' },
+    none:   { tr: 'Henüz kayıt yok.', en: 'Nothing here yet.' },
+    emptyL: { tr: 'Liste boş.', en: 'The list is empty.' },
+    saving: { tr: 'Kaydediliyor…', en: 'Saving…' },
+    saved:  { tr: 'Kaydedildi.', en: 'Saved.' },
+    failed: { tr: 'Kaydedilemedi.', en: 'Could not save.' },
+    confl:  { tr: 'Başkası daha önce kaydetti. Sayfa yenilenecek.', en: 'Someone saved first. The page will reload.' },
+    noperm: { tr: 'Bu sayfayı düzenleme yetkin yok.', en: 'You cannot edit this page.' },
+    up:     { tr: 'Yukarı taşı', en: 'Move up' },
+    down:   { tr: 'Aşağı taşı', en: 'Move down' },
+    del:    { tr: 'Satırı sil', en: 'Delete row' },
+    tedit:  { tr: 'Metinleri düzenle', en: 'Edit texts' },
+    pic:    { tr: 'Resim ekle', en: 'Add image' },
+    picdel: { tr: 'Resmi sil', en: 'Remove image' },
+    toobig: { tr: 'Sayfa fazla büyüdü. Birkaç resmi sil ve tekrar dene.', en: 'The page got too big. Remove a few images and try again.' },
+    size:   { tr: 'Sayfa boyutu', en: 'Page size' },
+    lyrics: { tr: 'Sözler', en: 'Lyrics' },
+    transLyr: { tr: 'Otomatik çeviri', en: 'Auto-translate' },
+    bulkLyr: { tr: 'Sözleri çevir', en: 'Translate lyrics' },
+    transLab: { tr: 'Çeviri', en: 'Translation' },
+    holdLab: {
+      tr: 'Çeviriyi gizle (söz yazarından onay bekliyor)',
+      en: 'Withhold translation (awaiting the lyricist\'s consent)'
+    },
+    noteLab: { tr: 'Not çevirisi', en: 'Note translation' },
+    dropHint: {
+      tr: 'Resmi buraya sürükle, kutuya tıklayıp \u2318V / Ctrl+V ile yapıştır, ya da dosya seç.',
+      en: 'Drag an image here, click the box and paste with \u2318V / Ctrl+V, or choose a file.'
+    },
+    allDone: { tr: 'Hepsi zaten çevrilmiş.', en: 'All of them are already translated.' },
+    trans:  { tr: 'Çevir', en: 'Translate' },
+    busy:   { tr: 'Çevriliyor…', en: 'Translating…' },
+    terr:   { tr: 'Çeviri başarısız.', en: 'Translation failed.' },
+    hint:   {
+      tr: 'Paragrafları boş satırla ayır. Kalın: **yazı** · italik: *yazı* · bağlantı: [yazı](https://…). Çeviriyi kaydetmeden önce oku, makine çevirisi.',
+      en: 'Separate paragraphs with a blank line. Bold: **text** · italic: *text* · link: [text](https://…). Read the translation before saving, it is machine-made.'
+    }
+  };
+
+  function lang() { return root.getAttribute('data-ui') === 'en' ? 'en' : 'tr'; }
+  function isTR() { return lang() === 'tr'; }
+  function t(key) { return UI[key][lang()]; }
+
+  /* ---- collaborator credit follows the interface language -------------- */
+  // names stored in one canonical form but spelled per interface language
+  var SPELLINGS = [{ canon: 'Akhmatova', tr: 'Ahmatova' }];
+
+  function spellFor(s, lang) {
+    SPELLINGS.forEach(function (p) {
+      var from = lang === 'tr' ? p.canon : p.tr;
+      var to = lang === 'tr' ? p.tr : p.canon;
+      s = s.split(from).join(to);
+    });
+    return s;
+  }
+
+  // "(w/ X)" may sit alone in the brackets or after a lyricist: "(S. Ali - w/ X)"
+  function credit(x, lang) {
+    return String(x || '').replace(/\(([^)]*)\)/g, function (_, inner) {
+      if (lang === 'tr') {
+        inner = inner.replace(/w\/\s*(.+)$/, function (_, n) { return n.trim() + ' ile birlikte'; });
+      } else {
+        inner = inner.replace(/^(.*?\s-\s*)?(.+?)\s+ile birlikte$/,
+          function (_, pre, n) { return (pre || '') + 'w/ ' + n.trim(); });
+      }
+      return '(' + inner + ')';
+    });
+  }
+
+  function dispTitle(x) {
+    var lang = isTR() ? 'tr' : 'en';
+    return spellFor(credit(x, lang), lang);
+  }
+
+  function canonTitle(x) {
+    return spellFor(credit(x, 'en'), 'en');
+  }
+
+  var transCache = {};
+
+  function translateLyrics(text, from, to, isProse) {
+    var names = { tr: 'Turkish', en: 'English' };
+    var ask =
+      (isProse
+        ? 'Translate this note from ' + names[from] + ' into ' + names[to] + '. It is a ' +
+          'musician\'s working note about one of his own songs: informal, plain, often a ' +
+          'fragment rather than a sentence. Keep that register.\n' +
+          'Keep the line and paragraph breaks exactly. Keep any [label](url) links and ' +
+          '**bold** or *italic* markers intact, translating only the visible label text.\n'
+        : 'Translate these song lyrics from ' + names[from] + ' into ' + names[to] + '.\n' +
+          'Keep every line break exactly where it is, and keep the stanza breaks.\n' +
+          'Give a plain, faithful translation of the meaning. Do not rhyme it, do not pad lines ' +
+          'to fit a metre, do not explain or annotate anything.\n') +
+      'When translating into Turkish, always render the name Sheba as Belk\u0131s.\n' +
+      'Return only the translated lines and nothing else.\n\n---\n' + text;
+    return sample(ask, { modelTier: 'complex' }).then(function (r) {
+      return (r && r.text ? r.text : '').trim();
+    });
+  }
+
+  /* ---- note pop-up ----------------------------------------------------- */
+  var modal = document.getElementById('notemodal');
+  var modalBody = document.getElementById('modal-body');
+  var modalTitle = document.getElementById('modal-title');
+  var modalKicker = document.getElementById('modal-kicker');
+  var modalClose = document.getElementById('modal-close');
+  var lastFocus = null;
+
+  function closeNote() {
+    modal.hidden = true;
+    modalBody.textContent = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    lastFocus = null;
+  }
+
+  function openNote(song, group) {
+    lastFocus = document.activeElement;
+    modalKicker.textContent = t('note');
+    modalTitle.textContent = dispTitle(song.t);
+    modalClose.setAttribute('aria-label', isTR() ? 'Kapat' : 'Close');
+    modalBody.textContent = '';
+
+    function paras(txt, cls) {
+      String(txt).split(/\n{2,}/).forEach(function (para) {
+        if (!para.trim()) return;
+        var p = document.createElement('p');
+        if (cls) p.className = cls;
+        p.innerHTML = inline(para.trim());
+        modalBody.appendChild(p);
+      });
+    }
+
+    var own = song.n && song.n.trim();
+    var otherLang = (group === 'TR') !== isTR();
+    var foreign = otherLang && song.nt && song.nt.trim();
+
+    if (own) paras(song.n, '');
+    if (foreign && own) {
+      var rule = document.createElement('div');
+      rule.className = 'modal__rule';
+      modalBody.appendChild(rule);
+      paras(song.nt, 'modal__trans');
+    } else if (foreign) {
+      // nothing in this song's own language: the other-language text is the note
+      paras(song.nt, '');
+    }
+
+    var imgs = Array.isArray(song.img) ? song.img : [];
+    if (imgs.length) {
+      var gal = document.createElement('div');
+      gal.className = 'thumbs';
+      imgs.forEach(function (src) {
+        var fig = document.createElement('figure');
+        var im = document.createElement('img');
+        im.src = src;
+        im.alt = '';
+        im.loading = 'lazy';
+        im.title = isTR() ? 'Orijinal boyutta aç' : 'Open at full size';
+        im.addEventListener('click', function () { openShot(src); });
+        fig.appendChild(im);
+        gal.appendChild(fig);
+      });
+      modalBody.appendChild(gal);
+    }
+
+    modal.hidden = false;
+    modalClose.focus();
+  }
+
+  function openText(titleStr, paras) {
+    lastFocus = document.activeElement;
+    modalKicker.textContent = '';
+    modalTitle.textContent = titleStr;
+    modalClose.setAttribute('aria-label', isTR() ? 'Kapat' : 'Close');
+    modalBody.textContent = '';
+    paras.forEach(function (para) {
+      var el = document.createElement('p');
+      el.innerHTML = inline(para);
+      modalBody.appendChild(el);
+    });
+    modal.hidden = false;
+    modalClose.focus();
+  }
+
+  var sunoLink = document.getElementById('suno-link');
+  if (sunoLink) {
+    sunoLink.addEventListener('click', function () {
+      openText(sunoLink.textContent.replace(/^\*\s*/, ''), textOf('sunoNote'));
+    });
+  }
+
+  modalClose.addEventListener('click', closeNote);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeNote(); });
+
+  /* ---- full-size image layer ------------------------------------------- */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxHint = document.getElementById('lightbox-hint');
+  var shotFocus = null;
+
+  function openShot(src) {
+    shotFocus = document.activeElement;
+    lightboxImg.src = src;
+    lightboxHint.textContent = isTR() ? 'Kapatmak için tıkla ya da Esc' : 'Click or press Esc to close';
+    lightbox.hidden = false;
+    lightbox.scrollTop = 0;
+    lightbox.scrollLeft = 0;
+  }
+
+  function closeShot() {
+    lightbox.hidden = true;
+    lightboxImg.removeAttribute('src');
+    if (shotFocus && shotFocus.focus) shotFocus.focus();
+    shotFocus = null;
+  }
+
+  lightbox.addEventListener('click', closeShot);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (!lightbox.hidden) { closeShot(); return; }
+    if (!modal.hidden) closeNote();
+  });
+
+  /* ---- tiny inline markup --------------------------------------------- */
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function inline(s) {
+    return esc(s)
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[^\w*])\*([^*\n]+)\*(?![\w*])/g, '$1<em>$2</em>')
+      .replace(/(^|[^\w_])_([^_\n]+)_(?![\w_])/g, '$1<em>$2</em>')
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+        '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  }
+
+  function textOf(key) {
+    var e = DATA.texts[key];
+    if (!e) return [];
+    var arr = e[lang()];
+    return Array.isArray(arr) ? arr : [];
+  }
+
+  /* ---- render static text --------------------------------------------- */
+  function renderTexts() {
+    Array.prototype.forEach.call(document.querySelectorAll('.rt'), function (el) {
+      var key = el.getAttribute('data-rt');
+      var kind = el.getAttribute('data-kind');
+      var paras = textOf(key);
+      if (kind === 'line') {
+        el.innerHTML = inline(paras[0] || '');
+      } else {
+        el.innerHTML = paras.map(function (p) { return '<p>' + inline(p) + '</p>'; }).join('');
+      }
+    });
+    var h1 = document.getElementById('h1');
+    if (h1) h1.innerHTML = inline((DATA.texts.h1 && DATA.texts.h1[lang()] || [''])[0]);
+    Array.prototype.forEach.call(document.querySelectorAll('.rt-go'), function (el) {
+      el.textContent = t('open');
+    });
+    try {
+      document.title = isTR() ? 'Bizzat Kendimin Demo Arşivi' : "My Very Own Self's Demo Archive";
+    } catch (e) {}
+  }
+
+  /* ---- language -------------------------------------------------------- */
+  var langButtons = document.querySelectorAll('.langswitch button');
+
+  function setLang(l) {
+    root.setAttribute('data-ui', l);
+    root.setAttribute('lang', l === 'tr' ? 'tr' : 'en');
+    Array.prototype.forEach.call(langButtons, function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === l));
+    });
+    try { localStorage.setItem('demo-arsivi-lang', l); } catch (e) {}
+  }
+
+  function langFromUrl() {
+    var s = '';
+    try { s = (location.hash + '&' + location.search).toLowerCase(); } catch (e) { return null; }
+    if (/(^|[#?&\/=])en(\b|$)/.test(s)) return 'en';
+    if (/(^|[#?&\/=])tr(\b|$)/.test(s)) return 'tr';
+    return null;
+  }
+
+  var storedLang = null;
+  try { storedLang = localStorage.getItem('demo-arsivi-lang'); } catch (e) {}
+  setLang(langFromUrl() || (storedLang === 'en' ? 'en' : 'tr'));
+
+  /* ---- publishing ------------------------------------------------------ */
+  function buildDocument(data) {
+    var slot = TEMPLATE.querySelector('#page-data');
+    slot.textContent = '\n' + JSON.stringify(data, null, 1).replace(/</g, '\\u003c') + '\n';
+    return '<!doctype html>\n' + TEMPLATE.outerHTML;
+  }
+
+  function publish(data, onState) {
+    if (!api) return Promise.reject({ code: 'not_granted' });
+    return api.publish(buildDocument(data));
+  }
+
+  function failMessage(err) {
+    var code = err && err.code ? err.code : '';
+    if (code === 'conflict') return t('confl');
+    if (code === 'not_granted' || code === 'not_writer') return t('noperm');
+    return t('failed');
+  }
+
+  function setLock(who) {
+    lockedBy = who;
+    widgets.forEach(function (w) { w.refreshLock(); });
+    syncTextButton();
+  }
+
+  /* ---- song lists ------------------------------------------------------ */
+  function makeWidget(node) {
+    var group = node.getAttribute('data-group');
+    var body = node.querySelector('.js-body');
+    var table = node.querySelector('table');
+    var tablewrap = node.querySelector('.tablewrap');
+    var cards = node.querySelector('.js-cards');
+    var thTitle = node.querySelector('.js-th-title');
+    var thNote = node.querySelector('.js-th-note');
+    var thYear = node.querySelector('.js-th-year');
+    var thx = node.querySelector('.js-thx');
+    var bar = node.querySelector('.js-editbar');
+    var addBar = node.querySelector('.js-addbar');
+    var bEdit = node.querySelector('.js-edit');
+    var bSave = node.querySelector('.js-save');
+    var bCancel = node.querySelector('.js-cancel');
+    var bAdd = node.querySelector('.js-add');
+    var bBulk = node.querySelector('.js-bulk');
+    var state = node.querySelector('.js-state');
+
+    var editing = false;
+    var draft = null;
+
+    function labels() {
+      thTitle.textContent = t('song');
+      thNote.textContent = t('note');
+      thYear.textContent = t('year');
+      thx.textContent = t('ops');
+      bEdit.textContent = t('edit');
+      bSave.textContent = t('save');
+      bCancel.textContent = t('cancel');
+      bAdd.textContent = t('add');
+      bBulk.textContent = t('bulkLyr');
+      bBulk.hidden = !(api && sample);
+    }
+
+    function emptyRow(span, text) {
+      var tr = document.createElement('tr');
+      var cell = document.createElement('td');
+      cell.className = 'empty';
+      cell.colSpan = span;
+      cell.textContent = text;
+      tr.appendChild(cell);
+      return tr;
+    }
+
+    function renderView() {
+      table.classList.remove('editing');
+      thNote.hidden = true;
+      body.textContent = '';
+      var rows = DATA.songs[group];
+      if (!rows.length) {
+        body.appendChild(emptyRow(2, t('none')));
+        return;
+      }
+      rows.forEach(function (s) {
+        var tr = document.createElement('tr');
+
+        var cT = document.createElement('td');
+        cT.className = 't-title';
+        cT.appendChild(document.createTextNode(dispTitle(s.t)));
+
+        var imgs = Array.isArray(s.img) ? s.img : [];
+        // a note may exist only in the other language: then it shows only there
+        var foreignNote = ((group === 'TR') !== isTR()) && s.nt && s.nt.trim();
+        var hasNote = (s.n && s.n.trim()) || foreignNote || imgs.length;
+        var hasLyr = s.l && s.l.trim();
+
+        if (hasNote || hasLyr) {
+          var bar = document.createElement('div');
+          bar.className = 'togs';
+          cT.appendChild(bar);
+
+          var mk = function (labelKey, build) {
+            var panel = document.createElement('div');
+            panel.className = 'notepanel';
+            panel.hidden = true;
+            build(panel);
+
+            var tog = document.createElement('button');
+            tog.type = 'button';
+            tog.className = 'notetoggle';
+            tog.setAttribute('aria-expanded', 'false');
+            var caret = document.createElement('span');
+            caret.className = 'caret';
+            caret.textContent = '▸';
+            tog.appendChild(caret);
+            tog.appendChild(document.createTextNode(t(labelKey)));
+            tog.addEventListener('click', function () {
+              var open = panel.hidden;
+              panel.hidden = !open;
+              caret.textContent = open ? '▾' : '▸';
+              tog.setAttribute('aria-expanded', String(open));
+            });
+            bar.appendChild(tog);
+            cT.appendChild(panel);
+          };
+
+          if (hasLyr) {
+            mk('lyrics', function (panel) {
+              var wrap = document.createElement('div');
+              wrap.className = 'lyrwrap';
+              var orig = document.createElement('p');
+              orig.className = 'lyricline';
+              orig.textContent = s.l;
+              wrap.appendChild(orig);
+              panel.appendChild(wrap);
+
+              // the song's language differs from the one the page is being read in
+              var foreign = (group === 'TR') !== isTR();
+              if (!foreign) return;
+              if (s.hold) return;
+
+              var key = group + '|' + s.t;
+              var shown = null;
+
+              function paint(txt) {
+                if (shown && shown.parentNode) shown.parentNode.removeChild(shown);
+                shown = document.createElement('p');
+                shown.className = 'lyricline lyricline--trans';
+                shown.textContent = txt;
+                wrap.appendChild(shown);
+                wrap.classList.add('lyrwrap--two');
+              }
+
+              // a translation stored in the page wins: it works with no runtime at all
+              if (s.lt && s.lt.trim()) { paint(s.lt); return; }
+              if (transCache[key]) { paint(transCache[key]); return; }
+              if (!sample) return;
+
+              var b = document.createElement('button');
+              b.type = 'button';
+              b.className = 'btn btn--ghost lyrtrans';
+              b.textContent = t('transLyr');
+              b.addEventListener('click', function () {
+                b.disabled = true;
+                b.textContent = t('busy');
+                translateLyrics(s.l, group === 'TR' ? 'tr' : 'en', group === 'TR' ? 'en' : 'tr')
+                  .then(function (outText) {
+                    if (!outText) throw new Error('empty');
+                    transCache[key] = outText;
+                    if (b.parentNode) b.parentNode.removeChild(b);
+                    paint(outText);
+                  })
+                  .catch(function () {
+                    b.disabled = false;
+                    b.textContent = t('terr');
+                  });
+              });
+              panel.appendChild(b);
+            });
+          }
+
+          if (hasNote) {
+            var nb = document.createElement('button');
+            nb.type = 'button';
+            nb.className = 'notetoggle';
+            var nc = document.createElement('span');
+            nc.className = 'caret';
+            nc.textContent = '▸';
+            nb.appendChild(nc);
+            nb.appendChild(document.createTextNode(t('note')));
+            nb.addEventListener('click', function () { openNote(s, group); });
+            bar.appendChild(nb);
+          }
+        }
+        tr.appendChild(cT);
+
+        var cY = document.createElement('td');
+        cY.className = 't-year';
+        cY.textContent = s.y || '';
+        tr.appendChild(cY);
+
+        body.appendChild(tr);
+      });
+    }
+
+    function field(value, label, extraClass, onInput) {
+      var input = document.createElement('input');
+      input.className = 'fld' + (extraClass ? ' ' + extraClass : '');
+      input.type = 'text';
+      input.value = value || '';
+      input.setAttribute('aria-label', label);
+      input.addEventListener('input', function () { onInput(input.value); });
+      return input;
+    }
+
+    function move(from, to) {
+      if (to < 0 || to >= draft.length) return;
+      draft.splice(to, 0, draft.splice(from, 1)[0]);
+      renderEdit();
+    }
+
+    function opBtn(glyph, label, disabled, onClick) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'btn btn--ghost';
+      b.textContent = glyph;
+      b.setAttribute('aria-label', label);
+      b.disabled = !!disabled;
+      b.addEventListener('click', onClick);
+      return b;
+    }
+
+    function shrink(file) {
+      return new Promise(function (res, rej) {
+        if (!/^image\//.test(file.type)) { rej(); return; }
+        var fr = new FileReader();
+        fr.onerror = rej;
+        fr.onload = function () {
+          var im = new Image();
+          im.onerror = rej;
+          im.onload = function () {
+            var max = 1400;
+            var k = Math.min(1, max / Math.max(im.width, im.height));
+            var c = document.createElement('canvas');
+            c.width = Math.max(1, Math.round(im.width * k));
+            c.height = Math.max(1, Math.round(im.height * k));
+            var ctx = c.getContext('2d');
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, c.width, c.height);
+            ctx.drawImage(im, 0, 0, c.width, c.height);
+            try { res(c.toDataURL('image/jpeg', 0.82)); } catch (e) { rej(e); }
+          };
+          im.src = fr.result;
+        };
+        fr.readAsDataURL(file);
+      });
+    }
+
+    function addImages(files, i) {
+      var list = Array.prototype.slice.call(files);
+      (function next() {
+        if (!list.length) { renderEdit(); return; }
+        shrink(list.shift()).then(function (url) {
+          draft[i].img = (draft[i].img || []).concat([url]);
+          next();
+        }).catch(function () { next(); });
+      })();
+    }
+
+    function labelled(text, control) {
+      var box = document.createElement('div');
+      box.className = 'fieldrow';
+      var lab = document.createElement('label');
+      lab.className = 'flab';
+      lab.textContent = text;
+      box.appendChild(lab);
+      box.appendChild(control);
+      lab.setAttribute('for', control.id || '');
+      return box;
+    }
+
+    function renderEdit() {
+      cards.textContent = '';
+      if (!draft.length) {
+        var none = document.createElement('p');
+        none.className = 'empty';
+        none.textContent = t('emptyL');
+        cards.appendChild(none);
+        return;
+      }
+
+      draft.forEach(function (s, i) {
+        var card = document.createElement('div');
+        card.className = 'card';
+
+        var hd = document.createElement('div');
+        hd.className = 'card__hd';
+        var num = document.createElement('span');
+        num.className = 'card__n';
+        num.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
+        hd.appendChild(num);
+        var ops = document.createElement('div');
+        ops.className = 'card__ops';
+        ops.appendChild(opBtn('↑', t('up'), i === 0, function () { move(i, i - 1); }));
+        ops.appendChild(opBtn('↓', t('down'), i === draft.length - 1, function () { move(i, i + 1); }));
+        ops.appendChild(opBtn('×', t('del'), false, function () { draft.splice(i, 1); renderEdit(); }));
+        hd.appendChild(ops);
+        card.appendChild(hd);
+
+        var split = document.createElement('div');
+        split.className = 'fieldrow fieldrow--split';
+        var fT = field(s.t, t('song'), '', function (v) { draft[i].t = v; });
+        fT.id = 'ft-' + group + '-' + i;
+        split.appendChild(labelled(t('song'), fT));
+        var fY = field(s.y, t('year'), 'fld--year', function (v) { draft[i].y = v; });
+        fY.id = 'fy-' + group + '-' + i;
+        split.appendChild(labelled(t('year'), fY));
+        card.appendChild(split);
+
+        var lta = document.createElement('textarea');
+        lta.className = 'lyr-ta';
+        lta.id = 'fl-' + group + '-' + i;
+        lta.value = s.l || '';
+        lta.addEventListener('input', function () { draft[i].l = lta.value; });
+        card.appendChild(labelled(t('lyrics'), lta));
+
+        var lta2 = document.createElement('textarea');
+        lta2.className = 'lyr-ta';
+        lta2.id = 'flt-' + group + '-' + i;
+        lta2.value = s.lt || '';
+        lta2.addEventListener('input', function () { draft[i].lt = lta2.value; });
+        card.appendChild(labelled(
+          t('transLab') + ' (' + (group === 'TR' ? 'EN' : 'TR') + ')', lta2));
+
+        var hw = document.createElement('label');
+        hw.className = 'autolab';
+        var hcb = document.createElement('input');
+        hcb.type = 'checkbox';
+        hcb.checked = !!s.hold;
+        hcb.addEventListener('change', function () { draft[i].hold = hcb.checked; });
+        hw.appendChild(hcb);
+        hw.appendChild(document.createTextNode(t('holdLab')));
+        card.appendChild(hw);
+
+        var nta = document.createElement('textarea');
+        nta.className = 'note-ta';
+        nta.id = 'fn-' + group + '-' + i;
+        nta.value = s.n || '';
+        nta.addEventListener('input', function () { draft[i].n = nta.value; });
+        card.appendChild(labelled(t('note'), nta));
+
+        var nta2 = document.createElement('textarea');
+        nta2.className = 'note-ta';
+        nta2.id = 'fnt-' + group + '-' + i;
+        nta2.value = s.nt || '';
+        nta2.addEventListener('input', function () { draft[i].nt = nta2.value; });
+        card.appendChild(labelled(
+          t('noteLab') + ' (' + (group === 'TR' ? 'EN' : 'TR') + ')', nta2));
+
+        var picWrap = document.createElement('div');
+
+        var zone = document.createElement('div');
+        zone.className = 'dropzone';
+        zone.tabIndex = 0;
+
+        var zhint = document.createElement('div');
+        zhint.className = 'dropzone__hint';
+        zhint.textContent = t('dropHint');
+        zone.appendChild(zhint);
+
+        var pick = document.createElement('input');
+        pick.type = 'file';
+        pick.accept = 'image/*';
+        pick.multiple = true;
+        pick.className = 'filepick';
+        pick.id = 'fp-' + group + '-' + i;
+        pick.addEventListener('change', function () {
+          if (pick.files && pick.files.length) addImages(pick.files, i);
+        });
+        zone.appendChild(pick);
+
+        (function (idx) {
+          function take(list) {
+            var picked = Array.prototype.filter.call(list, function (f) {
+              return f && /^image\//.test(f.type);
+            });
+            if (picked.length) addImages(picked, idx);
+          }
+          zone.addEventListener('dragover', function (e) {
+            e.preventDefault();
+            zone.classList.add('dropzone--on');
+          });
+          zone.addEventListener('dragleave', function () {
+            zone.classList.remove('dropzone--on');
+          });
+          zone.addEventListener('drop', function (e) {
+            e.preventDefault();
+            zone.classList.remove('dropzone--on');
+            if (e.dataTransfer && e.dataTransfer.files) take(e.dataTransfer.files);
+          });
+          zone.addEventListener('paste', function (e) {
+            var items = e.clipboardData && e.clipboardData.items;
+            if (!items) return;
+            var files = [];
+            for (var k = 0; k < items.length; k++) {
+              if (items[k].kind === 'file') {
+                var f = items[k].getAsFile();
+                if (f) files.push(f);
+              }
+            }
+            if (files.length) { e.preventDefault(); take(files); }
+          });
+          zone.addEventListener('click', function (e) {
+            if (e.target === zone || e.target === zhint) pick.click();
+          });
+        })(i);
+
+        picWrap.appendChild(zone);
+
+        var shots = Array.isArray(s.img) ? s.img : [];
+        if (shots.length) {
+          var gal = document.createElement('div');
+          gal.className = 'thumbs';
+          shots.forEach(function (src, k) {
+            var fig = document.createElement('figure');
+            var im = document.createElement('img');
+            im.src = src;
+            im.alt = '';
+            fig.appendChild(im);
+            var kill = document.createElement('button');
+            kill.type = 'button';
+            kill.className = 'kill';
+            kill.textContent = '×';
+            kill.setAttribute('aria-label', t('picdel'));
+            kill.addEventListener('click', function () {
+              draft[i].img.splice(k, 1);
+              renderEdit();
+            });
+            fig.appendChild(kill);
+            gal.appendChild(fig);
+          });
+          picWrap.appendChild(gal);
+        }
+        card.appendChild(labelled(t('pic'), picWrap));
+
+        cards.appendChild(card);
+      });
+    }
+
+    function render() { labels(); editing ? renderEdit() : renderView(); }
+
+    function setEditing(on) {
+      editing = on;
+      draft = on ? DATA.songs[group].map(function (s) {
+        return {
+          t: s.t || '', y: s.y || '', n: s.n || '', l: s.l || '', lt: s.lt || '', l0: s.l || '', lt0: s.lt || '', nt: s.nt || '', n0: s.n || '', nt0: s.nt || '', hold: !!s.hold,
+          img: Array.isArray(s.img) ? s.img.slice() : []
+        };
+      }) : null;
+      tablewrap.hidden = on;
+      cards.hidden = !on;
+      thx.hidden = true;
+      addBar.hidden = !on;
+      bEdit.hidden = on;
+      bSave.hidden = !on;
+      bCancel.hidden = !on;
+      setLock(on ? 'songs:' + group : null);
+      render();
+    }
+
+    bEdit.addEventListener('click', function () { state.textContent = ''; setEditing(true); });
+    bCancel.addEventListener('click', function () { state.textContent = ''; setEditing(false); });
+
+    bBulk.addEventListener('click', function () {
+      if (!api || !sample) return;
+      var rows = DATA.songs[group];
+      var todo = [];
+      rows.forEach(function (r, i) {
+        if (!r.hold && r.l && r.l.trim() && !(r.lt && r.lt.trim())) todo.push({ i: i, f: 'l', t: 'lt' });
+        if (r.n && r.n.trim() && !(r.nt && r.nt.trim())) todo.push({ i: i, f: 'n', t: 'nt' });
+      });
+      if (!todo.length) { state.textContent = t('allDone'); return; }
+
+      var copy = rows.map(function (r) { return JSON.parse(JSON.stringify(r)); });
+      var from = group === 'TR' ? 'tr' : 'en';
+      var to = group === 'TR' ? 'en' : 'tr';
+      var total = todo.length, done = 0;
+
+      bBulk.disabled = true; bEdit.disabled = true;
+
+      function step() {
+        if (!todo.length) return Promise.resolve();
+        var job = todo.shift();
+        done += 1;
+        state.textContent = t('busy') + ' ' + done + '/' + total;
+        return translateLyrics(copy[job.i][job.f], from, to, job.f === 'n')
+          .then(function (outText) { if (outText) copy[job.i][job.t] = outText; })
+          .catch(function () {})
+          .then(step);
+      }
+
+      step().then(function () {
+        state.textContent = t('saving');
+        var next = { texts: DATA.texts, songs: { TR: DATA.songs.TR, ENG: DATA.songs.ENG } };
+        next.songs[group] = copy;
+        return publish(next).then(function () {
+          DATA.songs[group] = copy;
+          state.textContent = t('saved') + ' (' + total + ' \u21bb)';
+          bBulk.disabled = false; bEdit.disabled = false;
+          render();
+        });
+      }).catch(function (err) {
+        bBulk.disabled = false; bEdit.disabled = false;
+        state.textContent = failMessage(err);
+      });
+    });
+
+    bAdd.addEventListener('click', function () {
+      draft.push({ t: '', y: '', n: '', nt: '', n0: '', nt0: '', l: '', lt: '', l0: '', lt0: '', hold: false, img: [] });
+      renderEdit();
+      var inputs = cards.querySelectorAll('input[type="text"]');
+      if (inputs.length) inputs[inputs.length - 2].focus();
+    });
+
+    bSave.addEventListener('click', function () {
+      var cleaned = draft.map(function (s) {
+        var o = { t: canonTitle((s.t || '').trim()), y: (s.y || '').trim(), n: (s.n || '').trim() };
+        if (s.l && s.l.trim()) o.l = s.l.replace(/\s+$/, '');
+        var lyrMoved = (s.l || '') !== (s.l0 || '');
+        var transMoved = (s.lt || '') !== (s.lt0 || '');
+        if (s.lt && s.lt.trim() && (!lyrMoved || transMoved)) o.lt = s.lt.replace(/\s+$/, '');
+        var noteMoved = (s.n || '') !== (s.n0 || '');
+        var noteTransMoved = (s.nt || '') !== (s.nt0 || '');
+        if (s.nt && s.nt.trim() && (!noteMoved || noteTransMoved)) o.nt = s.nt.replace(/\s+$/, '');
+        if (s.hold) o.hold = 1;
+        if (Array.isArray(s.img) && s.img.length) o.img = s.img;
+        return o;
+      }).filter(function (s) { return s.t !== ''; });
+
+      var next = { texts: DATA.texts, songs: { TR: DATA.songs.TR, ENG: DATA.songs.ENG } };
+      next.songs[group] = cleaned;
+
+      if (JSON.stringify(next).length > 11000000) {
+        state.textContent = t('toobig');
+        return;
+      }
+
+      bSave.disabled = true; bCancel.disabled = true; bAdd.disabled = true;
+      state.textContent = t('saving');
+
+      publish(next).then(function () {
+        DATA.songs[group] = cleaned;
+        state.textContent = t('saved');
+        bSave.disabled = false; bCancel.disabled = false; bAdd.disabled = false;
+        setEditing(false);
+      }).catch(function (err) {
+        bSave.disabled = false; bCancel.disabled = false; bAdd.disabled = false;
+        state.textContent = failMessage(err);
+        if (err && (err.code === 'not_granted' || err.code === 'not_writer')) {
+          bar.hidden = true;
+          setEditing(false);
+        }
+      });
+    });
+
+    return {
+      render: render,
+      isEditing: function () { return editing; },
+      reveal: function () { bar.hidden = false; },
+      refreshLock: function () {
+        bEdit.disabled = lockedBy !== null && lockedBy !== 'songs:' + group;
+      }
+    };
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.songs'), function (node) {
+    var w = makeWidget(node);
+    widgets.push(w);
+  });
+
+  /* ---- text editing ---------------------------------------------------- */
+  var textBtn = document.getElementById('text-edit');
+  var textBar = document.getElementById('textbar');
+  var textSave = document.getElementById('text-save');
+  var textCancel = document.getElementById('text-cancel');
+  var textState = document.getElementById('textstate');
+  var textDraft = null;
+  var textBase = null;
+  var textAuto = document.getElementById('text-auto');
+  var editors = [];
+
+  function syncTextButton() {
+    textBtn.textContent = t('tedit');
+    textBtn.disabled = lockedBy !== null && lockedBy !== 'texts';
+  }
+
+  function makeEditor(el, key) {
+    var box = document.createElement('div');
+    box.className = 'rt-ed';
+
+    var head = document.createElement('div');
+    head.className = 'rt-ed__lab';
+    head.textContent = key;
+    box.appendChild(head);
+
+    ['tr', 'en'].forEach(function (L) {
+      var lab = document.createElement('div');
+      lab.className = 'rt-ed__lab';
+      lab.textContent = L.toUpperCase();
+      box.appendChild(lab);
+
+      var ta = document.createElement('textarea');
+      ta.value = (textDraft[key][L] || []).join('\n\n');
+      ta.setAttribute('aria-label', key + ' ' + L.toUpperCase());
+      ta.addEventListener('input', function () {
+        textDraft[key][L] = ta.value.split(/\n{2,}/).map(function (s) { return s.trim(); })
+          .filter(function (s) { return s !== ''; });
+      });
+      box.appendChild(ta);
+      box['ta_' + L] = ta;
+    });
+
+    var row = document.createElement('div');
+    row.className = 'btn-row';
+
+    function transBtn(from, to) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'btn btn--ghost';
+      b.textContent = t('trans') + ' ' + from.toUpperCase() + ' → ' + to.toUpperCase();
+      b.addEventListener('click', function () {
+        if (!sample) return;
+        var src = box['ta_' + from].value.trim();
+        if (!src) return;
+        b.disabled = true;
+        var old = b.textContent;
+        b.textContent = t('busy');
+        askTranslate(src, from, to).then(function (out) {
+          box['ta_' + to].value = out;
+          textDraft[key][to] = out.split(/\n{2,}/).map(function (s) { return s.trim(); })
+            .filter(function (s) { return s !== ''; });
+          b.disabled = false; b.textContent = old;
+        }).catch(function () {
+          b.disabled = false; b.textContent = old;
+          textState.textContent = t('terr');
+        });
+      });
+      return b;
+    }
+
+    if (sample) {
+      row.appendChild(transBtn('tr', 'en'));
+      row.appendChild(transBtn('en', 'tr'));
+      box.appendChild(row);
+    }
+
+    var hint = document.createElement('div');
+    hint.className = 'rt-ed__hint';
+    hint.textContent = UI.hint[lang()];
+    box.appendChild(hint);
+
+    el.parentNode.insertBefore(box, el.nextSibling);
+    el.hidden = true;
+    editors.push({ el: el, box: box });
+  }
+
+  function askTranslate(text, from, to) {
+    var names = { tr: 'Turkish', en: 'English' };
+    var prompt =
+      'Translate the text below from ' + names[from] + ' into ' + names[to] + '.\n' +
+      'It is a musician writing about his own demo archive: informal, dry, self-deprecating, ' +
+      'a little sardonic, with jokes that undercut what he just said. Keep that register. ' +
+      'Do not smooth it out, do not make it polite or promotional, do not add or explain anything.\n' +
+      'Keep paragraph breaks exactly as they are (blank line between paragraphs). ' +
+      'Keep [label](url) links, **bold** and *italic* markers intact, translating only the visible label text, never the url.\n' +
+      'Return only the translated text and nothing else.\n\n' +
+      '---\n' + text;
+    return sample(prompt, { modelTier: 'complex' }).then(function (r) {
+      return (r && r.text ? r.text : '').trim();
+    });
+  }
+
+  function enterTextMode() {
+    textEditing = true;
+    textDraft = JSON.parse(JSON.stringify(DATA.texts));
+    textBase = JSON.parse(JSON.stringify(DATA.texts));
+    textState.textContent = '';
+    textBar.hidden = false;
+    textBtn.hidden = true;
+    setLock('texts');
+
+    var seen = {};
+    Array.prototype.forEach.call(document.querySelectorAll('.rt'), function (el) {
+      var key = el.getAttribute('data-rt');
+      if (seen[key]) return;
+      seen[key] = true;
+      if (!textDraft[key]) textDraft[key] = { tr: [], en: [] };
+      makeEditor(el, key);
+    });
+    var h1 = document.getElementById('h1');
+    if (h1 && !seen.h1) {
+      if (!textDraft.h1) textDraft.h1 = { tr: [], en: [] };
+      makeEditor(h1, 'h1');
+    }
+  }
+
+  function leaveTextMode() {
+    textEditing = false;
+    editors.forEach(function (e) {
+      e.el.hidden = false;
+      if (e.box.parentNode) e.box.parentNode.removeChild(e.box);
+    });
+    editors = [];
+    textDraft = null;
+    textBar.hidden = true;
+    textBtn.hidden = false;
+    setLock(null);
+    renderAll();
+  }
+
+  textBtn.addEventListener('click', enterTextMode);
+  textCancel.addEventListener('click', function () { leaveTextMode(); });
+
+  textSave.addEventListener('click', function () {
+    textSave.disabled = true; textCancel.disabled = true;
+
+    function joined(block, L) { return ((block && block[L]) || []).join('\n\n'); }
+
+    var jobs = [];
+    if (sample && textAuto && textAuto.checked) {
+      Object.keys(textDraft).forEach(function (key) {
+        var base = textBase[key] || { tr: [], en: [] };
+        var cur = textDraft[key];
+        var trMoved = joined(cur, 'tr') !== joined(base, 'tr');
+        var enMoved = joined(cur, 'en') !== joined(base, 'en');
+        if (trMoved && !enMoved && joined(cur, 'tr').trim()) jobs.push({ k: key, from: 'tr', to: 'en' });
+        else if (enMoved && !trMoved && joined(cur, 'en').trim()) jobs.push({ k: key, from: 'en', to: 'tr' });
+      });
+    }
+
+    var total = jobs.length, done = 0;
+
+    function runJobs() {
+      if (!jobs.length) return Promise.resolve();
+      var job = jobs.shift();
+      done += 1;
+      textState.textContent = t('busy') + ' ' + done + '/' + total;
+      return askTranslate(joined(textDraft[job.k], job.from), job.from, job.to)
+        .then(function (outText) {
+          var paras = String(outText || '').split(/\n{2,}/)
+            .map(function (x) { return x.trim(); })
+            .filter(function (x) { return x !== ''; });
+          if (paras.length) textDraft[job.k][job.to] = paras;
+        })
+        .catch(function () {})
+        .then(runJobs);
+    }
+
+    runJobs().then(function () {
+      textState.textContent = t('saving');
+      var next = { texts: textDraft, songs: { TR: DATA.songs.TR, ENG: DATA.songs.ENG } };
+      return publish(next).then(function () {
+        DATA.texts = next.texts;
+        textState.textContent = total ? t('saved') + ' (' + total + ' ↻)' : t('saved');
+        textSave.disabled = false; textCancel.disabled = false;
+        leaveTextMode();
+      });
+    }).catch(function (err) {
+      textSave.disabled = false; textCancel.disabled = false;
+      textState.textContent = failMessage(err);
+      if (err && (err.code === 'not_granted' || err.code === 'not_writer')) {
+        textBtn.hidden = true;
+        leaveTextMode();
+      }
+    });
+  });
+
+  /* ---- wiring ---------------------------------------------------------- */
+  function renderAll() {
+    renderTexts();
+    widgets.forEach(function (w) { w.render(); });
+    syncTextButton();
+  }
+
+  Array.prototype.forEach.call(langButtons, function (b) {
+    b.addEventListener('click', function () {
+      setLang(b.getAttribute('data-lang'));
+      if (textEditing) {
+        editors.forEach(function (e) {
+          var h = e.box.querySelector('.rt-ed__hint');
+          if (h) h.textContent = UI.hint[lang()];
+        });
+        syncTextButton();
+      } else {
+        renderAll();
+      }
+    });
+  });
+
+  renderAll();
+
+})();
+</script>
+</body>
+</html>
