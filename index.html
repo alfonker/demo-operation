@@ -3,11 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
 <title>My Very Own Self's Demo Archive</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%227%22%20fill%3D%22%2317181B%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%2215%22%20width%3D%2250%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22%23EDEBE5%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%2230%22%20r%3D%227%22%20fill%3D%22%2317181B%22%2F%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%2230%22%20r%3D%227%22%20fill%3D%22%2317181B%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%2230%22%20r%3D%222.5%22%20fill%3D%22%23EDEBE5%22%2F%3E%3Ccircle%20cx%3D%2241%22%20cy%3D%2230%22%20r%3D%222.5%22%20fill%3D%22%23EDEBE5%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2241%22%20width%3D%2224%22%20height%3D%225%22%20rx%3D%221%22%20fill%3D%22%2317181B%22%2F%3E%3C%2Fsvg%3E">
-<style>[hidden]:not([hidden=until-found i]){display:none!important}img{max-width:100%}</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%2317181B'/%3E%3Crect x='4' y='9' width='24' height='14' rx='2' fill='%23EDEBE5'/%3E%3Ccircle cx='11' cy='16' r='3' fill='%2317181B'/%3E%3Ccircle cx='21' cy='16' r='3' fill='%2317181B'/%3E%3Crect x='11' y='15' width='10' height='2' fill='%2317181B'/%3E%3C/svg%3E">
+<style>
+  [hidden]:not([hidden=until-found i]) { display: none !important; }
+  img { max-width: 100%; }
+</style>
+</head>
+<body>
+<title>My Very Own Self's Demo Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+Condensed:wght@600;700&amp;family=IBM+Plex+Sans:wght@400;500&amp;family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&amp;display=swap">
@@ -189,6 +196,7 @@
     text-align: left;
   }
   .flink:hover { text-decoration-thickness: 2px; }
+  .flink--more { white-space: nowrap; vertical-align: 0.08em; }
   .flink:focus-visible { outline: 2px solid var(--c-neon); outline-offset: 2px; }
 
   /* section scaffolding -------------------------------------------------- */
@@ -310,6 +318,22 @@
     max-width: 34rem;
   }
   .togs { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 0.3rem; }
+  .demonote { font-style: italic; }
+  .lists { display: flex; flex-direction: column; gap: 0.8rem; }
+  .trax { display: flex; flex-wrap: wrap; gap: 0.15rem 0.7rem; margin-top: 0.35rem; }
+  .trax a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    color: var(--ink-2);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+  .trax a:hover, .trax a:focus-visible {
+    color: var(--accent, var(--ink));
+    border-bottom-color: var(--accent, var(--ink));
+  }
   .notetoggle {
     display: inline-flex;
     align-items: center;
@@ -682,8 +706,7 @@
     * { animation: none !important; transition: none !important; }
   }
 </style>
-</head>
-<body>
+
 <div class="wrap">
 
   <div class="textbar" id="textbar" hidden="">
@@ -734,12 +757,16 @@
     <div class="section__head">
       <span class="section__num">02 — TR</span>
       <h2 class="section__title">Türkçe</h2>
-      <p class="section__note rt" data-rt="nTR" data-kind="line"></p>
     </div>
     <div class="section__body">
+      <div class="lists">
+      <div class="songs__bar">
+        <h3 class="songs__title rt" data-rt="listsLabel" data-kind="line"></h3>
+      </div>
+      <p class="section__note rt" data-rt="nTR" data-kind="line"></p>
       <div class="index">
         <a class="row" href="https://suno.com/playlist/9c1d7926-fd18-460a-b1a7-a563b1e6e226" target="_blank" rel="noopener">
-          <span class="row__code">DEMO</span><span class="row__name">Orijinal Demolar - TR</span>
+          <span class="row__code">DEMO</span><span class="row__name">Orijinal Demolar* - TR</span>
           <span class="row__go rt-go"></span>
         </a>
         <a class="row" href="https://suno.com/playlist/e832c90b-a99f-4062-86fa-042a68b93604" target="_blank" rel="noopener">
@@ -771,6 +798,8 @@
           <span class="row__go rt-go"></span>
         </a>
       </div>
+      <p class="section__note demonote rt" data-rt="demoNote" data-kind="prose"></p>
+      </div>
 
       <div class="songs" data-group="TR">
         <div class="songs__bar">
@@ -783,6 +812,7 @@
             <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
           </div>
         </div>
+        <p class="section__note rt" data-rt="traxNote" data-kind="prose"></p>
         <div class="tablewrap">
           <table>
             <thead>
@@ -809,12 +839,16 @@
     <div class="section__head">
       <span class="section__num">03 — ENG</span>
       <h2 class="section__title">English</h2>
-      <p class="section__note rt" data-rt="nENG" data-kind="line"></p>
     </div>
     <div class="section__body">
+      <div class="lists">
+      <div class="songs__bar">
+        <h3 class="songs__title rt" data-rt="listsLabel" data-kind="line" data-dup="1"></h3>
+      </div>
+      <p class="section__note rt" data-rt="nENG" data-kind="line"></p>
       <div class="index">
         <a class="row" href="https://suno.com/playlist/f50b2344-f64e-4bab-a8f3-5660372531e8" target="_blank" rel="noopener">
-          <span class="row__code">DEMO</span><span class="row__name">Original Demos - ENG</span>
+          <span class="row__code">DEMO</span><span class="row__name">Original Demos* - ENG</span>
           <span class="row__go rt-go"></span>
         </a>
         <a class="row" href="https://suno.com/playlist/8c3184da-bffb-4fa8-b974-0c5d29465987" target="_blank" rel="noopener">
@@ -846,6 +880,8 @@
           <span class="row__go rt-go"></span>
         </a>
       </div>
+      <p class="section__note demonote rt" data-rt="demoNote" data-kind="prose"></p>
+      </div>
 
       <div class="songs" data-group="ENG">
         <div class="songs__bar">
@@ -858,6 +894,7 @@
             <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
           </div>
         </div>
+        <p class="section__note rt" data-rt="traxNote" data-kind="prose"></p>
         <div class="tablewrap">
           <table>
             <thead>
@@ -880,29 +917,17 @@
     </div>
   </section>
 
-  <section class="section" style="--accent: var(--c-extra);">
-    <div class="section__head">
-      <span class="section__num">04</span>
-      <h2 class="section__title">S-extra</h2>
-    </div>
-    <div class="section__body">
-      <p class="section__note rt" data-rt="nEXT" data-kind="prose"></p>
-      <div class="index">
-        <a class="row" href="https://suno.com/playlist/82ad3b75-d24b-4e90-b293-6ee4d3bec239" target="_blank" rel="noopener">
-          <span class="row__code">S-extra</span><span class="row__name">S-extra</span>
-          <span class="row__go rt-go"></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <section class="section" style="--accent: var(--c-civ);">
     <div class="section__head">
-      <span class="section__num">05</span>
+      <span class="section__num">04</span>
       <h2 class="section__title rt" data-rt="hCIV" data-kind="line"></h2>
     </div>
     <div class="section__body">
       <p class="section__note rt" data-rt="nCIV" data-kind="prose"></p>
+      <div class="lists">
+      <div class="songs__bar">
+        <h3 class="songs__title rt" data-rt="listsLabel" data-kind="line" data-dup="1"></h3>
+      </div>
       <div class="index">
         <a class="row" href="https://suno.com/playlist/705b7660-0d26-4f97-9f1c-324de53b62b0" target="_blank" rel="noopener">
           <span class="row__code">DEMO</span><span class="row__name">Orijinal Demolar - Original Demos</span>
@@ -921,6 +946,7 @@
           <span class="row__go rt-go"></span>
         </a>
       </div>
+      </div>
       <div class="songs" data-group="CIV">
         <div class="songs__bar">
           <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
@@ -932,6 +958,7 @@
             <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
           </div>
         </div>
+        <p class="section__note rt" data-rt="traxNote" data-kind="prose"></p>
         <div class="tablewrap">
           <table>
             <thead>
@@ -956,7 +983,7 @@
 
   <section class="section" style="--accent: var(--c-lul);">
     <div class="section__head">
-      <span class="section__num">06</span>
+      <span class="section__num">05</span>
       <h2 class="section__title rt" data-rt="h04" data-kind="line"></h2>
     </div>
     <div class="section__body">
@@ -1023,16 +1050,14 @@
   },
   "p00": {
    "tr": [
-    "2004-2026 arası kaydedilmiş şarkı ve enstrümental beste demoları ve SUNO aranjmanları. Son üç seneden telefonla yapılmış ninni kayıtları var bir de.",
-    "50-60 kadar şekillenmiş şarkı, 200 küsur eskiz var. Önümüzdeki 2-3 ayda hepsini aşağıdaki listelere gömeceğim.",
-    "Şarkılardan 10 tanesini filan (tamam belki 5 tanesini), önümüzdeki altı ayda (tamam belki 8 yılda) yavaş yavaş kaydedeyim diyorum.",
-    "Bunları da müzisyen ve kankito eşe dosta fikir sormak için bir araya topladım. Hangilerini kaydedeyim?  Hangi şarkıyı hangi janrda kaydedeyim? Nasıl gruplayayım: 4-5er beşer şarkılık benzer aranjmanlı, türü falan belli bir seri EP mi yapayım? Yoksa, olm albüm bütünlüğü işi mi kaldı lol, nası istersen öyle yap mı diyorsunuz? Yoksa, hahah, bize ne yaa, mı diyorsunuz? İyi diyorsunuz,  harbiden de size ne aslında bi saniye noluyor."
+    "2004-2026 arası kaydedilmiş şarkı ve enstrümental beste demoları ve SUNO aranjmanları. Son üç seneden telefonla yapılmış ninni kayıtları var bir de. Şarkılardan 10 tanesini filan (tamam belki 5 tanesini), önümüzdeki altı ayda (tamam belki 8 yılda) yavaş yavaş kaydedeyim diyorum. Bu sayfayı da bana fikir vermeniz için şey ettim. Vayb kod ettim. Hay allak kahretmesin.",
+    "[[kes]] 50-60 kadar şekillenmiş şarkı, 200 küsur eskiz var. Önümüzdeki 2-3 ayda hepsini aşağıdaki listelere gömeceğim.",
+    "Bunları da müzisyen ve kankito eşe dosta fikir sormak için bir araya topluyorum. Hangilerini kaydedeyim?  Hangi şarkıyı hangi janrda kaydedeyim? Nasıl gruplayayım: 4-5er beşer şarkılık benzer aranjmanlı, türü falan belli bir seri EP mi yapayım? Yoksa, olm albüm bütünlüğü işi mi kaldı lol, nası istersen öyle yap mı diyorsunuz? Yoksa, hahah, bize ne yaa, mı diyorsunuz? İyi diyorsunuz,  harbiden de size ne aslında bi saniye noluyor."
    ],
    "en": [
-    "Song and instrumental composition demos recorded between 2004 and 2026, plus SUNO arrangements. There are also some lullaby recordings I made on my phone over the last three years.",
-    "There are about 50-60 songs that have actually taken shape, plus 200-something sketches. Over the next 2-3 months I'm going to bury them all in the lists below.",
-    "I'm thinking I'll slowly record 10 or so of the songs (okay, maybe 5) over the next six months (okay, maybe 8 years).",
-    "And I've gathered all this here to get opinions from musician friends and assorted buddies. Which ones should I record? Which song should I record in which genre? How should I group them: should I do a series of EPs, 4-5 songs each, with similar arrangements and a set genre or whatever? Or are you saying, dude, who even cares about album cohesion anymore lol, just do whatever you want? Or are you saying, hahah, why should we care? Fair point, honestly, why should you care, wait a second, what's going on here."
+    "Song and instrumental composition demos recorded between 2004 and 2026, plus SUNO arrangements. There are also some lullaby recordings made on my phone over the last three years. I'm thinking I'll slowly record 10 or so of the songs (okay, maybe 5) over the next six months (okay, maybe 8 years). And I, sort of, did this page so you can give me ideas. I vibe coded it. God dayum.",
+    "[[kes]] There are 50-60 or so fleshed-out songs and 200-odd sketches. Over the next 2-3 months I'll dump them all into the lists below.",
+    "I'm pulling these together to ask musician friends and buddies and pals what they think. Which ones should I record? Which song should I record in which genre? How should I group them: should I do a series of EPs, 4-5 songs each, with similar arrangements, a set genre and whatnot? Or are you saying, dude, is album cohesion even still a thing lol, just do whatever you want? Or are you saying, hahah, what's it to us? Fair point, honestly, what is it to you, wait a sec, what's going on."
    ]
   },
   "h01": {
@@ -1045,16 +1070,16 @@
   },
   "p01": {
    "tr": [
-    "**Orijinal demo** playlistlerinde her bestenin dikiş makinesiyle, bilemedin telefonla yapılmış kaydı var. En iyi ihtimalle, Cubase ya da Reaper'da tek take kaydedilmiş ve kötü mikslenmiş demolar mevcut. Yani, hayır, şarkıların ana melodileri, akor gidişatları, sözleri yapay zeka ürünü değil.",
-    "Diğer playlistlerde, bu orijinal bestelerin benim promptlarım üzerine yapılmış SUNO aranjmanları, benim sesimden yapılmış samplelar tarafından söyleniyor. Yani düzenlemeleri, evet, yapay zeka. Ama bu aranjmanları nihai versiyon olarak yayınlamak için değil, beste taslaklarını hale yola koyup, değişik janrlarda kulağa nasıl geldiğini test etmek için kullanıyorum. Aranjman fikri denemek için demo kaydetmeye vakit falan olmadığı için, elimizde bunlar var.*",
+    "**Orijinal demo** playlistlerinde her bestenin dikiş makinesiyle, bilemedin telefonla yapılmış kaydı var. Bazen de Cubase ya da Reaper'da tek take kaydedilmiş ve kötü mikslenmiş demolar mevcut. Yani, hayır, şarkıların ana melodileri, akor gidişatları, sözleri yapay zeka ürünü değil.",
+    "Diğer playlistlerde, bu orijinal bestelerin benim promptlarım üzerine yapılmış SUNO aranjmanları, benim sesimden yapılmış samplelar tarafından söyleniyor. Yani düzenlemeleri, evet, yapay zeka. [[kes]] Ama bu aranjmanları nihai versiyon olarak yayınlamak için değil, beste taslaklarını hale yola koyup, değişik janrlarda kulağa nasıl geldiğini test etmek için kullanıyorum. Aranjman fikri denemek için demo kaydetmeye vakit falan olmadığı için, elimizde bunlar var.*",
     "Yapay zekâ benden tabii ki daha temiz söylüyor; daha güzel enstrüman çalıyor. Bu SUNO aranjmanlarını şöyle düşünmek mümkün: _bu şarkı bu janrda kulağa böyle geliyormuş, ama bizimki bunu tabii teknik olarak daha kolpa icra ederdi._",
     "Sakin, temiz vokalleri [Ayran İçerdik](https://suno.com/s/bbLn6hhlLyAZG0ud) ya da [Do Not Love Too Long](https://suno.com/s/5TM6DRmB9BZlTIRS)'daki gibi; daha genizden, boyunda damar çıkarmalı vokalleri de [Scholars](https://suno.com/s/KUPgxj5MvJ5eZg4v) ya da [Fuck The Police](https://suno.com/s/ooICukZMBidYMxxr)'deki gibi söylediğimi varsayalım şimdilik (bu linkler orijinal demo kayıtlarına gidiyor).",
     "Normal kayıtta, gönül isterdi ki Horn Metal ya da Jazz Quintet gibi gruplarla çalabileydim... Ama o olmayacağına göre, kayıtlar ya düz Rock olacak, ya da düz Akustik. Kısmet.",
     "Eğer vaktiniz varsa, orijinal demolardan başlayın, ya da en işinize gelen janrı seçip bütün şarkıları o janrda dinleyin. Herhalde en iyi fikri Akustik ya da Rock playlistleri verecektir, diğerlerinde bazen uçuk yerlere gidiyor aranjmanlar."
    ],
    "en": [
-    "In the **Original demo** playlists, every song has a recording made on a sewing machine, or a phone at best. At the very most, there are demos recorded in a single take in Cubase or Reaper and badly mixed. So, no, the songs' main melodies, chord progressions and lyrics are not AI products.",
-    "In the other playlists, these original compositions get SUNO arrangements made from my prompts, sung by samples made from my voice. So the arrangements, yes, are AI. But I'm not using these arrangements to release as final versions. I use them to knock the rough song drafts into some kind of shape and test how they sound in different genres. Since there's no time or whatever to record a demo just to try out an arrangement idea, this is what we've got.*",
+    "In the **Original demo** playlists, every song has a recording made on a sewing machine, or, you know, a phone or something. Sometimes, demos are recorded in a single take in Cubase or Reaper and then badly mixed. So, no, the songs' main melodies, chord progressions and lyrics are not AI products.",
+    "In the other playlists, these original compositions get SUNO arrangements made from my prompts, sung by samples made from my voice. So the arrangements, yes, are AI. [[kes]] But I'm not using these arrangements to release as final versions. I use them to knock the rough song drafts into some kind of shape and test how they sound in different genres. Since there's no time or whatever to record a demo just to try out an arrangement idea, this is what we've got.*",
     "The AI sings cleaner than me, of course, and plays instruments better. One way to think of these SUNO arrangements: _so this is how the song sounds in this genre, but our guy would of course perform it in a technically shoddier way._",
     "For now, let's just assume I sing the calm, clean vocals like in [Ayran İçerdik](https://suno.com/s/bbLn6hhlLyAZG0ud) or [Do Not Love Too Long](https://suno.com/s/5TM6DRmB9BZlTIRS), and the more nasal, neck-veins-bulging vocals like in [Scholars](https://suno.com/s/KUPgxj5MvJ5eZg4v) or [Fuck The Police](https://suno.com/s/ooICukZMBidYMxxr) (these links go to the original demo recordings).",
     "For the actual recording, I would have liked to play with bands like Horn Metal or Jazz Quintet... But since that's not going to happen, the recordings will be either straight Rock or straight Acoustic. Kismet.",
@@ -1097,10 +1122,10 @@
   },
   "nNIN": {
    "tr": [
-    "Doğaçlama ninnilerin telefon kayıtları, yanlarında Suno'da yapılmış enstrümantal ve a capella versiyonları. Tür sınıflandırmasının dışında."
+    "Doğaçlama ninnilerin telefon kayıtları, yanlarında Suno'da yapılmış enstrümantal ve a cappella versiyonları. Tür sınıflandırmasının dışında. Şimdilik duraklamış vaziyette, şarkıları bekliyor."
    ],
    "en": [
-    "Phone recordings of improvised lullabies, alongside instrumental and a capella versions made in Suno. Outside the genre classification."
+    "Phone recordings of improvised lullabies, alongside instrumental and a cappella versions made in Suno. Outside the genre classification. On hiatus for now, waiting for the songs to be dealt with."
    ]
   },
   "nEXT": {
@@ -1168,6 +1193,30 @@
    "en": [
     "Same as above: the names in brackets are the lyricists, and w/ means the music and/or the words were a joint effort."
    ]
+  },
+  "listsLabel": {
+   "tr": [
+    "Çalma Listeleri"
+   ],
+   "en": [
+    "Playlists"
+   ]
+  },
+  "traxNote": {
+   "tr": [
+    "Şarkıların değişik versiyonları için ilgili koda tıklayın. Genel sınıflandırmanın dışında kalan düzenlemeler _S-extra_ olarak listelendi."
+   ],
+   "en": [
+    "Click the relevant code to hear the different versions of a song. Arrangements that fall outside the general classification are listed as _S-extra_."
+   ]
+  },
+  "demoNote": {
+   "tr": [
+    "* Orijinal Demo kayıtları bazen tüm şarkı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla / mırıldanarak) çalınmış versiyonu olabilir."
+   ],
+   "en": [
+    "* The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed)."
+   ]
   }
  },
  "songs": {
@@ -1183,7 +1232,8 @@
      "img/sehir-1.jpg",
      "img/sehir-2.jpg",
      "img/sehir-3.jpg"
-    ]
+    ],
+    "lnk": "DEMO|0ef35eec-bbc8-44ce-bfd7-3ac6c6288325;S1|9ae98f13-0ee6-42a1-8edf-d0a0e9899275;S2|b0b0a419-dbc5-4e72-a460-320b811fd711;S3|f666b91b-7b42-4007-9825-d8b08932deed;S4|c067ebc1-5440-4416-aeee-5970425b5963;S5|9a71cc18-e297-4f4e-b481-f338972c1550;S6|03427989-0690-4c16-ab21-3e6ac377b265;S7|9235804f-15a3-4e88-81e5-eada380b1ae7"
    },
    {
     "t": "Daüssıla - Enayi Gibi Geldim (Sabahattin Ali - w/ S. Dierkes)",
@@ -1191,10 +1241,11 @@
     "n": "Yakın zamanda Almanya'ya taşınmış NCS nam bir kankitomun bulduğu bu nadir Sabahattin Ali şiiri, eski bir beste taslağına oturdu. Bazı kısımlarını kullandım sadece. Şiirin tamamı ekte, 1928'den.",
     "l": "Bugün de Potsdam'dan süzerken Potsdam'ı,\nYaktı yine içimi kimsesizliğin gamı.\nGözlerim inhinasız uzayan caddelerde,\nDedim: Bu soğuk şehir nerde, İstanbul nerde?..\n\nBurda her şey: Şehirler ve insanlar nursuzdur;\nAlamanlar, âdeta besili bir domuzdur.\nSokaklar saatlerce uzanır bükülmeden\nAlamanlar dolaşır üzerinde gülmeden...\n\nGitmeye alışmışken ben herkesin dikine,\nEnayi gibi geldim Frenk memâlikine.\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\n\nBurda tebessümün de günü, saati vardır;\nDükkânlar hep bir çeşit, evler hep bir karardır...\nGerçi bizim evlerden temizse de sokaklar,\nSüslese de muhteşem meydanlarını taklar;\n\nNe yıkık surlar gibi bu şehrin bir süsü var\nNe de - ah sormayınız - ne de bir köprüsü var...\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\n\nGitmeye alışmışken ben herkesin dikine,\nEnayi gibi geldim Frenk memâlikine.\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...",
     "lt": "Homesickness - I Came Like A Fool\n\nToday again, as I looked Potsdam over from Potsdam,\nThe sorrow of loneliness burned inside me once more.\nMy eyes on the avenues stretching on without a curve,\nI said: Where is this cold city, and where is Istanbul?..\n\nHere everything, the cities and the people, is lifeless;\nThe Germans are practically as fat as plumped-up pigs.\nThe streets stretch on for hours without bending\nThe Germans walk along them without smiling...\n\nThough I was used to going against everyone,\nLike a fool I came to the lands of the Franks.\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\n\nHere even smiling has its day and its hour;\nThe shops are all alike, the houses all the same...\nThough the streets are cleaner than our houses,\nThough arches adorn its magnificent squares;\n\nThis city has no ornament like ruined city walls\nNor, ah, don't ask, nor does it have a bridge...\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\n\nThough I was used to going against everyone,\nLike a fool I came to the lands of the Franks.\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...",
+    "nt": "This rare Sabahattin Ali poem, found by a buddy of mine who goes by NCS and who recently moved to Germany, sat straight onto an old sketch of a tune. I only used some parts of it. The full poem, from 1928, is attached.",
     "img": [
-     "img/daussila-enayi-gibi-geldim-1.jpg"
+     "img/daussila-enayi-gibi-geldim-sabahattin-al-1.jpg"
     ],
-    "nt": "This rare Sabahattin Ali poem, found by a buddy of mine who goes by NCS and who recently moved to Germany, sat straight onto an old sketch of a tune. I only used some parts of it. The full poem, from 1928, is attached."
+    "lnk": "DEMO|34bdae53-8ebb-4d7d-b4be-41fa96536d8e;S1|d9a6a427-9140-470b-bad9-4a3016b0bab4;S2|99e6bbd5-b934-4783-a140-8f9a80c8b393;S3|e5c7b1c9-602c-4d12-a97e-ad6c1a034e06;S4|fad18e08-7575-431b-bdb2-b6f271aa4d48;S5|48d6c7de-45a4-4e31-9e41-b55c54254be1;S6|6ac7db8b-91ea-46a9-86bf-397d8b15be48;S7|fb819891-e1b0-4c2b-bd7c-a87774f885cb"
    },
    {
     "t": "Çok Üşümek (Turgut Uyar)",
@@ -1202,28 +1253,32 @@
     "n": "Uyar'ın belki en iyi şiiri - kopirayt alabilir miyim, bilmiyorum. YKY'den ve ailesinden izin almak ve telif ödemek gerek. Muhtemelen patlar, ama deneyeceğim.",
     "l": "Bir Kalır uzun resimlerde anısı sakallarımızın\nUrban içinde Üşüyüp Üşüyüp kaldığımızın\n\nBir Kalır yanık yağlar kokusu şehirlerde\nUzun nehirlere binip uzaklaşmadıkça\n\nBir Kalır yabancı yataklarda o oteller\nMeydanlar heykeller sizin olmadığınız o her yer\n\nO çok yalınç gerçekli gelip gitmeler\n\nBir Kalır uzun duvarlar ve onların dipleri\nBir Kalır Yılgın Adamların hep \"Evet\" dedikleri\n\nÇok üşürdük hep üşürdük üşümekti bütün yaşadığımız\nÜşürdü ellerimiz aşkımız sonsuz uzun sakallarımız\n\nTükenir dağınık diriliği kaşıntımızın bir gün\nBir Kalır uzun kitaplarda anısı çok Üşüdüğümüzün",
     "lt": "Feeling So Cold\n\nAll that Stays is the memory, in long pictures, of our beards\nAnd of our going on and on Feeling cold inside the Urban\n\nAll that Stays is the smell of burnt oils in the cities\nUnless we board the long rivers and get away\n\nAll that Stays is those hotels in strange beds\nSquares statues all those places you were not in\n\nThose comings and goings of such plain reality\n\nAll that Stays is the long walls and the foot of them\nAll that Stays is the Daunted Men always saying \"Yes\"\n\nWe felt so cold we always felt cold all our living was feeling cold\nOur hands felt cold our love our endlessly long beards\n\nOne day the scattered aliveness of our itch runs out\nAll that Stays is the memory, in long books, of our Feeling So Cold",
-    "nt": "Maybe Uyar’s best poem -- I do not know whether I can get the rights. It would mean permission from YKY (his publisher) and from the family, plus paying royalties. It will probably fall through, but I am going to try."
+    "nt": "Maybe Uyar’s best poem -- I do not know whether I can get the rights. It would mean permission from YKY (his publisher) and from the family, plus paying royalties. It will probably fall through, but I am going to try.",
+    "lnk": "DEMO|e569ca9c-f24c-4fbe-9f10-e8282be88914;S1|0d5ed205-a9c3-4c60-b1f6-aa4c150b93ff;S2|6bd6ba3c-9392-44a9-8879-9f409e1eea03;S3|7701c181-d2fd-467e-9c41-c93e3136a80c;S4|ce966c12-2036-4dfd-b157-f533d2c6557a;S5|522faad4-8428-485a-ba37-7afbfe7411a3;S6|8c3fc3f6-0243-4b85-b9fa-67a7c55f7b7a;S7|2e582b39-a1eb-4db6-b0fe-4c853bda99d9;S-extra|c624406b-94e7-46b5-94d3-873135225475"
    },
    {
     "t": "Gel Ardımdan",
     "y": "2023",
     "n": "",
     "l": "Gel ardımdan, işimiz varmış\nGel benimle diyorum, hadi\nGül benimle, düşümüz ölmüş\nHani dün gördüğümüz\n\nKüfretmeden üzülelim seninle, gün batarken\nAyrılmadan sarılalım son bir kere\nGece beklerken\n\nDönelim artık, geç oldu\nHava da kararıyor bir yandan\nBir yandan, yaşımız geçti\nTozlandı bildiklerimiz\n\nKüfretmeden üzülelim seninle, gün batarken\nAyrılmadan sarılalım son bir kere\nGece beklerken",
-    "lt": "Follow me\n\nFollow me, it seems we have things to do\nCome with me, I'm saying, come on\nLaugh with me, our dream has died\nThe one we saw yesterday, remember\n\nLet's grieve together without cursing, as the sun goes down\nBefore we part, let's hold each other one last time\nWhile night waits\n\nLet's go back now, it's gotten late\nAnd the sky is getting dark, for one thing\nFor another, we've grown old\nThe things we knew have gathered dust\n\nLet's grieve together without cursing, as the sun goes down\nBefore we part, let's hold each other one last time\nWhile night waits"
+    "lt": "Follow me\n\nFollow me, it seems we have things to do\nCome with me, I'm saying, come on\nLaugh with me, our dream has died\nThe one we saw yesterday, remember\n\nLet's grieve together without cursing, as the sun goes down\nBefore we part, let's hold each other one last time\nWhile night waits\n\nLet's go back now, it's gotten late\nAnd the sky is getting dark, for one thing\nFor another, we've grown old\nThe things we knew have gathered dust\n\nLet's grieve together without cursing, as the sun goes down\nBefore we part, let's hold each other one last time\nWhile night waits",
+    "lnk": "DEMO|d8c9736f-e2e0-43ea-99cb-34ef872726e6;S1|86ee310c-e46c-4c96-b802-27d201af296f;S2|2f03c1f7-483c-4ab5-9099-24b9a9dfc802;S3|8e6f0b9b-5b3b-461c-862e-1e07a4eb8f11;S4|89aad437-d312-42a9-8b48-cb9dc29ba5ae;S5|573bcde8-ec60-433e-9722-f64f7e221306;S6|3522f6fc-5cc4-4c1c-8205-e722ba2b46e2;S7|d17a1c20-ce5e-420a-8203-41b3fcc453d9;S-extra1|c21ae7e8-9a08-4022-8bf9-025ca40204c5;S-extra2|da42868d-1e73-41c3-9e86-cc054e0b02eb"
    },
    {
     "t": "Ölme Biçimleri (Gül Korkmaz)",
     "y": "2013",
     "n": "",
     "l": "bir karıncam vardı, öldü ya da kaybettim.\nontolojik sıkıntılarıma biraz kimyon ekledim.\nbaşım değil migrenim ağrıyor,\nadı hastalık olan organlarım var benim.\n\nşimdi gel beni bul, beni fırlat, beni bir daha yarat\nyeniden değil, baştan değil, hiç yoktan\n\nbir karıncam vardı, öldü ya da kaybettim\nçoktular çünki ve ben çokluğu sevmezdim\nölüm gazete manşeti, bana pek uğramıyor\nvızıltıları duyuyorum, üstümde sinekler uçuşuyor\n\nşimdi gel beni bul, beni fırlat, beni bir daha yarat\nAdem'in kaburgasından değil Aşil'in topuğundan\n\nbir karıncam vardı, öldü ya da kaybettim.\nben bu çağdan bir kere bile geçemedim.\nşeref, onur, haysiyet ve diğer abur cuburlar\nputları yıktığımdan değil, mitlere taptığımdan.\n\nşimdi gel beni bul, beni fırlat, beni bir daha yarat\ntopu sana attım neslim, beni kendimden fırlat\n\nşimdi gel beni bul, beni fırlat, beni bir daha yarat\ntopu sana attım neslim, beni kendimden fırlat",
-    "lt": "Ways of Dying\n\nI had an ant, it died or I lost it.\t\t\nI added a little cumin to my ontological troubles.\nIt's not my head but my migraine that aches,\nI have organs whose name is illness.\n\nNow come find me, fling me, create me once more\nnot anew, not from the start, but out of nothing at all\n\nI had an ant, it died or I lost it\nbecause there were many of them, and I never liked multitude\ndeath is a newspaper headline, it rarely comes my way\nI hear buzzing, flies are swarming above me\n\nNow come find me, fling me, create me once more\nnot from Adam's rib but from Achilles' heel\n\nI had an ant, it died or I lost it.\nI never once managed to get past this age.\nhonor, pride, dignity and other junk food\nnot because I tore down idols, but because I worshipped myths.\n\nNow come find me, fling me, create me once more\nI've passed the ball to you, my generation, fling me out of myself\n\nNow come find me, fling me, create me once more\nI've passed the ball to you, my generation, fling me out of myself"
+    "lt": "Ways of Dying\n\nI had an ant, it died or I lost it.\t\t\nI added a little cumin to my ontological troubles.\nIt's not my head but my migraine that aches,\nI have organs whose name is illness.\n\nNow come find me, fling me, create me once more\nnot anew, not from the start, but out of nothing at all\n\nI had an ant, it died or I lost it\nbecause there were many of them, and I never liked multitude\ndeath is a newspaper headline, it rarely comes my way\nI hear buzzing, flies are swarming above me\n\nNow come find me, fling me, create me once more\nnot from Adam's rib but from Achilles' heel\n\nI had an ant, it died or I lost it.\nI never once managed to get past this age.\nhonor, pride, dignity and other junk food\nnot because I tore down idols, but because I worshipped myths.\n\nNow come find me, fling me, create me once more\nI've passed the ball to you, my generation, fling me out of myself\n\nNow come find me, fling me, create me once more\nI've passed the ball to you, my generation, fling me out of myself",
+    "lnk": "DEMO|81c64efd-0c11-45b8-a368-8e0529579151;S1|1f2190e4-9be6-49b2-a2ad-7955398d842a;S2|394b81a2-6907-4f1b-af6f-8c8ac641c5f6;S3|c01ea812-f4c3-4a6b-9472-986dbc0c275e;S4|3ad07f53-aeed-4ad3-ac6a-325ccb3ad562;S5|887397be-c831-4d33-ae83-8b4fc248a016;S6|1edbcd39-7a9a-48ff-81d3-e5c350fb6e71;S7|e96d4906-634d-48ad-80be-26cabd57be87;S-extra|194ab8d4-7b63-4ba0-95cb-b39c166613ca"
    },
    {
     "t": "Zaaf (Mehmet Said Aydın)",
     "y": "2013",
     "n": "",
     "l": "uzun bir cümlenin başlangıcındaki kıvrımlı harfim ben\nkâğıdım bazen dağılan, dağılan, toplayacak biri bulsam\n— toplayacak biri bulsam\nkâğıdım diyelim karılmış şimdi - şimdi dağıt sen dağıtacaksan\nuzun bir hecenin iki harfiyim bir hecede ne kadar uzarsam\n— bir hecede ne kadar uzarsam\n\nbu seslerin hepsi — plastik kapılardan geliyor olamaz değil mi?\ndört dizede bir dize söylüyor olmak — söylüyor olmak şairlik midir?\nşair değilim, sadece bir kelimeyle, hiç, hırsızlıktan kurtulan\nParis, babam, uyuyan adam, kâğıt, deste, karılan karılan\n— kâğıt, deste, karılan karılan\n\nbenim adım said sus söyleme — sus söyleme billahi talan.\nbenim adım said sus söyleme — sus söyleme billahi talan.\n— sus söyleme billahi talan.\n— sus söyleme billahi talan.\n— sus söyleme billahi talan.",
-    "hold": 1
+    "hold": 1,
+    "lnk": "DEMO|52e5b023-8747-429b-aa85-bc05157e1455;S1|b1ef4ef5-c4e2-42d9-89dc-42ef31d88b5b;S2|d76db6da-c7e3-41b2-acfe-022b670e9f0e;S3|326b67a5-8734-4af2-a562-253dfd4c6611;S4|86829ed3-4a3d-4ca1-b5d2-debdf68c731d;S5|098e0183-6299-4749-bb45-8fe2728edada;S6|b0dc0fe5-8649-498e-8f95-706d7c92ef47;S7|c23e78dd-4b10-4622-89c9-2f5f797c30f4"
    },
    {
     "t": "Kimsin Sen (w/ T. Şen)",
@@ -1231,7 +1286,8 @@
     "n": "Çekilmemiş bir dizi için soundtrack olarak yazılmıştı - ana karakter hakkında.\nHaliyle yeni güfte lazım; dizinin bağlamı dışında sözlerin anlamı pek kalmıyor.",
     "l": "Toz pembe dünyanda bir hayal\n(bir hayalin içinde)\nNeylersin herkes eşit doğmuyor\n(halini düşündüğünde)\nNe kadar istesen de bunu\nBiliyorsun sen de maalesef\nYalan hiç gerçek gibi olmuyor\n\nKimsin, kimsin sen söyle\n(maskeni çıkarmasan da)\nNarin bir çiçek misin sahiden\n(öyle narin, ince, kırılgan)\nZehirli sarmaşık mı yoksa\n(azimle tırmanan yükseklere)\nKimsin, kimsin sen gerçekten\n\nArdına bakmadan\nKaç kendinden\n\nKimsin, kimsin sen söyle\n(maskeni çıkarmasan da)\nNarin bir çiçek misin sahiden\n(öyle narin, ince, kırılgan)\nZehirli sarmaşık mı yoksa\n(azimle tırmanan yükseklere)\nKimsin, kimsin sen gerçekten\n\nArdına bakmadan\nKaç kendinden",
     "lt": "A dream in your rose-tinted world\n(inside a dream)\nWhat can you do, not everyone is born equal\n(when you think about your situation)\nNo matter how much you want it\nYou know it too, unfortunately\nA lie never becomes like the truth\n\nWho are you, who are you, tell me\n(even if you don't take off your mask)\nAre you really a delicate flower\n(so delicate, slender, fragile)\nOr are you poison ivy\n(climbing with determination to the heights)\nWho are you, who are you really\n\nWithout looking back\nRun from yourself\n\nWho are you, who are you, tell me\n(even if you don't take off your mask)\nAre you really a delicate flower\n(so delicate, slender, fragile)\nOr are you poison ivy\n(climbing with determination to the heights)\nWho are you, who are you really\n\nWithout looking back\nRun from yourself",
-    "nt": "It was written as the soundtrack for a TV series that never got shot - it was about the protagonist.\nNeeds new words, obviously; without the context of the series the lyrics don't make much sense."
+    "nt": "It was written as the soundtrack for a TV series that never got shot - it was about the protagonist.\nNeeds new words, obviously; without the context of the series the lyrics don't make much sense.",
+    "lnk": "DEMO|6494f4ac-0f5b-467c-91e7-d8dfddddf715;S1|5e755370-5b0b-47b2-bc87-d55ad771636e;S2|b068d843-684e-4bf3-ac7c-85790153e9dc;S3|77fab736-1cdd-4812-bda0-9ad39ad475c1;S4|76e7d865-74bc-48f3-a2b7-8c3a83c335d2;S5|b8f69a9c-d40f-4621-bf64-f5fc5cf121a5;S6|8e947426-bb16-4edc-ab1c-846ec5ddf265;S7|d0287535-ca20-45e8-ba17-b57094964e3c"
    },
    {
     "t": "Ayran İçerdik (G. Eren)",
@@ -1239,7 +1295,8 @@
     "n": "",
     "l": "Tütün kokardı\nSoğuk eserdi\nGüneş batardı\n\nBaca tüterdi\nAkşam olurdu\nAkıl biterdi\n\nUyku sanmıştı\nDüşe dalmıştı\nSonu kötüydü\nGizli saklıydı\n\nBiz susardık\nAyran içerdik\nBiz hep susardık\nİç geçirirdik\n\nToprak ağlardı\nÇayır donardı\nAy yükselirdi\n\nDağlar uzaktı\nGözleri kemdi\nDünya yanardı\n\nUyku sanmıştı\nDüşe dalmıştı\nSonu kötüydü\nGizli saklıydı\n\nBiz susardık\nAyran içerdik\nBiz hep susardık\nİç geçirirdik\n\nBiz hep susardık\nİç geçirirdik",
     "nt": "[Ayran](https://en.wikipedia.org/wiki/Ayran)",
-    "hold": 1
+    "hold": 1,
+    "lnk": "DEMO|ad1cc40d-21a4-4e87-a467-bd3e5a0d177b;S1|8e3f620c-e9ee-49a3-91bc-c32af91f2da5;S2|41653329-6a3c-41f8-b26c-df57e629357a;S3|0008e06d-14fb-436d-be64-d93bfe4d91d3;S4|8c454ef0-d5c1-40a6-93be-9f9ae34b7a5e;S5|eff00bf6-a42d-4e00-bd14-712414d98656;S6|05ab813e-3785-4a55-bec6-fa7e95003cb1;S7|41f6df16-4069-4d3d-a98c-1fdf1c024bf5"
    },
    {
     "t": "Kuzeye Doğru (Esma Kayar)",
@@ -1248,7 +1305,8 @@
     "l": "Son adımını izliycem, tepeye çıkan\nRüzgara iki yumruk çakan bakışımı gizliycem\nBekliyor seni büyücü kadın, küresine bakıyor\nÇok yorgunum, hassiktir, gözümden uyku akıyor\nUyku akıyor\nUyku akıyor\n\nİki kıl çektim sakalından, bunak dünyanın, pis\nArdında ses bile geçmeyen, kalın berbat bir sis\nGüven mezkur büyücüye, yaldızlı sözlerine pus\nUykun varsa al yatak, git yat zıbar ve sus\nYat zıbar ve sus\nYat zıbar ve sus",
     "lt": "Northward\n\nI'll watch your last step, the one climbing to the summit\nI'll hide my gaze that throws two punches at the wind\nThe sorceress is awaiting you, looking into her crystal ball\nI'm so tired, fuck it, sleep is flowing from my eyes\nSleep is flowing\nSleep is flowing\n\nI plucked two hairs from the beard of the senile world, filthy\nBehind it a thick, awful fog that not even sound gets through\nTrust the aforementioned sorceress, cower before her gilded words\nIf you're sleepy, take a bed, go lie down, crash out and shut up\nCrash out and shut up\nCrash out and shut up",
     "nt": "The music was done around 2002. The words arrived in 2013.",
-    "hold": 1
+    "hold": 1,
+    "lnk": "DEMO|5104f5ff-34c4-4adb-8ad2-51193b729f7e;S1|75ff9c1a-e132-4dec-9c9a-f7c0dd3d0bfe;S2|5c22bb0b-1c31-4c4b-82f3-97bf924db1cd;S3|560103ba-9de6-4b14-a5a9-88545a7ecca1;S4|beaea858-2bf4-40c2-9d5f-5d7a3b202ee4;S5|150d3211-b262-4110-b655-c59d90dc69ff;S6|b72c44e1-b6b1-4716-acbd-2d90886cd583;S7|bcb163f1-a9fd-4463-9176-d7cd240dea8c"
    },
    {
     "t": "Sarıasma (Anna Akhmatova)",
@@ -1256,7 +1314,8 @@
     "n": "Emprovize ninni olarak kaydedildiği için çok düzenli bir yapısı yok.\nŞiir isimsiz,  antolojilerde ilk dizesiyle isimlendiriliyor.\nSarıasma bir kuşmuş, bitki değil! Yahu asma nasıl güneyden geliyor hahah falan derken, cevap bir gugıl uzaktaymış.\n\nŞiir 1917 baharından, Anna Akhmatova'nın erken döneminden. Devrim öncesi, mayıslara denk kentte kalmanın ayıplandığı zamanlar...",
     "l": "Peki artık hoşçakal başkent\nHoşça kal ilkyaz\nŞimdi artık ben\nKarelya'ya hasretim\n\nKırlar, bahçeler\nSakin ve yeşiller\nSular hala derin\nGökyüzü solgun\n\nBataklık perisi\nKraliçesi buraların\nBakıyor hüzünle iç çekerek\nÇan kulesindeki haça\n\nDün güneyden dönen\nMasum yıllarımın dostu\nSarıasma\nDalların arasından sesleniyor\nSesleniyor bana\n\nNe ayıp kentte kalmak\nMayıslara dek\nSoluksuz kalmak tiyatrolarda\nAdalarda sıkılıp durmak\n\nAma sarıasma nerden bilsin\nBataklık perisi nasıl anlasın\nAdamımı öpmenin\nNe hoş olduğunu\n\nAma yine de bugün\nDönerken gün akşama\nGidiyorum ey kutsal toprak\nBas beni bağrına",
     "lt": "The Oriole\n\nNow farewell, capital,\nFarewell, my spring.\nKarelia's earth,\nAlready, yearns for me.\n\nFields and gardens,\nTranquil and green,\nThe waters there still deep,\nThe heavens pale.\n\nThe marsh water-nymph,\nMistress of those spaces\nGazes, sadly sighing,\nAt the bell-tower's cross.\n\nAnd the oriole, my friend\nOf innocent days,\nFlew north yesterday,\nAnd cries, among the branches,\n\nThat it's shameful to stay\nTill May in the city,\nStifle in the theatres,\nBe bored on the islands.\n\nThough the oriole can't know,\nThe nymph can't understand,\nHow sweet it is for me,\nKissing him!\n\nAnd yet, this evening,\nIn the day's quiet decline,\nI shall leave. God's country,\nTake me in!",
-    "nt": "Recorded as an improvised lullaby, so it hasn't got much of a regular structure.\nThe poem is untitled; anthologies name it by its first line, 'Now farewell, capital,'\n\nThe poem is from the spring of 1917, Akhmatova's early period. Pre-revolution, back when staying in the city into May was something to be ashamed of...\n\nTranslation from https://monoskop.org/images/e/e7/Akhmatova_Anna_Selected_Poems_2012.pdf, by A. S. Kline"
+    "nt": "Recorded as an improvised lullaby, so it hasn't got much of a regular structure.\nThe poem is untitled; anthologies name it by its first line, 'Now farewell, capital,'\n\nThe poem is from the spring of 1917, Akhmatova's early period. Pre-revolution, back when staying in the city into May was something to be ashamed of...\n\nTranslation from https://monoskop.org/images/e/e7/Akhmatova_Anna_Selected_Poems_2012.pdf, by A. S. Kline",
+    "lnk": "DEMO|e2fa8a50-917a-471e-8ba2-7deefd288c29;S1|7e87b58c-69b5-44a8-bfe9-038d9ccb9b26;S2|adf2f51e-04f6-45b3-b6fa-79cf750b5b74;S3|e4dc2bef-cfcc-49fa-8edf-eada2cdf034d;S4|795ceaea-63d1-4af6-b4b2-85cf443c58e8;S5|24b8d922-8c3b-46a0-b379-019e2983b85a;S6|704dd7f3-4329-4c3f-9cc0-ad65264950b5;S7|e40473e1-9d2c-468b-8b84-b6268b8cbe5f"
    },
    {
     "t": "Mayıs (Sabahattin Ali)",
@@ -1264,7 +1323,8 @@
     "n": "Emprovize ninni olarak kaydedildiği için çok düzenli bir yapısı yok.\nŞiir 1932'den",
     "l": "Mayıs ayların gülüdür\nTaze bir çiçek dalıdır hey\nİçerim ateş doludur\nMayısta gönlüm delidir\n\nYeşil dağlara göçülür\nKızıl şaraplar içilir hey\nYarim dökülüp saçılır\nMayısta gönlüm delidir\n\nGöklere karşı yatılır\nDertlerimiz unutulur hey\nEski sevgiler atılır\nMayısta gönlüm delidir\n\nUzakta kuşlar seslenir\nGönlüm genişler beslenir\nYaşamaya heveslenir\nMayısta gönlüm delidir\n\nYumuşak rüzgarlar eser\nÇimenlerde yarim gezer hey\nYanılır bana gülümser\nMayısta gönlüm delidir",
     "lt": "May is the rose of the months\nIt is a fresh flowering branch, hey\nMy insides are full of fire\nIn May my heart is crazy\n\nWe migrate to the green mountains\nRed wines are drunk, hey\nMy beloved spills over and lets loose\nIn May my heart is crazy\n\nWe lie down facing the skies\nOur troubles are forgotten, hey\nOld loves are cast aside\nIn May my heart is crazy\n\nIn the distance birds call out\nMy heart expands and is nourished\nIt grows eager to live\nIn May my heart is crazy\n\nGentle winds blow\nMy beloved wanders on the grass, hey\nBy mistake she smiles at me\nIn May my heart is crazy",
-    "nt": "Recorded as an improvised lullaby, so it hasn't got much of a regular structure.\nWritten in 1932."
+    "nt": "Recorded as an improvised lullaby, so it hasn't got much of a regular structure.\nWritten in 1932.",
+    "lnk": "DEMO|338b7ba2-46ba-4de0-acd7-988a0c37ba60;S1|f1a530d7-594e-4997-bdf6-a081d62e3d9b;S2|a17df0ba-ecb1-43c3-9a99-7b1fa857195b;S3|71dcf039-2a9e-4469-b0f2-b67126a2eaec;S4|4a2a89b2-0314-4657-8dd1-10f46bdc5af0;S5|2b2e0259-b6a7-4d1b-bcb4-f6220ebc01c2;S6|257065d2-43e4-4f28-920b-266727bb34cb;S7|862e376a-a245-4832-8416-d162f985100c;S-extra|2fa4edbf-c25e-4f79-a979-686c07cb238f"
    },
    {
     "t": "Teselli",
@@ -1272,22 +1332,25 @@
     "n": "la seule petite consolation au grand malheur d'etre né c'est quand meme l'amitié - E. Ionesco",
     "l": "Hayat kısa\nBana zaten dinler degman\nO kısmında şüphem yok\nSeninle bir daha\nSarılamıycaz\nOnu kavrayamadım henüz çok\n\nVardın şimdi yoksun\nTek kaidesi varoluşun\nBundan ibaret\nElimizde kalan yalnızca anıların\nbiz de kaybolana dek\n\nBir büyük plan yok\nEvren amaçsız\nO mevzuları biliyorum\nSana bir daha\nOğlum nağber lan diyemiycem\nOnun idrakine varamıyorum\n\nVardın şimdi yoksun\nTek kaidesi varoluşun\nBundan ibaret\nElimizde kalan yalnızca anıların\nBiz de kaybolana dek\n\nDoğmuş olmanın\no garip mefhumun\nTek tesellisi\nbelki de\ndostluk yine de\nDoğmuş olmanın\no garip mefhumun\nTek tesellisi\nbelki de\ndostluk yine de",
     "lt": "Life is short\nReligions don't get to me anyway\nI have no doubt about that part\nWith you never again\nWill we hug\nThat I still haven't really grasped\n\nYou were here, now you're gone\nThe only rule of existence\ncomes down to this\nAll we have left are memories of you\nuntil we too disappear\n\nThere is no grand plan\nThe universe is purposeless\nI know all that stuff\nTo you, never again\nWill I be able to say \"hey man, what's up\"\nThat I can't come to comprehend\n\nYou were here, now you're gone\nThe only rule of existence\nIs just this\nAll we have left is your memories\nUntil we too disappear\n\nOf having been born\nthat strange notion\nThe only consolation\nperhaps\nis friendship, still\nOf having been born\nthat strange notion\nThe only consolation\nperhaps\nis friendship, still",
-    "nt": "la seule petite consolation au grand malheur d'etre né c'est quand meme l'amitié - E. Ionesco"
+    "nt": "la seule petite consolation au grand malheur d'etre né c'est quand meme l'amitié - E. Ionesco",
+    "lnk": "DEMO|ffda3452-25b3-4175-bf62-d6f0b57e1221;S1|b0e2b027-967c-48e5-8260-f1da1db141bc;S2|77597f30-5972-4501-8665-19d2426f4805;S3|66de25a0-0673-4729-bd22-bd5cd767e5ee;S4|a7352bb7-e811-4c3f-800a-0f83451417c8;S5|a4096464-2d7d-4fd6-9abb-bbfd25727db3;S6|325732c8-4c69-483a-8bed-f1030fb654fb;S7|c9b861d5-140b-430f-8a40-cfec350e0cd9"
    },
    {
     "t": "Voltamı Almam Gerek (w/ D. Taşel)",
     "y": "2006",
     "n": "",
     "l": "İstediğin kadar konuş\nDinleyesim yok\nNaza çektiğimden değil\n\nİşim var, gitmem lazım - acilen\nKonuşsan da bir\nSussan da bir...\n\nVoltamı almam gerek\nİçimde öyle bir his var\nBudur elimden gelen,\nArtık olduğu kadar.\n\nHava da kuru mu kuru\nHiç çıkasım yok\nGötün denkliğinden değil\n\nBiraz uyumam lazım - acilen\nDüş görsem de bir,\nGörmesem de bir...\n\nVoltamı almam gerek\nİçimde öyle bir his var\nBudur elimden gelen,\nArtık olduğu kadar.",
-    "lt": "Talk as much as you want\nI don't feel like listening\nIt's not that I'm playing hard to get\n\nI have things to do, I need to go - urgently\nWhether you talk, it's all the same\nOr keep quiet, it's all the same...\n\nI need to take my leave\nThere's such a feeling inside me\nThis is all I can do,\nIt'll be what it'll be now.\n\nAnd the weather is so very dry\nI don't feel like going out at all\nIt's not that my ass is too comfortable\n\nI need to sleep a little - urgently\nWhether I dream, it's all the same,\nOr don't dream, it's all the same...\n\nI need to take my leave\nThere's such a feeling inside me\nThis is all I can do,\nIt'll be what it'll be now."
+    "lt": "Talk as much as you want\nI don't feel like listening\nIt's not that I'm playing hard to get\n\nI have things to do, I need to go - urgently\nWhether you talk, it's all the same\nOr keep quiet, it's all the same...\n\nI need to take my leave\nThere's such a feeling inside me\nThis is all I can do,\nIt'll be what it'll be now.\n\nAnd the weather is so very dry\nI don't feel like going out at all\nIt's not that my ass is too comfortable\n\nI need to sleep a little - urgently\nWhether I dream, it's all the same,\nOr don't dream, it's all the same...\n\nI need to take my leave\nThere's such a feeling inside me\nThis is all I can do,\nIt'll be what it'll be now.",
+    "lnk": "DEMO|555b0fdf-247f-42dc-95f7-d2ed25787e60;S1|65c06471-fc29-4279-a9de-eb2501580088;S2|46c09b8f-c3b4-4721-a62a-e764e82dca0d;S3|4036e107-caed-4c3d-966d-5737f5ee5a75;S4|d128ded8-7958-4067-811e-29b1df37302c;S5|7c230381-335a-4ba6-8592-56cb95be2d2e;S6|f1a0ce28-bee8-4d96-8174-ccecf41a511e;S7|4109b8a2-0690-4626-a6ef-f99d087caaeb"
    },
    {
     "t": "Sal (w/ M. Yakut)",
     "y": "2026",
     "n": "Orijinali 7 dakika içinde bir Turgut Uyar şiiri için (Çokluk Senindir) bestelenmişti -- ama ilk iki mısradan sonra şiirin gerisi melodiye oturmadı. Bir B bölümü eklemek lazım.",
     "l": "Elimdeki bilgiye göre\nTek hayat var yaşayacağımız\nOnda da sana denk geldik, olacak iş mi?\nHassiktir lan, nasıl yapacağız?\n\nLan olm senden kurtuluş yok mu\nManyak olduk, komple sıyırdık\nBir canımız var, o da böyle harcandı\nSinirden basur çıkardık\n\nArtık sal bizi, sikerler\nKendimizi sikicez gayri sinirden\nSal artık, bırak lan\nEller titriyor, yüzde sivilceler\nLan olm, sal, sal artık\nSal bizi artık, valla sikerler",
-    "lt": "According to the information I have\nThere's only one life we'll get to live\nAnd in that one we ran into you, how is that even possible?\nHoly fuck, man, how are we going to manage this?\n\nDude, man, is there no escaping you\nWe've gone crazy, completely lost it\nWe have one life, and it got wasted like this\nWe got hemorrhoids from the stress\n\nLet us go now, fuck this\nWe're going to fuck ourselves up from rage now\nLet go already, drop it, man\nHands are shaking, pimples on our faces\nDude, man, let go, let go already\nLet us go already, fuck this",
-    "nt": "The original was composed in seven minutes for a Turgut Uyar poem (Multitude is Yours) -- but after the first two lines, the rest of the poem wouldn't sit on the melody. Needs a B section."
+    "lt": "Let Go\n\nAccording to the information I have\nThere's only one life we'll get to live\nAnd in that one we ran into you, how is that even possible?\nHoly fuck, man, how are we going to manage this?\n\nDude, man, is there no escaping you\nWe've gone crazy, completely lost it\nWe have one life, and it got wasted like this\nWe got hemorrhoids from the stress\n\nLet us go now, fuck this\nWe're going to fuck ourselves up from rage now\nLet go already, drop it, man\nHands are shaking, pimples on our faces\nDude, man, let go, let go already\nLet us go already, fuck this",
+    "nt": "The original was composed in seven minutes for a Turgut Uyar poem (Multitude is Yours) -- but after the first two lines, the rest of the poem wouldn't sit on the melody. Needs a B section.",
+    "lnk": "DEMO|3a08e8db-e8d0-4069-97e9-cbee34c0700d;S1|9af04228-6bd7-4d3a-bfac-e1f390096a95;S2|178f677f-f5da-41c0-91a6-c4e71b11c059;S3|9ca3db23-211a-4e6f-910b-fc6152eb107f;S4|71b03ea8-0daf-41e8-912a-f0666ec6cc50;S5|4d295fb7-c024-4436-a149-ea8ca2d76dd7;S6|3a718aa2-1261-4e78-ac2d-5f0cf3e9b0a8;S7|8563cbab-c760-48df-9afc-df7f38def488"
    },
    {
     "t": "Yelek",
@@ -1295,7 +1358,8 @@
     "n": "Bir dakikalık bir telefon kaydından uzadı. Orijinalinde nedense yaralı kedi gibi söylemişim, halbuki ne gerek var.",
     "l": "insan dediğin uzayda yaşar\nevler yapar, kumpas kurar\n\ninsan dediğin bön bön bakar\nkıtır atar, dövme yapar\n\ninsan dediğin üşür bazen\nyelek giyer üşenmeden\n\ninsan dediğin ölür sıksık\nkimi zaman kavga döğüş\nkimi zaman etmeden siksik",
     "lt": "what you call a human lives in space\nbuilds houses, hatches schemes\n\nwhat you call a human stares blankly\ntells fibs, inks tattoos\n\nwhat you call a human gets cold sometimes\nbothers to put on a vest\n\nwhat you call a human dies often\nsometimes fighting it\nsometimes without giving a fuck",
-    "nt": "It grew out of a one-minute phone recording. On the original, I sang it like a wounded cat for no reason."
+    "nt": "It grew out of a one-minute phone recording. On the original, I sang it like a wounded cat for no reason.",
+    "lnk": "DEMO|fe49e067-c1c1-4d20-bc47-ac2884119ddd;S1|f5fae684-8153-4b1e-951e-1516ff8d8eea;S2|db71e095-24a3-4f6f-acec-104467734500;S3|443f357a-5f4e-4ad8-bc0e-1898f2887aea;S4|6c2746e7-2b65-45c2-b13f-6b789e15133c;S5|4a385d8a-9144-47ec-9179-e2fe40b7ec75;S6|d58c56ea-5234-4a6f-9542-9f30ed893525;S7|2f337689-2b2d-468d-ba4b-69d3ccfae702"
    },
    {
     "t": "Zaman (Aylin)",
@@ -1303,23 +1367,27 @@
     "n": "",
     "l": "Zaman\nBiraz erken\n\nZaman\nKalkıp giden\n\nZaman\nHenüz erken\n\nZaman\nZaman biraz\n\nDöndü köşeyi\nElinde saatiyle\nGölgesi geri durdu bir adım\n\nGüneş çok haylaz\nGeçti öne\nAdımlar pek mesafeli\n\nAdım adım adım adım\nAdım neydi bilirim geceleri\nSeslensen duymam gündüz vakti\n\nAdımı bilen zaman serseri\nSerseri döndü köşeyi\nElinde saati\n\nBiraz zaman\nHenüz erken\n\nBiraz zaman\nKalkıp giden\n\nZaman\nAlıp Giden\n\nBiraz zaman\n\nZaman\nAlıp giden\n\nZaman\nBiraz zaman",
     "lt": "Time\nA bit early\n\nTime\nGetting up and going\n\nTime\nStill too early\n\nTime\nTime, a little\n\nHe turned the corner\nhis watch in his hand\nhis shadow hung back a step\n\nThe sun is a proper rascal\nit slipped out in front\nthe steps are keeping their distance\n\nStep by step by step by step\nAt night I know what my name was\nCall out and I won't hear you in daylight\n\nTime the drifter, who knows my name\nThe drifter turned the corner\nhis watch in his hand\n\nA little time\nStill too early\n\nA little time\nGetting up and going\n\nTime\nTaking things and going\n\nA little time\n\nTime\nTaking things and going\n\nTime\nA little time",
-    "hold": 1
+    "hold": 1,
+    "lnk": "DEMO|6bf39f63-df12-47bb-bb36-3469a9d7db21;S1|3c4067b6-d66c-49a6-988c-16c4c2dac344;S2|18ce3f97-5e68-46c8-ad34-62000f65e17e;S3|6f5e792b-eb92-4956-93a3-20d864a2a680;S4|3dc07c3c-849c-45e2-b07e-34045e5c9827;S5|7e8b79af-2684-452f-b97e-8ea964242c80;S6|0ca15936-f657-4b08-b7de-f8e209f45a83;S7|9ee20d95-9e2b-47d9-9a71-e967e05e88d8"
    }
   ],
   "ENG": [
    {
     "t": "Birthday Song For a Friend",
     "y": "2014",
-    "n": "",
+    "n": "Not for a particular friend...",
     "l": "Congratulations on the anniversary of your\nparticipation in the ranks of the living\nIt's overrated, undoubtedly, but maybe\nHaving been born is not that bad a thing\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise\n\nYou're alive, unlike all the tables and the musketeers of the world\nYou're alive, that's the natural result of your successful birth\nYou're alive, in a way just out of sheer luck, one could say\nYou're you now, and you could easily have been someone else or merely dirt\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise\n\nIt's great that you managed to get out of that womb, unwillingly\nIt's nice though, truly, it is my opinion that you aced that shit\nYou did well! Now you walk about, no Roman general can do that\nYou did good! Born once, nothing you can do now to undo it\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise",
-    "lt": "Yaşayanların saflarına katılışının\nyıldönümü kutlu olsun\nAbartılıyor, şüphesiz, ama belki de\nDoğmuş olmak o kadar da kötü bir şey değil\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun\n\nYaşıyorsun, dünyadaki bütün masaların ve silahşörlerin aksine\nYaşıyorsun, bu başarılı doğumunun doğal sonucu\nYaşıyorsun, bir bakıma sırf şans eseri, denebilir\nŞimdi sen sensin, oysa kolayca başka biri ya da sadece toprak olabilirdin\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun\n\nİstemeden de olsa, çıkmayı başardın ana karnından, harika\nGüzel oldu bayağı, gerçekten, bence o mevzuu süper hallettin\nİyi iş çıkardın! Artık ortalıkta dolaşıyorsun, hiçbir Romalı general bunu yapamaz\nAferin sana! Bir kez doğdun, artık geri dönüşü de yok.\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun"
+    "lt": "Yaşayanların saflarına katılışının\nyıldönümü kutlu olsun\nAbartılıyor, şüphesiz, ama belki de\nDoğmuş olmak o kadar da kötü bir şey değil\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun\n\nYaşıyorsun, dünyadaki bütün masaların ve silahşörlerin aksine\nYaşıyorsun, bu başarılı doğumunun doğal sonucu\nYaşıyorsun, bir bakıma sırf şans eseri, denebilir\nŞimdi sen sensin, oysa kolayca başka biri ya da sadece toprak olabilirdin\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun\n\nİstemeden de olsa, çıkmayı başardın ana karnından, harika\nGüzel oldu bayağı, gerçekten, bence o mevzuu süper hallettin\nİyi iş çıkardın! Artık ortalıkta dolaşıyorsun, hiçbir Romalı general bunu yapamaz\nAferin sana! Bir kez doğdun, artık geri dönüşü de yok.\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun",
+    "lnk": "DEMO|c7f58513-007e-4241-b51a-2ee2c2f13967;S1|28fe0d69-7e47-45df-949c-a28f9b8b8f20;S2|3cbd12ce-b055-4e5d-919d-0bcba9a35b04;S3|d43f4a9e-0c4c-4158-8cea-661464c6b94e;S4|cf28efac-86fe-4361-9f5a-d11f511c9cd7;S5|e1371217-9c68-4d20-bfa8-19f67fbd9e54;S6|1a3bbc81-3cc9-4cf4-bab3-7bc41ae6fc63;S7|185d7e7f-4bcb-4ad1-a864-fed3b89ba44f;S-extra|2869afc8-f118-40c9-a499-ef651232893f",
+    "nt": "Belirli bir arkadaş için değil..."
    },
    {
     "t": "Do Not Love Too Long (William Butler Yeats)",
     "y": "2015",
     "n": "",
     "l": "SWEETHEART, do not love too long:\nI loved long and long,\nAnd grew to be out of fashion\nLike an old song.\n\nAll through the years of our youth\nNeither could have known\nTheir own thought from the other's,\nWe were so much at one.\n\nBut O, in a minute she changed —\nO do not love too long,\nOr you will grow out of fashion\nLike an old song.",
-    "lt": "SEVGİLİM, çok uzun sevme:\nBen uzun, çok uzun sevdim,\nVe modası geçmiş biri oldum\nEski bir şarkı gibi.\n\nGençliğimizin bütün yılları boyunca\nİkimiz de ayırt edemezdik\nKendi düşüncemizi ötekininkinden,\nÖylesine bir olmuştuk.\n\nAma ah, bir dakikada değişti o:\nAh, çok uzun sevme,\nYoksa modası geçmiş biri olursun\nEski bir şarkı gibi."
+    "lt": "SEVGİLİM, çok uzun sevme:\nBen uzun, çok uzun sevdim,\nVe modası geçmiş biri oldum\nEski bir şarkı gibi.\n\nGençliğimizin bütün yılları boyunca\nİkimiz de ayırt edemezdik\nKendi düşüncemizi ötekininkinden,\nÖylesine bir olmuştuk.\n\nAma ah, bir dakikada değişti o:\nAh, çok uzun sevme,\nYoksa modası geçmiş biri olursun\nEski bir şarkı gibi.",
+    "lnk": "DEMO|46d33700-6eff-418d-847f-9fba5c8b30f2;S1|2b80b33b-9638-4ff0-ba80-2737783e9d46;S2|3d5c1c03-db70-4a3c-a252-c0547684a0ef;S3|8e60b20b-f5ee-403c-9475-3945e1424e23;S4|db027687-9cdb-4c76-8bcd-85dc67bcb0af;S5|7d6276d9-bf3b-4d04-9b89-edc08fd6323a;S6|75fd55c3-05ba-404d-a460-4a82f08a241b;S7|20266e1b-b746-4f0b-9848-6e14b547bbcd;S-extra|4c79b289-7638-4997-8f3f-bd74b3f43717"
    },
    {
     "t": "Fuck The Police",
@@ -1327,7 +1395,8 @@
     "n": "Probably the only recording on this list that had any real time spent on it (an afternoon + an entire night). The mix is still meh, though.",
     "l": "There is no deeper meaning to things\nBelieve me, I hate to say it bluntly like this\nBy things I mean you and me\nAnd all the other stuff that happens to be\n\nWhat are we supposed to do then?\nIf our existence is just happenstance\nWhere is our dummy's guide to life?\nA fundamental principle to be guided by...\n\nI know several, but the main rule is this:\n(anywhere, anytime)\nFuck. The. Police.\n\nMaybe you lost faith in a higher truth\nMaybe your politics are confused\nAre you too cynical to believe in something?\nI feel you, these are the times, but that's no excuse\n\nThere is a maxim to help you out\nA universal truth known by the stars\nFuck the Police, you heard it before\nTho the whole sentence has a lil' bit more\n\nFuck the Police, yeah- ah let's yell!\nAnd fuck those whose bidding they do, as well\n\nDo you feel lost sometimes, dear?\nDo you feel disconnected from the world?\nAre you depressed with no goals in life?\nAre you angry because bullshit is rife?\n\nRemember the rule that unites the humankind\nThe one creed believed in every land\nIf you're suspicious, ask any immigrant,\nA Roma, a Kurd, a Black American\n\nFuck the Police, yeah- ah\nDoo doo doo doo doo doo dooo\nAnd fuck those whose bidding they do, too...\n\nFuck the Police, yeah - ah\nlet's yell!\nAnd fuck those whose bidding they do, as well",
     "lt": "Şeylerin daha derin bir anlamı yok\nİnan bana, bunu böyle açık etmek de istemezdim\nŞeyler derken seni ve beni kastediyorum\nVe tesadüfen var olan diğer her şeyi\n\nPeki o zaman ne yapmamız gerekiyor?\nEğer varoluş sadece bir tesadüfse\nAptallar için hayat rehberimiz nerede?\nBize yol gösterecek temel bir ilke...\n\nBirkaç tane biliyorum ama ana ilke şu:\n(her yerde, her zaman)\nPolisi Sikeyim.\n\nBelki daha yüce bir hakikate olan inancını yitirdin\nBelki siyasi mevzularda kafan karışık\nBir şeye inanamayacak kadar kuşkucu musun?\nAnlıyorum seni, devir böyle, ama bu bir mazeret değil\n\nSana yardım edecek bir özdeyiş var\nYıldızların bildiği evrensel bir hakikat\nPolisi sikeyim, bunu daha önce duydun\nGerçi cümlenin tamamı biraz daha uzun\n\nPolisi sikeyim, haydi bağır!\nVe emirlerini yerine getirdikleri kişileri de sikeyim\n\nBazen kendini kaybolmuş hissediyor musun, canım?\nDünyadan kopmuş hissediyor musun?\nHayatta hiçbir hedefin olmadan depresyonda mısın?\nHer yer saçmalıkla dolu diye öfkeli misin?\n\nİnsanlığı birleştiren kuralı hatırla\nHer diyarda inanılan o tek inancı\nŞüphen varsa, herhangi bir göçmene sor,\nBir Romana, bir Kürde, bir Amerikalı bi Siyaha.\n\nPolisi sikeyim\nVe emirlerini yerine getirdikleri kişileri de...\n\nPolisi sikeyim, haydi bağır\nVe emirlerini yerine getirdikleri kişileri de.",
-    "nt": "Bu listedeki üzerine zaman harcanmış tek kayıt (bir öğleden sonra + bir gecenin tamamı) muhtemelen. Yine de miksi filan prff.."
+    "nt": "Bu listedeki üzerine zaman harcanmış tek kayıt (bir öğleden sonra + bir gecenin tamamı) muhtemelen. Yine de miksi filan prff..",
+    "lnk": "DEMO|36b737cb-3d2c-427c-bcb1-83dc94f74ec7;S1|52929959-fa05-42b7-99fc-dd9205c915de;S2|be1ff8f0-78b2-4fdc-afb9-f3a46e68fc7f;S3|8216c4be-e3e1-4665-8985-e99312bd3fb1;S4|5df1b48c-fdf9-410d-8567-d4c85a1f0b73;S5|3d5606ff-239f-46b5-b4dd-efbfc77bfbaa;S6|c5e834a3-d222-4b8f-a7b6-fbba356cf4cc;S7|7b1b29b1-4ae9-4ff9-a47b-0249efb6f13b;S-extra|a843f901-7535-4d56-aee9-dc4e6f739393"
    },
    {
     "t": "Surrounded by Fog (w/ C. Campbell)",
@@ -1335,7 +1404,8 @@
     "n": "A fake Tom Waits song with pseudo-grumpy lyrics was the idea, as far as I can remember...",
     "l": "Sometimes when it's too cold to walk outside\nI wander in between the tombstones at night\nEverybody knows that they're not on my side\nAnd they know that they're right\n\nThe street lamps are surrounded by fog\nSo am I\nEverybody says I'm wrong\nSo do I\n\nThe street lamps are surrounded by fog\nSo am I\nEverybody says I'm wrong\nSo do I",
     "lt": "Bazen dışarıda yürümek için hava fazla soğuk olduğunda\nGeceleri mezar taşlarının arasında dolaşırım\nHerkes biliyor ki yanımda değiller -- Ve haklılar da...\n\nSokak lambalarının etrafı sisle çevrili\nBenim de öyle\nHerkes yanıldığımı söylüyor\nBen de öyle söylüyorum\n\nSokak lambalarının etrafı sisle çevrili\nBenim de öyle\nHerkes yanıldığımı söylüyor\nBen de öyle söylüyorum",
-    "nt": "Hatırladığım kadarıyla fikir, kolpadan huysuz sözleri olan bir Tom Waits şarkısı yapmaktı..."
+    "nt": "Hatırladığım kadarıyla fikir, kolpadan huysuz sözleri olan bir Tom Waits şarkısı yapmaktı...",
+    "lnk": "DEMO|3762c8dc-4a14-4e73-bf3a-f7d48745a523;S1|cb94fbfb-8082-49ef-b43d-be149ae38ff6;S2|76ecf3ea-ae82-4ab6-bf5e-cb85d21bf1e5;S3|441f32e7-347a-44fe-a073-36771ddd2225;S4|8e1a4196-6db4-4848-93e4-ed906ec8c2d2;S5|49fc8e25-d867-4468-9fd0-442dc4ae3443;S6|aecdeb3a-4968-4a38-9407-824bbebbe438;S7|1a3803d5-e516-455e-ac84-ac0d0449a5a9"
    },
    {
     "t": "Neither Your Ways (Gün Geçmiş)",
@@ -1344,7 +1414,8 @@
     "l": "You have a fine-tuned taste\nAnd a street with stairs\nYou're not straight, neither your ways\nYou're not straight, neither your ways\n\nYour door swings\nYour door swings upstairs\nAnd it's just right enough\nEven when you act rough\nAnd it's just right enough\nEven when you act rough\n\nThat red outgrows the room\nBut it still fits somehow\nYou're not straight\nNeither your house\nYou're not straight\nNeither your house\n\nTwo stairs up from Cave Alley\nThe windy house on Soul Street\nDoor number six, year six\nGonna walk, need to count the stairs\n\nYou're not straight, neither your ways\nYou're not straight, neither your ways",
     "lt": "Beğenin ince ayar, sokağın merdivenli;\nne sen düzsün ne yolların.\nYolların merdivenli, hoyratlığın bile milimi milimine;\no oda dar o kırmızıya ama oldu.\nNe sen düzsün ne de yolların.\n  \nMağara sokağından iki merdiven çık,\nRüzgarlı  sokakta can apartmanı.\ndaire 5 sene 5.\nYürümek güzel, saymıyorum basamakları.",
     "nt": "Bu şiirin Türkçesi de vardı, çeviriye onu koydum -- İngilizcesinin aynısı değil tabii...",
-    "hold": 1
+    "hold": 1,
+    "lnk": "DEMO|81b3e71c-7cc9-43e5-80a5-d18980e8c019;S1|b12cbdbd-fcf9-407d-b190-f86a30e512bf;S2|f7d7450d-6d78-49f6-a1c4-07adf48bf422;S3|307134ef-3371-4be6-8f70-59e43ae80739;S4|d70aa2a5-0927-4553-a7bd-bf533a94159c;S5|ffb3f4d6-9bc1-4ae7-8258-3e5320eabb75;S6|815ebf26-7f99-4f1b-b4d8-4dc21e3c1296;S7|e3645432-ed3e-4285-b50d-ce99c6cc6e12"
    },
    {
     "t": "Ballad of Debaters",
@@ -1352,14 +1423,16 @@
     "n": "About a hypothetical debate with a snake",
     "l": "I think we need not talk any longer\nThings you tell me don't make any sense\nLet's not waste our time, we're not getting any younger\nYour words are bland, somehow your stare is tense\n\nForgive me if I need to go\nI can't do this anymore\n\nMister, I don't approve of your position\nYour argumentation is inherently flawed\nI have no energy to try to change your conviction\nI really don't care if you die in the wrong\n\nForgive me if I need to go\nI can't do this anymore\n\nI tried to talk some sense but you don't listen\nYou fix your eyes on the wall awaiting your turn\nThen you raise your brow and say \"I think you're mistaken\"\nFuck you and your thoughts, I hope forever you'll burn\n\nForgive me if I need to split\nI don't have time for this shit\n\nBring it on, drop those names\nThrow a red herring, if that's your game\nI brought these straws so you can build a man\nHe's a cherry tree, pick away\nThere are many options, you'll find a way\nIf nothing works, resort to ad hominem, man\nI hope you understand\n\nI think we need not talk any longer\nThings you tell me don't make any sense\nLet's not waste my time, we're not getting any younger\nYour words are bland, somehow your stare is tense\n\nForgive me if I need to go\nI can't do this anymore",
     "lt": "Bence artık konuşmamıza gerek yok\nBana söylediğiniz şeyler anlamsız\nVaktimizi boşa harcamayalım, gençleşmiyoruz\nSözleriniz yavan, nedense bakışlarınız gergin\n\nGitmem gerekiyor, kusura bakmayın\nDayanılacak gibi değil artık buna\n\nBeyefendi, tutumunuzu onaylamıyorum\nArgümanlarınız özünden kusurlu\nKanaatinizi değiştirmeye çalışacak enerjim yok\nYanlışlar içinde ölseniz de gerçekten umurumda değil\n\nGitmem gerekiyor, kusura bakmayın\nDayanılacak gibi değil artık buna\n\nSize biraz mantık aşılamaya çalıştım ama dinlemiyorsunuz\nGözlerinizi duvara dikip sıranızı bekliyorsunuz\nSonra kaşınızı kaldırıp \"Bence yanılıyorsun\" diyorsunuz\nSikeyim sizi de, düşüncelerinizi de, umarım sonsuza dek yanarsınız\n\nGitmem gerekiyor, kusura bakmayın\nBu kepazeliğe zamanım yok\n\nHadi gelin, bol bol isim zikredin\nHedef şaşırtın, işinize geliyorsa\nKorkuluk yapın diye saman getirdim size\nYa da bir iki detay cımbızlayın isterseniz\nBirçok seçenek var, yolunuzu bulursunuz\nHiçbiri olmadıysa, ad hominem'e başvurunuz\nAnladınız beni umarım\n\nBence artık konuşmamıza gerek yok\nBana söylediğiniz şeyler anlamsız\nVaktimizi boşa harcamayalım, gençleşmiyoruz\nSözleriniz yavan, nedense bakışlarınız gergin\n\nGitmem gerekiyor, kusura bakmayın\nDayanılacak gibi değil artık buna",
-    "nt": "Bir yılanla yapılan farazi bir tartışma üzerine."
+    "nt": "Bir yılanla yapılan farazi bir tartışma üzerine.",
+    "lnk": "DEMO 1|ab6cb231-5a9e-46b0-916d-9abc9927f7d9;DEMO 2|1a32b802-23ea-4ac3-81ba-e78683817acf;S1|0daf2ba2-dd71-49be-824f-9000f0b59738;S2|e4bd9b31-d46b-43f5-8ebc-cb4d06f49578;S3a|c7a539a7-bbb4-4d85-adc2-96aa357ceefc;S3b|81ab2358-3a03-4706-b29d-be7403139c10;S4|8d92b265-890d-4c0c-9ad5-e8e07d7c4e93;S5|c26c2c6d-386a-4fef-ba3f-1a46e7dc2a4f;S6|04dd784c-2736-4398-aa2a-fcd6db4bcaa5;S7|239290cd-0d6e-43e7-ae2c-f68009092511"
    },
    {
     "t": "Manuel Flores (Jorge Luis Borges)",
     "y": "2022",
     "n": "",
     "l": "Manuel Flores is doomed to die\nThat's as sure as your money\nDying is a custom\nwell known to many\n\nBut even so, it pains me\nto say goodbye to living\nThat state so well known now,\nso sweet, so solid-seeming\n\nI look at my hand in the dawning\nLook at the veins contained there\nI look at them in amazement\nas I would look at a stranger\n\nTomorrow comes the bullet,\noblivion descending\nMerlin the magus said it,\nbeing born has an ending\n\nSo much these eyes have seen,\nsuch things, such places\nWho knows what they will see\nwhen I've been judged by Jesus\n\nManuel Flores is doomed to die\nThat's as sure as your money\nDying is a custom\nwell known to many",
-    "lt": "Manuel Flores ölmeye mahkûm\nBu, paran kadar kesin\nÖlmek, birçoklarının\niyi bildiği bir âdettir\n\nAma yine de içimi acıtıyor\nyaşamaya veda etmek\nArtık o kadar iyi bilinen o hal,\no kadar tatlı, o kadar sağlam görünen\n\nŞafak sökerken elime bakıyorum\nOrada barınan damarlara bakıyorum\nOnlara hayretle bakıyorum\nbir yabancıya bakar gibi\n\nYarın kurşun gelecek,\nunutuluş inecek\nBüyücü Merlin söyledi,\ndoğmanın bir sonu var\n\nBu gözler ne çok şey gördü,\nöyle şeyler, öyle yerler\nKim bilir neler görecekler\nİsa tarafından yargılandığımda\n\nManuel Flores ölmeye mahkûm\nBu, paran kadar kesin\nÖlmek, birçoklarının\niyi bildiği bir âdettir"
+    "lt": "Manuel Flores ölmeye mahkûm\nBu, paran kadar kesin\nÖlmek, birçoklarının\niyi bildiği bir âdettir\n\nAma yine de içimi acıtıyor\nyaşamaya veda etmek\nArtık o kadar iyi bilinen o hal,\no kadar tatlı, o kadar sağlam görünen\n\nŞafak sökerken elime bakıyorum\nOrada barınan damarlara bakıyorum\nOnlara hayretle bakıyorum\nbir yabancıya bakar gibi\n\nYarın kurşun gelecek,\nunutuluş inecek\nBüyücü Merlin söyledi,\ndoğmanın bir sonu var\n\nBu gözler ne çok şey gördü,\nöyle şeyler, öyle yerler\nKim bilir neler görecekler\nİsa tarafından yargılandığımda\n\nManuel Flores ölmeye mahkûm\nBu, paran kadar kesin\nÖlmek, birçoklarının\niyi bildiği bir âdettir",
+    "lnk": "DEMO|9b4236c3-294e-457a-9302-28835ef36dac;S1|6c99c06a-58d8-4447-8aa6-732fb9cdfde1;S2|9f94f7d8-73c3-432e-9686-5c052319b781;S3|b2070c7b-f584-4854-a76c-f9885ae177a9;S4|2ff1bcb4-7d16-400c-804b-b10f8eb7c3ce;S5|702cf5f3-4805-4372-b215-6f1061f54b29;S6|b91d10ab-3aba-4873-aabb-064b6906ccc6;S7|a840eb93-2b44-43f1-becf-71596356068a;S-extra1|1d6219a0-3280-4ab5-9e4c-b0ce07dda55c;S-extra2|527c0d59-4878-40f7-a7e3-4cc280ae702f"
    },
    {
     "t": "Cooler Than Him",
@@ -1367,14 +1440,16 @@
     "n": "This one was composed as a joke for a genuinely extremely cool friend -- the lyrics are only slightly exaggerated.",
     "l": "This guy is a cool young dude\nWith a friendly attitude\nEverybody, of course, knows his name\nIf you don't know him, that's a shame\n\nHe is such a super learned guy\nHe gave lectures on the Frankfurt School\nI was just on the phone with Adorno\nHe also thinks that he is very cool\n\nDon't get me wrong, he's not a nerd\nHe made a cross-country bicycle trip once\nHe also climbed Mount Everest\nOh, my man, will you ever get a rest?\n\nThis fucking guy is the coolest dude around\nThis fucking guy is the coolest dude in town\n\nAll the grad schools accepted him\nEven those he didn't apply to\nIn the ring, he's the best in the nation\nHis best friend is at a space station\n\nHe can drink from dusk till dawn\nHe never sleeps, never gets angry\nHe knows he's cool, but he's not a snob, no\nHe won a modesty contest two years ago\n\nThis fucking guy is the coolest dude around\nThis fucking guy is the coolest dude in town\n\nHe knows history, he knows politics\nPrime minister of Finland calls him for advice\nIf you need help, he'll give you a hand\nAnd he used to play trombone in a jazz band\n\nHe's been everywhere and done everything\nWhen he goes to Peru, he knows everyone\nEven the Inuit still tell his tales\nClearly, he could talk to whales\n\nThis fucking guy is the coolest dude around\nThis fucking guy is the coolest dude in town\n\nThis fucking guy is the coolest dude around\nThis fucking guy is the coolest dude in town\n\nI think I'm somewhat cooler\nI believe that\nI- I'd be very glad if it's true\nI think I'm also cool",
     "lt": "Bu adam havalı, genç bir delikanlı\nArkadaş canlısı bir tavrı var\nHerkes elbette onun adını bilir\nOnu tanımıyorsan, bu çok yazık\n\nO çok ama çok bilgili bir adam\nFrankfurt Okulu üzerine dersler verdi\nAz önce Adorno ile telefonda konuşuyordum\nO da onun çok havalı olduğunu düşünüyor\n\nBeni yanlış anlama, o inek değil\nBir keresinde bisikletle ülkeyi baştan başa geçti\nEverest Dağı'na da tırmandı\nAh dostum, hiç dinlenecek misin?\n\nBu herif buralardaki en havalı adam\nBu herif şehirdeki en havalı adam\n\nBütün lisansüstü okulları onu kabul etti\nBaşvurmadıkları bile\nRingde ülkenin en iyisi o\nEn yakın arkadaşı bir uzay istasyonunda\n\nAkşamdan sabaha kadar içebilir\nHiç uyumaz, hiç sinirlenmez\nHavalı olduğunu bilir ama burnu havada değil, hayır\nİki yıl önce bir alçakgönüllülük yarışması kazandı\n\nBu herif buralardaki en havalı adam\nBu herif şehirdeki en havalı adam\n\nTarih bilir, siyaset bilir\nFinlandiya başbakanı ona akıl danışmak için arar\nYardıma ihtiyacın olursa sana el uzatır\nBir de eskiden bir caz grubunda trombon çalardı\n\nHer yere gitmiş, her şeyi yapmış\nPeru'ya gittiğinde herkesi tanır\nİnuitler bile hâlâ onun hikâyelerini anlatır\nBelli ki balinalarla konuşuyormuş\n\nBu herif buralardaki en havalı adam\nBu herif şehirdeki en havalı adam\n\nBence ben biraz daha havalıyım\nBuna inanıyorum\nBen - Doğruysa çok sevinirim\nBence ben de havalıyım",
-    "nt": "Bu, sahiden aşırı cool bir arkadaş için şaka olarak bestelenmişti -- sözler sadece hafiften abartılı."
+    "nt": "Bu, sahiden aşırı cool bir arkadaş için şaka olarak bestelenmişti -- sözler sadece hafiften abartılı.",
+    "lnk": "DEMO|6c7de4a9-e598-45c8-bd55-2ae8ad5d83dd;S1|f7b8140c-53f8-4bac-801a-64bafd85ce81;S2|5a6acbb4-1b7e-42c3-a8fc-12f052acaada;S3|13b8bd08-f8dd-4d53-807b-79861360b6f3;S4|749d8cf9-4d73-4542-bc83-28a05a0624d1;S5|ea4fa6ff-3b7b-43ad-ba67-86339a89e3c3;S6|5fcb1606-0c5f-4c44-ab41-69c0596542db;S7|61946c8f-bc19-4de5-aea7-8f5e6e9def98"
    },
    {
     "t": "The Scholars (William Butler Yeats)",
     "y": "2015",
     "n": "",
-    "l": "BALD heads forgetful of their sins,\nOld, learned, respectable bald heads\nEdit and annotate the lines\nThat young men, tossing on their beds,\nRhymed out in love's despair\nTo flatter beauty's ignorant ear.\n\nAll shuffle there; all cough in ink;\nAll wear the carpet with their shoes;\nAll think what other people think;\nAll know the man their neighbour knows.\nLord, what would they say\nDid their Catullus walk that way?",
-    "lt": "Günahlarını unutmuş kel kafalar,\nYaşlı, bilgili, saygın kel kafalar\nDüzenleyip şerh ederler o dizeleri\nKi genç adamlar, yataklarında dönüp dururken,\nAşkın çaresizliği içinde kafiyeye dökmüştü\nGüzelliğin cahil kulağını okşamak için.\n\nHepsi orada ayak sürür; hepsi mürekkebe öksürür;\nHepsi ayakkabılarıyla halıyı aşındırır;\nHepsi başkalarının düşündüğünü düşünür;\nHepsi komşusunun tanıdığı adamı tanır.\nTanrım, ne derlerdi\nOnların Catullus'u o yoldan yürüseydi?"
+    "l": "Bald heads forgetful of their sins,\nOld, learned, respectable bald heads\nEdit and annotate the lines\nThat young men, tossing on their beds,\nRhymed out in love's despair\nTo flatter beauty's ignorant ear.\n\nAll shuffle there; all cough in ink;\nAll wear the carpet with their shoes;\nAll think what other people think;\nAll know the man their neighbour knows.\nLord, what would they say\nDid their Catullus walk that way?",
+    "lnk": "DEMO|d742cc8b-61c5-4835-982f-0a4d5cbbcbf3;S1|7c7a1928-7a0d-4f0d-aede-6fe7f683c2d8;S2|347e8acc-1db9-4f33-b2ce-73f4216c6149;S3|dedf9a61-1e2d-4a85-86f5-d64492cb0a19;S4|3be25d29-6d13-4fdc-94d2-daf3964775ec;S5|545ad32b-bd1d-4bc1-afa1-6796f8fca75b;S6|974e0015-0568-4681-ae0b-f6a8587a8b94;S7|7bba1ecc-8569-4626-bcbf-35675785bebe",
+    "lt": "Günahlarını unutmuş kel kafalar,\nYaşlı, bilgili, saygıdeğer kel kafalar\nDizeleri düzenler, açıklamalar ekler;\nO dizeleri ki genç adamlar, yataklarında dönüp dururken,\nAşkın umutsuzluğu içinde uyaklarla yazmıştı\nGüzelliğin cahil kulağını okşamak için.\n\nHepsi orada ayak sürür; hepsi mürekkeple öksürür;\nHepsi ayakkabılarıyla halıyı aşındırır;\nHepsi başkalarının düşündüğünü düşünür;\nHepsi komşusunun tanıdığı adamı tanır.\nTanrım, ne derlerdi\nCatullus'ları o yoldan geçseydi?"
    },
    {
     "t": "The Moon is Falling (w/ F. Dibble & J. Lillywhite)",
@@ -1382,21 +1457,24 @@
     "n": "On a drunken night, we wanted an upbeat, funky song with pretentiously sad-sounding lyrics to have some fun contrast. Then I broke some bones and couldn't play any instruments, so it was recorded like this, only using my right hand on a keyboard. A return to an upbeat tempo is overdue.",
     "l": "Run away\nThe moon is falling\nThe tide is rising high\nRun away\nThe burning sky is weaving wool\nGloomy times are drawing nigh\nI see\n\nThere's no going back from now\nTime has taken its toll\nJokers are lying on the ground\nThe moon can never be sold\nThey say\nRun away, the moon is falling below\nIt's falling, I'm told\n\nThe earth is oozing wine\nThe cups are full of holes\nAt least you had a little fun\nYour brain aches from the irony\nOf your changing roles\nRun away from yourself now, just run\n\nRun away, the seeds grow upside down\nAnd the leaves are bruising,\nRun away, the poet can't write a sound, you see\nAnd the tired play has yet to begin\n\nThere's no going back from now, it's too late for everything\nJokers are crying on the ground. \"We can't change anything\", they say\nRun away, the moon is falling below, it's falling I'm told\n\nThe earth is oozing wine\nThe cups are full of holes\nAt least you had a little fun\nYour brain aches from the irony\nOf your changing roles\nRun away from yourself now, just run\n\nThere's no going back from now, it's too late for everything\nJokers are crying on the ground. \"We can't change anything\", they say\nRun away, the moon is falling below, it's falling I'm told",
     "lt": "Kaç\nAy düşüyor\nSular yükseliyor\nKaç\nYanan gökyüzü yün örüyor\nKasvetli zamanlar yaklaşıyor\nGörüyorum\n\nArtık geri dönüş yok\nZaman bedelini aldı\nSoytarılar yerde yatıyor\nAy asla satılamaz\nDiyorlar ki\nKaç, ay aşağı düşüyor\nDüşüyor, bana öyle söylendi\n\nToprak şarap sızdırıyor\nKadehler delik deşik\nEn azından biraz eğlendin\nBeynin ironisinden sızlıyor\nDeğişen rollerinin\nŞimdi kendinden kaç, sadece kaç\n\nKaç, tohumlar ters büyüyor\nVe yapraklar morarıyor,\nKaç, şair tek bir ses yazamıyor, görüyorsun\nVe yorgun oyun henüz başlamadı\n\nArtık geri dönüş yok, her şey için çok geç\nSoytarılar yerde ağlıyor. \"Hiçbir şeyi değiştiremeyiz\" diyorlar\nKaç, ay aşağı düşüyor, düşüyor, bana öyle söylendi\n\nToprak şarap sızdırıyor\nKadehler delik deşik\nEn azından biraz eğlendin\nBeynin ironisinden sızlıyor\nDeğişen rollerinin\nŞimdi kendinden kaç, sadece kaç\n\nArtık geri dönüş yok, her şey için çok geç\nSoytarılar yerde ağlıyor. \"Hiçbir şeyi değiştiremeyiz\" diyorlar\nKaç, ay aşağı düşüyor, düşüyor, bana öyle söylendi",
-    "nt": "Sarhoş bir gecede, eğlenceli bir tezat olsun diye, hareketli ve funk bir şarkının hüzünlü duran sözleri olsun dedik. Sonra bir yerlerimi kırdım ve enstrüman çalamadım, o yüzden böyle kaydedildi, sadece sağ elimle klavyede. Hareketli tempoya dönmek gerek, geç bile kaldı."
+    "nt": "Sarhoş bir gecede, eğlenceli bir tezat olsun diye, hareketli ve funk bir şarkının hüzünlü duran sözleri olsun dedik. Sonra bir yerlerimi kırdım ve enstrüman çalamadım, o yüzden böyle kaydedildi, sadece sağ elimle klavyede. Hareketli tempoya dönmek gerek, geç bile kaldı.",
+    "lnk": "DEMO|7f7b2934-fc2a-455e-bdca-675bdeb7ca2e;S1|2878bd4c-fc1d-4c54-8177-67cdca3943fd;S2|55e4f1b6-0eec-4d5a-9219-876fb9025447;S3|1f0e435b-f2e7-4265-a331-50a8b922a9a8;S4|ee135dfe-de3d-4f63-9be9-53805ae79508;S5|b573e7ff-aab9-4122-a39c-c41385cb5b75;S6|b931362a-d85c-4cfd-b40a-ddbbc423646a;S7|2df3d650-7351-4147-a6ba-67d17dc5b9a1"
    },
    {
     "t": "The Girl and The Pubs (Selman)",
     "y": "2017",
     "n": "",
     "l": "four dame lane, four pints\nicy cold weather entice\ndroplets on my beard\nmore green on her eyes\n\ngeorge street was the longest in dublin that night,\ni walked her and her cigarette to a taxi.\n\nlate in the bleeding horse\ndrunk irishmen dance, of course\nhead tipsy with affection\nfingers burn like coals\n\ni will never know if it was the pints or her giggles,\nbut never before wooden pub benches were more comfortable.\n\nthe mezz there was music\na folk band, two guys and a chic\nsimon sang she looks lovely\ngarfunkel said she is unique\n\nthe drummer took off his shirt. we both thought it’s silly.\nyoung singles were chasing after young singles.",
-    "hold": 1
+    "hold": 1,
+    "lnk": "DEMO|ec4b2f5e-4124-4105-9521-cc7c42030171;S1|41a30e01-5393-4d75-9b0f-236e535dcdf2;S2|704537cd-fe8c-4afe-b0d9-4bbd37a20502;S3|74632975-4843-4c88-947c-86bd8f799a51;S4|2a8becec-f900-431f-a2de-23cd7a8801a1;S5|9e66ce1d-b337-43f3-a70a-f462ef8bd3d9;S6|60ee42e4-41f2-4768-8db1-82a56f571675;S7|6e0b46b5-e953-4d1f-aeb3-033dfa07a61f"
    },
    {
     "t": "Solomon to Sheba (William Butler Yeats)",
     "y": "2015",
     "n": "",
-    "l": "SANG Solomon to Sheba,\nAnd kissed her dusky face,\n\"All day long from mid-day\nWe have talked in the one place,\nAll day long from shadowless noon\nWe have gone round and round\nIn the narrow theme of love\nLike an old horse in a pound.-\n\nTo Solomon sang Sheba,\nPlated on his knees,\n'If you had broached a matter\nThat might the learned please,\nYou had before the sun had thrown\nOur shadows on the ground\nDiscovered that my thoughts, not it,\nAre but a narrow pound.'\n\nSaid Solomon to Sheba,\nAnd kissed her Arab eyes,\n'There's not a man or woman\nBorn under the skies\nDare match in learning with us two,\nAnd all day long we have found\nThere's not a thing but love can make\nThe world a narrow pound.'",
-    "lt": "ŞARKI söyledi Süleyman Belkıs'a,\nVe öptü onun esmer yüzünü,\n\"Bütün gün öğleden beri\nAynı yerde konuştuk,\nBütün gün gölgesiz öğle vaktinden beri\nDönüp durduk\nAşkın dar konusunda\nAğıldaki yaşlı bir at gibi.-\n\nSüleyman'a şarkı söyledi Belkıs,\nDizlerine kurulmuş halde,\n'Eğer açsaydın bir konu\nBilginleri memnun edebilecek,\nGüneş daha düşürmeden\nGölgelerimizi yere\nKeşfederdin ki o değil, benim düşüncelerim\nDar bir ağıldan ibarettir.'\n\nSüleyman dedi Belkıs'a,\nVe öptü onun Arap gözlerini,\n'Yoktur ne bir erkek ne bir kadın\nGökler altında doğmuş\nBilgide ikimizle yarışmaya cesaret edecek,\nVe bütün gün şunu bulduk:\nAşktan başka hiçbir şey yapamaz\nDünyayı dar bir ağıl.'"
+    "l": "Sang Solomon to Sheba,\nAnd kissed her dusky face,\n\"All day long from mid-day\nWe have talked in the one place,\nAll day long from shadowless noon\nWe have gone round and round\nIn the narrow theme of love\nLike an old horse in a pound.-\n\nTo Solomon sang Sheba,\nPlated on his knees,\n'If you had broached a matter\nThat might the learned please,\nYou had before the sun had thrown\nOur shadows on the ground\nDiscovered that my thoughts, not it,\nAre but a narrow pound.'\n\nSaid Solomon to Sheba,\nAnd kissed her Arab eyes,\n'There's not a man or woman\nBorn under the skies\nDare match in learning with us two,\nAnd all day long we have found\nThere's not a thing but love can make\nThe world a narrow pound.'",
+    "lnk": "DEMO|a92aa106-eaa4-426e-822d-55d2be50e15d;S1|e5b7dbaa-9607-472b-bd3c-46bf17ca8955;S2|65aa2b8d-144d-40ee-a969-efd8e51071f2;S3|64c590a9-1e0f-4664-908c-092868c2b130;S4|78d48394-94cf-4a66-8601-e7ba4a61e11f;S5|544b0ab3-ae58-4f79-b9b4-490fa9bdaee8;S6|95860ac5-049d-4f25-9c9e-b3ed142c5cc6;S7|3cd18a87-7c3f-4571-833e-ec060e9ea460",
+    "lt": "Süleyman Belkıs'a şarkı söyledi,\nVe onun esmer yüzünü öptü,\n\"Öğleden beri bütün gün\nAynı yerde konuştuk,\nGölgesiz öğleden beri bütün gün\nDönüp dolaştık durduk\nAşkın dar konusunda\nAğıldaki yaşlı bir at gibi.-\n\nSüleyman'a Belkıs şarkı söyledi,\nOnun dizlerine kurulmuş,\n'Eğer bir konu açsaydın\nBilginleri memnun edebilecek,\nGüneş daha atmadan önce\nGölgelerimizi yere,\nAnlardın ki o değil, düşüncelerim\nDar bir ağıldan ibaret.'\n\nSüleyman Belkıs'a dedi,\nVe onun Arap gözlerini öptü,\n'Hiçbir erkek ya da kadın yoktur\nGöklerin altında doğmuş\nBilgide ikimizle boy ölçüşmeye cüret edecek,\nVe bütün gün boyunca gördük ki\nAşktan başka hiçbir şey yoktur ki\nDünyayı dar bir ağıl yapabilsin.'"
    },
    {
     "t": "The Wheel (William Butler Yeats)",
@@ -1404,16 +1482,26 @@
     "n": "Of all the Yeats songs, this is the one that wasn’t composed spontaneously in a single take, so the chord progression is trying a bit too hard to show off.",
     "l": "THROUGH winter-time we call on spring,\nAnd through the spring on summer call,\nAnd when abounding hedges ring\nDeclare that winter's best of all;\nAnd after that there's nothing good\nBecause the spring-time has not come —\nNor know that what disturbs our blood\nIs but its longing for the tomb.",
     "nt": "Bütün Yeats şarkıları içinde, spontane olarak tek take'te bestelenmemiş olan sadece bu, o yüzden akor gidişatı filan biraz şekil yapmaya çalışmış.",
-    "hold": 1
+    "hold": 1,
+    "lnk": "DEMO|ecd4c240-0977-46a6-b5e8-fe4f603c33dd;S1|e77fda7d-5e67-40ed-93aa-daedb247863f;S2|161b76f3-8f21-46f1-9e68-bd00c19c68cc;S3|63dac8c1-7c9a-4360-a903-450dad7d5b8d;S4|34c4db0f-b3b1-493e-b09a-00af31ed61d9;S5|e9c99c57-c519-4b3c-ac66-a92e41d3aebb;S6|8a379d41-c84f-4bbc-944d-ab7ef2e32439;S7|9c7a1e91-24e1-41be-aa23-08ad103e3d4a"
    },
    {
     "t": "Maudlin",
     "y": "2021",
-    "n": "The original was a phone-recorded whistle thing.\nThe lyrics, which are super corny, are just a placeholder and were written in 5 minutes to match the syllable count. For now, it only exists in the Original Demo and Rock playlists.\nNeeds lyrics and maybe also a chorus section.",
-    "l": "Let's go\nOn this road\nIn the sun\nNothing on\nOur minds\n\nLet's go now\nYou know\nIt is neat\nto forget\nbygone things\nas you stroll\n\nWe'll sit down on a rock in a bit\nDon't get maudlin as we drink\nIt is bad form if we both get weird\nLet go now, let us not think about things\n\nLet's go now\nYou know\nit is nice to\nremember\nbygone things\nas you stroll",
-    "lt": "Hadi gidelim\nBu yoldan\nGüneşin altında\nAklımızda\nHiçbir şey yokken\n\nHadi gidelim artık\nBilirsin\nHoştur\ngeçmiş şeyleri\nunutmak\ngezinirken\n\nBirazdan bir kayaya oturacağız\nİçerken içlenme\nİkimiz birden tuhaflaşırsak yakışık almaz\nBırak artık, düşünmeyelim hiçbir şeyi\n\nHadi gidelim artık\nBilirsin\nGüzeldir\ngeçmiş şeyleri\nhatırlamak\ngezinirken",
-    "nt": "Orijinali telefona kaydedilmiş bir ıslık zımbırtısıydı.\nSözler fena halde klişe ve geçici; hece sayısı ıslığa otursun diye 5 dakikada yazıldı. \nŞimdilik sadece Original Demos ENG ve Rock ENG listelerinde var.\nGüfte lazım, belki bir de nakarat bölümü.",
-    "hold": 1
+    "n": "The original was a phone-recorded whistle thing.\nThe lyrics are a placeholder and were written in 15 minutes to match the syllable count. \n\nThey'll probably change, but for now, the lyrics talk about two friends who want a change of scenery and try to strategize so they don't creep people out.\n\nMaybe in need of a chorus section.",
+    "l": "Let's go\nI‘m not sure\nMeaning here\nWill endure\nAnymore\n\nLet's go now\nChange o‘ place\nwould be nice\nA new face\nMay say hi\nYou never know\n\nFirst we gotta put down the rules:\nDon't get maudlin as we drink\nIt is bad form if we both get weird\nDon’t talk about Tom Waits to strangers right away\n\nLet's go now\nYou know\nit is nice to\nremember\nbygone things\nAs we stroll",
+    "lt": "Hadi gidelim\nEmin değilim\nBuranın hala\nManalı \nOlduğuna\n\nHadi gidelim artık\nİyi olur\nyer değiştirmek\nYeni bir yüz\nbakarsın \nselam verir\n\nÖnce kaideleri belirleyelim ama:\nİçerken içlenmemek lazım\nİkimiz birden tuhaflaşırsak yakışık almaz\nYabancılara hemencecik Tom Waits'ten bahsetmek yok\n\nHadi gidelim artık\nBilirsin\nGüzel oluyor\ngeçmiş günü \nyadetmek\ngezinirken",
+    "nt": "Orijinali telefona kaydedilmiş bir ıslık zımbırtısıydı.\nSözler geçici, hece sayısı tutsun diye 15 dakikada yazıldı.\n\nMuhtemelen değişecekler, ama şimdilik sözler şöyle: ortam değişikliği isteyen iki arkadaş insanları ürkütmemek için plan yapıyorlar.\n\nBelki bir nakarat bölümü lazım.",
+    "lnk": "DEMO|de76d81a-1db7-4e30-909d-5d1817b4f554;S1|4e62fd11-00e5-4326-8957-ab9f11585b19;S2|ce474bfd-cd6d-4d4f-a3d5-8d690b5ff0c8;S3|0d2528d6-f84d-4fa3-aaa7-c9226304e56d;S4|02f0b1a3-0d4b-4e27-b771-cd7f1db0c6de;S5|e526f81b-26aa-4abb-8357-55e13fb8be4b;S6|2c709425-1082-4088-895e-09b3d3760051;S7|b0d3e0bb-28ad-45bb-816f-91ff56f41de1"
+   },
+   {
+    "t": "Probably Next Week (w/ D. Taşel & T. Şen)",
+    "y": "2008",
+    "n": "It was the soundtrack of a short movie from 2008. The original lyrics were in Esperanto, and the theme was entirely different.",
+    "l": "Lately I've been thinking about him\nThat old friend o'mine\nI haven't seen him in a long time\n\nI'll call him one of these days; we’ll become, I swear,\nThe drunk teenagers we once were, right away\n\nI often try to make up jokes for him,\nFor that old friend o'mine\nwho I'll call before too long, maybe next week\n\nYou see, it would be a shame\nNot to have anything funny to say\nTo that friend of mine, who I'll call one day.\n\nI'll call one day",
+    "lt": "Son zamanlarda onu düşünüyorum\nŞu eski kankitomu.\nUzun zaman oldu görmeyeli\n\n\nArayacağım bugünlerde, valla kesin \nsarhoş ergenlere döneriz saniyesinde\n\n\nOna şakalar uydurmaya çalışıyorum sık sık,\nŞu benim eski dostuma.\nÇok geçmeden ararım, muhtemel haftaya\n\n\nAyıp olur, anlayacağınız,\nsöyleyecek komik bir şeyim olmazsa\nşu dostuma, bir gün aradığımda\n\n\nBir gün aradığımda",
+    "nt": "2008'den bir kısa film müziğiydi. Sözlerin aslı Esperanto'ydu, konu da bambaşkaydı.",
+    "lnk": "DEMO|35b90263-5b92-4fac-8309-c22eeb8e1ac1;S1|9da84f0b-2c69-4588-b931-12ca0faf6221;S2|68de15de-1fe0-4fbd-98df-ee58ea6cab5b;S3|3a463a5c-fc78-437d-8633-b648eca18b4f;S4|5d246521-cc95-47e7-aa31-a9b202925000;S5|177bcc11-1fac-4bce-b924-214ba3738e42;S6|e7a56d40-5002-454d-87bf-0f8b2e8c9436;S7|011270f6-5383-462c-a199-65893fbb08c3"
    }
   ],
   "CIV": [
@@ -1423,7 +1511,8 @@
     "n": "Gizemli bir tatak parçasının izini süren bir eser.",
     "l": "minik, handiyse kuru bir tatak parçası\nminik dediysek, çok da minik sayılmaz\n\nçikolatalı gofretimden aldığım\nilk ısırık\nkırıntılar coşunca\nzehir oldu bana\n\nyaladım baş ve işaret parmağımı\ngezdirdim koltukta usulca\ngezdirdim koltukta\nelim değdi\nelim değdi tatağa\n\nkendi gelmiş olamaz\no olasılık gerçekten çok az\nbelki de otostop çekmiş\nyahut başka bir vasıtadan istifade etmiş\nistifade\nistifa\nistifade\nistifa\n\npostnazal akıntılarım\nberjerde mi son bulacaktı\nmukal edebiyat\nburada mı tıkanacaktı\n\ntıkanan burun muydu bilmem,\nrektal tıpayı ellemem.\nrektal tıpa mı dedin,\no da nerden çıktı?\nnazal mı demek istedin\nherhalde nazal tıpa olacaktı\n\nkendi gelmiş olamaz\no olasılık gerçekten çok az\nbelki de otostop çekmiş\nyahut başka bir vasıtadan istifade etmiş\nistifade\nistifa\nistifade\nistifa\n\nminik, handiyse kuru bir tatak parçası\nminik dediysek, çok da minik sayılmaz",
     "lt": "It Cannot Have Come Here on Its Own\n\na tiny, nearly dry scrap of booger\nand when we say tiny, it isn't all that tiny\n\nthe first bite\nI took out of my chocolate wafer\nonce the crumbs got carried away\nit turned to poison on me\n\nI licked my thumb and forefinger\nran them over the armchair, gently\nran them over the armchair\nmy hand made contact\nmy hand made contact with the booger\n\nit cannot have come here on its own\nthat likelihood really is very low\nperhaps it hitchhiked\nor else availed itself of some other conveyance\nconveyance\nconveyancing\nconveyance\nconveyancing\n\nmy post-nasal drippings\nwere they to meet their end on the bergère\nmucal literature\nwas it to get blocked right here\n\nwhether it was the nose that got blocked I couldn't say\nI do not handle the rectal plug\ndid you say rectal plug\nwhere did that come from\ndid you mean nasal\nsurely it was meant to be a nasal plug\n\nit cannot have come here on its own\nthat likelihood really is very low\nperhaps it hitchhiked\nor else availed itself of some other conveyance\nconveyance\nconveyancing\nconveyance\nconveyancing\n\na tiny, nearly dry scrap of booger\nand when we say tiny, it isn't all that tiny",
-    "nt": "A work on the trail of a mysterious scrap of booger."
+    "nt": "A work on the trail of a mysterious scrap of booger.",
+    "lnk": "DEMO|299ef684-e1e8-4838-ba64-6a91e57d2a49;C1|eb528dc0-f67c-402f-9ba2-4323c87f04ce;C2|597b8db0-6241-4581-beae-7e5ff45c0358;C3|6e6b51c6-95b0-4bf2-8298-86d09cb4554a"
    },
    {
     "t": "Eşsiz İsmim (Nurcan Şen)",
@@ -1433,8 +1522,9 @@
     "lt": "My Matchless Name\n\nYou are a rare flower, I know\nI can guess who would give their life for your sake\nSparkling in the realm of dreams\nSparkling in the realm of dreams, you are overflowing with joy\nmy beautiful one\n\nLives are ready for you, those who love you would give their lives\nYour enlightened outlook draws everyone's attention\nIt will reach many lifetimes\nGod willing, my\nunique name\n\nThe gates of glory and fame await you\nYour eternal, everlasting name suits you\nA divine name like holy light\nresides in you\n\nNurcan Şen",
     "nt": "In late 2012 one of those reader-submitted poems from the newspaper Posta was going around the Turkish internet. On New Year's Eve I was home alone with a kitten, and alone because of it. Might as well, I thought, make an [Ahmet Kaya](https://en.wikipedia.org/wiki/Ahmet_Kaya) song out of this. I put it over the classic Ahmet Kaya chord progression and tried to sing it in that manner, not managing it at all well.",
     "img": [
-     "img/essiz-ismim-1.jpg"
-    ]
+     "img/essiz-ismim-nurcan-sen-1.jpg"
+    ],
+    "lnk": "DEMO|c1c4dcf2-b253-42b8-aa94-6a3869d19f0b;C1|60680106-83ab-4299-a46b-4242c7195a65;C2|84e35b54-a1cf-4698-b111-daf80c8ca8b6;C3|15f86cf8-b4f7-46b8-b795-f44868284e36"
    },
    {
     "t": "Onlayn Punk (A. Yıldız)",
@@ -1444,8 +1534,9 @@
     "lt": "this is my job, my whole occupation\nI crank out posts all the time\nwhile you are all asleep\nwhile you are all asleep\n\nyou wake up and you see\nthe posts have been unliked\nsometimes, sometimes\nyou don't know who unlikes them\n\nI unlike them\nand sometimes I take the piss too\nthat is my duty as well\nthat is my duty as well\n\nI think up a post in my head\nI think up a meme with caps\nI think up a tag for the comments\nI don't know what the hell I'll do.",
     "nt": "A lyric after [Orhan Veli](https://en.wikipedia.org/wiki/Orhan_Veli_Kan%C4%B1k), on the mystery of who it is that removes the likes on social media.",
     "img": [
-     "img/onlayn-punk-1.jpg"
-    ]
+     "img/onlayn-punk-a-yildiz-1.jpg"
+    ],
+    "lnk": "DEMO|4fe8c176-1d92-4a73-882c-974461e84c85;C1|bb0f443b-d6dc-4fc4-8789-b7424683fe82;C2|7599be40-749f-421a-bd04-5d3733ec23df;C3|cba3a9b0-baed-48fc-a9ce-1bf6e2e3379e"
    },
    {
     "t": "Go Home Right Away (w/ C. Campbell)",
@@ -1454,7 +1545,8 @@
     "l": "You can only hope\nYou can only hope\nYou can only hope\nYou can only hope\n\nYou'll know when you shart\nWhen it's gonna run around\nYou can only hope\nYour pants aren't brown\n\nWhen you shart, you see\nYou have to go home right away\nIt's not that you had pee\nIt's those two burritos you ate.\n\nYou'll know when you shart\nWhen it's gonna run around\nYou can only hope\nYour pants aren't brown\n\nYou'll know when you shart\nYou'll know when you shart",
     "lt": "Sadece umabilirsin\nSadece umabilirsin\nSadece umabilirsin\nSadece umabilirsin\n\nAltına kaçırdığında anlarsın\nNe zaman ortalığa yayılacağını\nSadece umabilirsin\nPantolonunun kahverengi olmadığını\n\nAltına kaçırdığında, bak\nHemen eve gitmen gerekir\nMesele çişinin gelmesi değil\nYediğin o iki burrito yüzünden.\n\nAltına kaçırdığında anlarsın\nNe zaman ortalığa yayılacağını\nSadece umabilirsin\nPantolonunun kahverengi olmadığını\n\nAltına kaçırdığında anlarsın\nAltına kaçırdığında anlarsın",
     "nt": "Gerçek bir hikâyeden uyarlanmıştır: Ana karakter, bir “sharting” (fışmıklı osuruk, diyelim) vakasının ardından daynır’a gitmeye karar verir.",
-    "lang": "en"
+    "lang": "en",
+    "lnk": "DEMO|d21f1220-404e-468d-90ea-0e71ca713596;C1|1e3f0fa4-410b-46ab-9e44-2994a88ff1a9;C2|e55b8cb9-6ad9-4715-90ea-f9353d960652;C3|e7bd2e4e-778c-4a4c-a311-222972d84959"
    },
    {
     "t": "Parıltı Ferahı (O. Çıkar)",
@@ -1463,9 +1555,10 @@
     "l": "Her yer mutluluk kokuyor\nBurnumda aşk tütüyor\nHerkes sevinçten uçuyor\nİşte bu parıltı ferahı\n\nÇocuklar mutluluktan koşuyor\nHayvanlar gülerek oynuyor\nİnsanlar durmadan kahkaha atıyor\nİşte bu parıltı ferahı",
     "lt": "all around me, the smell of bliss\nlove is in the air I breathe\neveryone is mad with ecstasy (wink wink)\nthis is the relief of glitter\n\nchildren are running in happiness\nanimals frolicking with a smile\npeople laughing hysterically\nthis is the relief of glitter",
     "img": [
-     "img/parilti-ferahi-1.jpg"
+     "img/parilti-ferahi-o-cikar-1.jpg"
     ],
-    "nt": "Another one of those Posta newspaper poems. If it is a real person (I did find someone by that name on social media and sent a message, we will see), they wrote this poem while still in middle school. It became well known in the online warrens I was part of, for its naive message and for the way the phrase _Parıltı Ferahı_ sticks in your mouth.\n\nThe chord progression of this song is exactly Les Feuilles Mortes (Autumn Leaves). What can you do."
+    "nt": "Another one of those Posta newspaper poems. If it is a real person (I did find someone by that name on social media and sent a message, we will see), they wrote this poem while still in middle school. It became well known in the online warrens I was part of, for its naive message and for the way the phrase _Parıltı Ferahı_ sticks in your mouth.\n\nThe chord progression of this song is exactly Les Feuilles Mortes (Autumn Leaves). What can you do.",
+    "lnk": "DEMO|cc251c6a-d1ab-4c96-90d2-34bef350685d;C1|bd550512-3f65-4b4c-9f77-0a10dc7382d4;C2|a25ec00b-b34a-49b5-a7ae-feb0d1e7d721;C3|6ef12ddf-49dd-4df6-b137-6c750573d4f2"
    },
    {
     "t": "Relief of Glitter (O. Çıkar - trans. C. Glass)",
@@ -1474,7 +1567,8 @@
     "l": "all around me, the smell of bliss\nlove is in the air I breathe\neveryone is mad with ecstasy (wink wink)\nthis is the relief of glitter\n\nchildren are running in happiness\nanimals frolicking with a smile\npeople laughing hysterically\nthis is the relief of glitter",
     "lt": "Her yer mutluluk kokuyor\nBurnumda aşk tütüyor\nHerkes sevinçten uçuyor\nİşte bu parıltı ferahı\n\nÇocuklar mutluluktan koşuyor\nHayvanlar gülerek oynuyor\nİnsanlar durmadan kahkaha atıyor\nİşte bu parıltı ferahı",
     "lang": "en",
-    "nt": "Yukarıdaki şarkının İngilizce çevirisi üzerine en klasik 12-bar blues. Open G + mızıka."
+    "nt": "Yukarıdaki şarkının İngilizce çevirisi üzerine en klasik 12-bar blues. Open G + mızıka.",
+    "lnk": "DEMO|7d8325f3-6912-4937-9af4-790e948bfeee;C1|9304c9c7-22c3-4633-b6c3-b7c60b9f918e;C2|8d932f49-af74-4248-80fc-bfceb7b55005;C3|8188a4d4-96cb-41ca-afb9-0d5ba157baf1"
    }
   ]
  }
@@ -1539,6 +1633,7 @@
     year:   { tr: 'Yıl', en: 'Year' },
     ops:    { tr: 'Sıra / Sil', en: 'Order / Delete' },
     open:   { tr: "Suno'da aç →", en: 'Open on Suno →' },
+    more:   { tr: 'Devamını oku →', en: 'Read more →' },
     none:   { tr: 'Henüz kayıt yok.', en: 'Nothing here yet.' },
     emptyL: { tr: 'Liste boş.', en: 'The list is empty.' },
     saving: { tr: 'Kaydediliyor…', en: 'Saving…' },
@@ -1785,6 +1880,25 @@
   }
 
   /* ---- render static text --------------------------------------------- */
+  // a prose block can carry a fold marker: everything after it waits behind a link
+  var CUT = '[[kes]]';
+  var unfolded = {};
+
+  function foldedProse(el, key, paras) {
+    var html = '';
+    for (var i = 0; i < paras.length; i++) {
+      var at = paras[i].indexOf(CUT);
+      if (at === -1) { html += '<p>' + inline(paras[i]) + '</p>'; continue; }
+      var head = paras[i].slice(0, at).replace(/\s+$/, '');
+      var btn = '<button type="button" class="flink flink--more">' + esc(t('more')) + '</button>';
+      html += '<p>' + (head ? inline(head) + ' ' : '') + btn + '</p>';
+      break;
+    }
+    el.innerHTML = html;
+    var b = el.querySelector('.flink--more');
+    if (b) b.addEventListener('click', function () { unfolded[key] = true; renderTexts(); });
+  }
+
   function renderTexts() {
     Array.prototype.forEach.call(document.querySelectorAll('.rt'), function (el) {
       var key = el.getAttribute('data-rt');
@@ -1792,8 +1906,12 @@
       var paras = textOf(key);
       if (kind === 'line') {
         el.innerHTML = inline(paras[0] || '');
+      } else if (!unfolded[key] && paras.join('\n').indexOf(CUT) !== -1) {
+        foldedProse(el, key, paras);
       } else {
-        el.innerHTML = paras.map(function (p) { return '<p>' + inline(p) + '</p>'; }).join('');
+        el.innerHTML = paras.map(function (p) {
+          return '<p>' + inline(p.split(CUT).join('').replace(/^\s+/, '')) + '</p>';
+        }).join('');
       }
     });
     var h1 = document.getElementById('h1');
@@ -2020,6 +2138,26 @@
             nb.addEventListener('click', function () { openNote(s, group); });
             bar.appendChild(nb);
           }
+        }
+
+        var lraw = typeof s.lnk === 'string' ? s.lnk : '';
+        if (lraw) {
+          var lrow = document.createElement('div');
+          lrow.className = 'trax';
+          lraw.split(';').forEach(function (pair) {
+            var bits = pair.split('|');
+            if (bits.length !== 2) return;
+            var a = document.createElement('a');
+            a.href = 'https://suno.com/song/' + bits[1];
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.textContent = bits[0];
+            lrow.appendChild(a);
+          });
+          // the toggles' panels live in the same cell: keep the links above them
+          var firstPanel = cT.querySelector('.notepanel');
+          if (firstPanel) cT.insertBefore(lrow, firstPanel);
+          else cT.appendChild(lrow);
         }
         tr.appendChild(cT);
 
@@ -2302,7 +2440,8 @@
       draft = on ? DATA.songs[group].map(function (s) {
         return {
           t: s.t || '', y: s.y || '', n: s.n || '', l: s.l || '', lt: s.lt || '', l0: s.l || '', lt0: s.lt || '', nt: s.nt || '', n0: s.n || '', nt0: s.nt || '', hold: !!s.hold, lang: songLang(s, group),
-          img: Array.isArray(s.img) ? s.img.slice() : []
+          img: Array.isArray(s.img) ? s.img.slice() : [],
+          lnk: typeof s.lnk === 'string' ? s.lnk : ''
         };
       }) : null;
       tablewrap.hidden = on;
@@ -2363,7 +2502,7 @@
     });
 
     bAdd.addEventListener('click', function () {
-      draft.push({ t: '', y: '', n: '', nt: '', n0: '', nt0: '', l: '', lt: '', l0: '', lt0: '', hold: false, lang: groupLang(group), img: [] });
+      draft.push({ t: '', y: '', n: '', nt: '', n0: '', nt0: '', l: '', lt: '', l0: '', lt0: '', hold: false, lang: groupLang(group), img: [], lnk: '' });
       renderEdit();
       var inputs = cards.querySelectorAll('input[type="text"]');
       if (inputs.length) inputs[inputs.length - 2].focus();
@@ -2382,6 +2521,7 @@
         if (s.hold) o.hold = 1;
         if (s.lang && s.lang !== groupLang(group)) o.lang = s.lang;
         if (Array.isArray(s.img) && s.img.length) o.img = s.img;
+        if (s.lnk) o.lnk = s.lnk;
         return o;
       }).filter(function (s) { return s.t !== ''; });
 
