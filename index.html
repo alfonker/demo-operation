@@ -320,6 +320,9 @@
   .togs { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 0.3rem; }
   .demonote { font-style: italic; }
   .lists { display: flex; flex-direction: column; gap: 0.8rem; }
+  .codekey { max-width: 34rem; }
+  .codekey p { margin: 0; line-height: 1.5; }
+  .codekey p:empty { height: 0.95em; }
   .trax { display: flex; flex-wrap: wrap; gap: 0.15rem 0.7rem; margin-top: 0.35rem; }
   .trax__lab {
     font-family: var(--mono);
@@ -327,7 +330,7 @@
     letter-spacing: 0.1em;
     line-height: 1.5;
     text-transform: uppercase;
-    color: var(--ink-2);
+    color: var(--accent, var(--ink-2));
   }
   .trax a {
     font-family: var(--mono);
@@ -767,6 +770,40 @@
       <h2 class="section__title">Türkçe</h2>
     </div>
     <div class="section__body">
+      <div class="songs" data-group="TR">
+        <div class="songs__bar">
+          <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
+          <div class="btn-row js-editbar" hidden="">
+            <span class="savestate js-state"></span>
+            <button type="button" class="btn btn--ghost js-edit"></button>
+            <button type="button" class="btn btn--ghost js-bulk" hidden=""></button>
+            <button type="button" class="btn js-save" hidden=""></button>
+            <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
+          </div>
+        </div>
+        <div class="codekey">
+        <p class="section__note rt" data-rt="codesTR" data-kind="prose"></p>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" class="js-th-title"></th>
+                <th scope="col" class="js-th-note" hidden=""></th>
+                <th scope="col" class="js-th-year"></th>
+                <th scope="col" class="js-thx" hidden=""></th>
+              </tr>
+            </thead>
+            <tbody class="js-body"></tbody>
+          </table>
+        </div>
+        <div class="cards js-cards" hidden=""></div>
+        <p class="section__note rt" data-rt="lyr" data-kind="prose"></p>
+        <div class="btn-row js-addbar" hidden="">
+          <button type="button" class="btn btn--ghost js-add"></button>
+        </div>
+      </div>
+
       <div class="lists">
       <div class="songs__bar">
         <h3 class="songs__title rt" data-rt="listsLabel" data-kind="line"></h3>
@@ -774,7 +811,7 @@
       <p class="section__note rt" data-rt="nTR" data-kind="line"></p>
       <div class="index">
         <a class="row" href="https://suno.com/playlist/9c1d7926-fd18-460a-b1a7-a563b1e6e226" target="_blank" rel="noopener">
-          <span class="row__code">DEMO</span><span class="row__name">Orijinal Demolar* - TR</span>
+          <span class="row__code">DEMO</span><span class="row__name">Orijinal Demolar - TR</span>
           <span class="row__go rt-go"></span>
         </a>
         <a class="row" href="https://suno.com/playlist/e832c90b-a99f-4062-86fa-042a68b93604" target="_blank" rel="noopener">
@@ -806,10 +843,17 @@
           <span class="row__go rt-go"></span>
         </a>
       </div>
-      <p class="section__note demonote rt" data-rt="demoNote" data-kind="prose"></p>
       </div>
+    </div>
+  </section>
 
-      <div class="songs" data-group="TR">
+  <section class="section" style="--accent: var(--c-eng);">
+    <div class="section__head">
+      <span class="section__num">03 — ENG</span>
+      <h2 class="section__title">English</h2>
+    </div>
+    <div class="section__body">
+      <div class="songs" data-group="ENG">
         <div class="songs__bar">
           <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
           <div class="btn-row js-editbar" hidden="">
@@ -820,7 +864,9 @@
             <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
           </div>
         </div>
-        <p class="section__note rt" data-rt="traxNote" data-kind="prose"></p>
+        <div class="codekey">
+        <p class="section__note rt" data-rt="codesENG" data-kind="prose"></p>
+        </div>
         <div class="tablewrap">
           <table>
             <thead>
@@ -835,20 +881,12 @@
           </table>
         </div>
         <div class="cards js-cards" hidden=""></div>
-        <p class="section__note rt" data-rt="lyr" data-kind="prose"></p>
+        <p class="section__note rt" data-rt="lyr" data-kind="prose" data-dup="1"></p>
         <div class="btn-row js-addbar" hidden="">
           <button type="button" class="btn btn--ghost js-add"></button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section" style="--accent: var(--c-eng);">
-    <div class="section__head">
-      <span class="section__num">03 — ENG</span>
-      <h2 class="section__title">English</h2>
-    </div>
-    <div class="section__body">
       <div class="lists">
       <div class="songs__bar">
         <h3 class="songs__title rt" data-rt="listsLabel" data-kind="line" data-dup="1"></h3>
@@ -856,7 +894,7 @@
       <p class="section__note rt" data-rt="nENG" data-kind="line"></p>
       <div class="index">
         <a class="row" href="https://suno.com/playlist/f50b2344-f64e-4bab-a8f3-5660372531e8" target="_blank" rel="noopener">
-          <span class="row__code">DEMO</span><span class="row__name">Original Demos* - ENG</span>
+          <span class="row__code">DEMO</span><span class="row__name">Original Demos - ENG</span>
           <span class="row__go rt-go"></span>
         </a>
         <a class="row" href="https://suno.com/playlist/8c3184da-bffb-4fa8-b974-0c5d29465987" target="_blank" rel="noopener">
@@ -888,10 +926,18 @@
           <span class="row__go rt-go"></span>
         </a>
       </div>
-      <p class="section__note demonote rt" data-rt="demoNote" data-kind="prose"></p>
       </div>
+    </div>
+  </section>
 
-      <div class="songs" data-group="ENG">
+  <section class="section" style="--accent: var(--c-civ);">
+    <div class="section__head">
+      <span class="section__num">04</span>
+      <h2 class="section__title rt" data-rt="hCIV" data-kind="line"></h2>
+    </div>
+    <div class="section__body">
+      <p class="section__note rt" data-rt="nCIV" data-kind="prose"></p>
+      <div class="songs" data-group="CIV">
         <div class="songs__bar">
           <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
           <div class="btn-row js-editbar" hidden="">
@@ -902,7 +948,9 @@
             <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
           </div>
         </div>
-        <p class="section__note rt" data-rt="traxNote" data-kind="prose"></p>
+        <div class="codekey">
+        <p class="section__note rt" data-rt="codesCIV" data-kind="prose"></p>
+        </div>
         <div class="tablewrap">
           <table>
             <thead>
@@ -917,21 +965,12 @@
           </table>
         </div>
         <div class="cards js-cards" hidden=""></div>
-        <p class="section__note rt" data-rt="lyr" data-kind="prose" data-dup="1"></p>
+        <p class="section__note rt" data-rt="lyrCIV" data-kind="prose"></p>
         <div class="btn-row js-addbar" hidden="">
           <button type="button" class="btn btn--ghost js-add"></button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section" style="--accent: var(--c-civ);">
-    <div class="section__head">
-      <span class="section__num">04</span>
-      <h2 class="section__title rt" data-rt="hCIV" data-kind="line"></h2>
-    </div>
-    <div class="section__body">
-      <p class="section__note rt" data-rt="nCIV" data-kind="prose"></p>
       <div class="lists">
       <div class="songs__bar">
         <h3 class="songs__title rt" data-rt="listsLabel" data-kind="line" data-dup="1"></h3>
@@ -954,37 +993,6 @@
           <span class="row__go rt-go"></span>
         </a>
       </div>
-      </div>
-      <div class="songs" data-group="CIV">
-        <div class="songs__bar">
-          <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
-          <div class="btn-row js-editbar" hidden="">
-            <span class="savestate js-state"></span>
-            <button type="button" class="btn btn--ghost js-edit"></button>
-            <button type="button" class="btn btn--ghost js-bulk" hidden=""></button>
-            <button type="button" class="btn js-save" hidden=""></button>
-            <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
-          </div>
-        </div>
-        <p class="section__note rt" data-rt="traxNote" data-kind="prose"></p>
-        <div class="tablewrap">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col" class="js-th-title"></th>
-                <th scope="col" class="js-th-note" hidden=""></th>
-                <th scope="col" class="js-th-year"></th>
-                <th scope="col" class="js-thx" hidden=""></th>
-              </tr>
-            </thead>
-            <tbody class="js-body"></tbody>
-          </table>
-        </div>
-        <div class="cards js-cards" hidden=""></div>
-        <p class="section__note rt" data-rt="lyrCIV" data-kind="prose"></p>
-        <div class="btn-row js-addbar" hidden="">
-          <button type="button" class="btn btn--ghost js-add"></button>
-        </div>
       </div>
     </div>
   </section>
@@ -1113,11 +1121,11 @@
   "lyr": {
    "tr": [
     "Parantez içindeki adlar söz yazarları. Kimi bizzat tanımadığım şair, kimi şair olmayan eş dost, kimi de hem şair hem eş dost. Parantez yoksa, ben yazmışım demek oluyor. Ama değişir yani güfteler. Güfte dediğin nedir... Turgut Uyar, Ahmatova, Borges kopiraytlı elbette -- demektir ki ilelebet ancak bu demo sayfasında kalacaklar.",
-    "(X ile birlikte) yazıyorsa, şarkının bestesinde ve/veya güftesinde birileriyle çalışmışım demek oluyor, o da..."
+    "(X _ile birlikte_) yazıyorsa, şarkının bestesinde ve/veya güftesinde birileriyle çalışmışım demek oluyor, o da..."
    ],
    "en": [
     "Names in brackets are the lyricists. Some are poets I've never met, some are friends who aren't poets, some are both. No brackets means I wrote it. But lyrics change. And what is a lyric anyway... Uyar, Akhmatova, Borges are of course copyrighted, which means they will probably stay on this demo page forever.",
-    "If it says (w/ X), it means I worked with someone on the music and/or the words of that song."
+    "If it says (_w/_ X), it means I worked with someone on the music and/or the words of that song."
    ]
   },
   "h04": {
@@ -1196,10 +1204,10 @@
   },
   "lyrCIV": {
    "tr": [
-    "Yine yukarıdakiler gibi, parantez içinde güftekarlar var, ile birlikte yazıyorsa ortak beste/güfte demektir."
+    "Yine yukarıdakiler gibi, parantez içinde güftekarlar var, _ile birlikte_ yazıyorsa ortak beste/güfte demektir."
    ],
    "en": [
-    "Same as above: the names in brackets are the lyricists, and w/ means the music and/or the words were a joint effort."
+    "Same as above: the names in brackets are the lyricists, and _w/_ means the music and/or the words were a joint effort."
    ]
   },
   "listsLabel": {
@@ -1210,20 +1218,98 @@
     "Playlists"
    ]
   },
-  "traxNote": {
+  "codesTR": {
    "tr": [
-    "Şarkıların değişik versiyonları için ilgili koda tıklayın. Genel sınıflandırmanın dışında kalan düzenlemeler _S-extra_ olarak listelendi. Bir şarkı hakkında özel olarak yorum yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun."
+    "Şarkıların değişik versiyonları için ilgili koda tıklayın:",
+    "",
+    "**DEMO** - Orijinal demolar*",
+    "**S1** - Rock",
+    "**S2** - Akustik",
+    "**S3** - Horn Metal",
+    "**S4** - Akustik Alaturka",
+    "**S5** - Electronica",
+    "**S6** - Rock Alaturka",
+    "**S7** - Jazz Quintet",
+    "**S-extra** - genel sınıflandırmanın dışında kalanlar",
+    "",
+    "Bir şarkı hakkında özel olarak yorum yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun. Bir janrdaki bütün şarkıları bir batında dinlemek istiyorsanız, çalma listeleri aşağıda.",
+    "",
+    "*Orijinal Demo kayıtları bazen şarkının tamamı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla/mırıldanarak) çalınmış versiyonu olabilir."
    ],
    "en": [
-    "Click the relevant code to hear the different versions of a song. Arrangements that fall outside the general classification are listed as _S-extra_. To comment on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page."
+    "Click the relevant code to hear the different versions of a song:",
+    "",
+    "**DEMO** - Original demos*",
+    "**S1** - Rock",
+    "**S2** - Akustik",
+    "**S3** - Horn Metal",
+    "**S4** - Akustik Alaturka",
+    "**S5** - Electronica",
+    "**S6** - Rock Alaturka",
+    "**S7** - Jazz Quintet",
+    "**S-extra** - the ones outside the general classification",
+    "",
+    "To comment on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page. If you want to hear every song in one genre in one go, the playlists are below.",
+    "",
+    "*The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed)."
    ]
   },
-  "demoNote": {
+  "codesENG": {
    "tr": [
-    "* Orijinal Demo kayıtları bazen tüm şarkı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla / mırıldanarak) çalınmış versiyonu olabilir."
+    "Şarkıların değişik versiyonları için ilgili koda tıklayın:",
+    "",
+    "**DEMO** - Orijinal demolar*",
+    "**S1** - Rock",
+    "**S2** - Acoustic",
+    "**S3** - Horn Metal",
+    "**S4** - Acoustic Allaturca",
+    "**S5** - Electronica",
+    "**S6** - Rock Allaturca",
+    "**S7** - Jazz Quintet",
+    "**S-extra** - genel sınıflandırmanın dışında kalanlar",
+    "",
+    "Bir şarkı hakkında özel olarak yorum yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun. Bir janrdaki bütün şarkıları bir batında dinlemek istiyorsanız, çalma listeleri aşağıda.",
+    "",
+    "*Orijinal Demo kayıtları bazen şarkının tamamı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla/mırıldanarak) çalınmış versiyonu olabilir."
    ],
    "en": [
-    "* The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed)."
+    "Click the relevant code to hear the different versions of a song:",
+    "",
+    "**DEMO** - Original demos*",
+    "**S1** - Rock",
+    "**S2** - Acoustic",
+    "**S3** - Horn Metal",
+    "**S4** - Acoustic Allaturca",
+    "**S5** - Electronica",
+    "**S6** - Rock Allaturca",
+    "**S7** - Jazz Quintet",
+    "**S-extra** - the ones outside the general classification",
+    "",
+    "To comment on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page. If you want to hear every song in one genre in one go, the playlists are below.",
+    "",
+    "*The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed)."
+   ]
+  },
+  "codesCIV": {
+   "tr": [
+    "Şarkıların değişik versiyonları için ilgili koda tıklayın:",
+    "",
+    "**DEMO** - Orijinal demolar",
+    "**C1** - Rock",
+    "**C2** - Akustik - Acoustic",
+    "**C3** - Horn Metal",
+    "",
+    "Bir şarkı hakkında özel olarak yorum yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun. Bir janrdaki bütün şarkıları bir batında dinlemek istiyorsanız, çalma listeleri aşağıda."
+   ],
+   "en": [
+    "Click the relevant code to hear the different versions of a song:",
+    "",
+    "**DEMO** - Original demos",
+    "**C1** - Rock",
+    "**C2** - Akustik - Acoustic",
+    "**C3** - Horn Metal",
+    "",
+    "To comment on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page. If you want to hear every song in one genre in one go, the playlists are below."
    ]
   }
  },
@@ -1641,7 +1727,7 @@
     year:   { tr: 'Yıl', en: 'Year' },
     ops:    { tr: 'Sıra / Sil', en: 'Order / Delete' },
     open:   { tr: "Suno'da aç →", en: 'Open on Suno →' },
-    listen: { tr: 'Dinle', en: 'Listen' },
+    listen: { tr: 'Dinle:', en: 'Listen:' },
     more:   { tr: 'Devamını oku →', en: 'Read more →' },
     none:   { tr: 'Henüz kayıt yok.', en: 'Nothing here yet.' },
     emptyL: { tr: 'Liste boş.', en: 'The list is empty.' },
@@ -2826,18 +2912,25 @@
   }
 
   /* comments -------------------------------------------------------------- */
+  :root { --c-cmt: #9A7B52; --c-cmt-soft: #D9C4A6; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --c-cmt: #D3B48C; --c-cmt-soft: #6B573C; }
+  }
+  :root[data-theme="dark"] { --c-cmt: #D3B48C; --c-cmt-soft: #6B573C; }
+
   .cmt-btn {
-    color: var(--c-neon);
-    border: 1px solid var(--c-neon);
+    color: var(--c-cmt);
+    border: 1px solid var(--c-cmt-soft);
     padding: 0.05rem 0.4rem 0.1rem;
     line-height: 1.45;
   }
   .cmt-btn:hover, .cmt-btn:focus-visible {
-    background: var(--c-neon);
-    color: var(--paper);
+    background: var(--c-cmt-soft);
+    color: var(--ink);
+    border-color: var(--c-cmt-soft);
     text-decoration: none;
   }
-  .cmt-btn:focus-visible { outline: 2px solid var(--c-neon); outline-offset: 2px; }
+  .cmt-btn:focus-visible { outline: 2px solid var(--c-cmt); outline-offset: 2px; }
 
   .cform { display: flex; flex-direction: column; gap: 0.55rem; max-width: 36rem; }
   .cform input[type="text"], .cform textarea {
