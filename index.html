@@ -1146,10 +1146,10 @@
   },
   "foot": {
    "tr": [
-    "18 çalma listesi · Suno üzerinde"
+    "21 çalma listesi · 37 şarkı · Suno üzerinde"
    ],
    "en": [
-    "18 playlists · hosted on Suno"
+    "21 playlists · 37 songs · hosted on Suno"
    ]
   },
   "sunoLink": {
@@ -1204,10 +1204,10 @@
   },
   "traxNote": {
    "tr": [
-    "Şarkıların değişik versiyonları için ilgili koda tıklayın. Genel sınıflandırmanın dışında kalan düzenlemeler _S-extra_ olarak listelendi."
+    "Şarkıların değişik versiyonları için ilgili koda tıklayın. Genel sınıflandırmanın dışında kalan düzenlemeler _S-extra_ olarak listelendi. Bir şarkı hakkında özel olarak yorum yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun."
    ],
    "en": [
-    "Click the relevant code to hear the different versions of a song. Arrangements that fall outside the general classification are listed as _S-extra_."
+    "Click the relevant code to hear the different versions of a song. Arrangements that fall outside the general classification are listed as _S-extra_. To comment on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page."
    ]
   },
   "demoNote": {
@@ -2789,5 +2789,374 @@
 
 })();
 </script>
+<style>
+  /* inline Suno player ---------------------------------------------------- */
+  .pbox { margin: 0.5rem 0 0.3rem; max-width: 520px; }
+  .pbox iframe { display: block; width: 100%; height: 124px; border: 0; }
+  @media (max-width: 480px) { .pbox iframe { height: 152px; } }
+  .pbox__bar { display: flex; gap: 0.9rem; align-items: baseline; margin-top: 0.3rem; }
+  .pbox__bar a, .pbox__bar button {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+  }
+  .pbox__bar a:hover, .pbox__bar button:hover { color: var(--accent, var(--ink)); }
+  .trax a.playing {
+    color: var(--accent, var(--ink));
+    border-bottom-color: var(--accent, var(--ink));
+  }
+
+  /* comments -------------------------------------------------------------- */
+  .cform { display: flex; flex-direction: column; gap: 0.55rem; max-width: 36rem; }
+  .cform input[type="text"], .cform textarea {
+    width: 100%;
+    font-family: var(--sans);
+    font-size: var(--step--1);
+    line-height: 1.5;
+    padding: 0.45rem 0.55rem;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .cform textarea { min-height: 7rem; resize: vertical; }
+  .cform input:focus-visible, .cform textarea:focus-visible {
+    outline: 2px solid var(--c-tr);
+    outline-offset: 2px;
+  }
+  .cform__lab {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .cform__pot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .cform__state { font-family: var(--mono); font-size: var(--step--1); color: var(--ink-2); }
+  .cquestions { max-width: 36rem; }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  var ENDPOINT = "https://api.web3forms.com/submit";
+  var ACCESS_KEY = "2515f3e7-3f9b-4ccd-906e-1fa16e3c04d7";
+  var QUESTIONS = {"tr": "Hangilerini kaydedeyim?  Hangi şarkıyı hangi janrda kaydedeyim? Nasıl gruplayayım: 4-5er beşer şarkılık benzer aranjmanlı, türü falan belli bir seri EP mi yapayım? Yoksa, olm albüm bütünlüğü işi mi kaldı lol, nası istersen öyle yap mı diyorsunuz? Yoksa, hahah, bize ne yaa, mı diyorsunuz?", "en": "Which ones should I record? Which song should I record in which genre? How should I group them: should I do a series of EPs, 4-5 songs each, with similar arrangements, a set genre and whatnot? Or are you saying, dude, is album cohesion even still a thing lol, just do whatever you want? Or are you saying, hahah, what’s it to us?"};
+  var OPENED_AT = Date.now();
+
+  var T = {
+    play:    { tr: 'Oynat',            en: 'Play' },
+    openOn:  { tr: "Suno'da a\u00e7 \u2197", en: 'Open on Suno \u2197' },
+    close:   { tr: 'Kapat',            en: 'Close' },
+    cBtn:    { tr: 'Yorum yaz',        en: 'Comment' },
+    cTitle:  { tr: 'Genel Yorumlar',   en: 'General Comments' },
+    cAbout:  { tr: 'Yorum: ',          en: 'Comment on: ' },
+    yourName:{ tr: 'Ad\u0131n\u0131z ney?', en: "What's your name?" },
+    yourWord:{ tr: 'Yorumunuz',        en: 'Your comment' },
+    send:    { tr: 'G\u00f6nder',     en: 'Send' },
+    sending: { tr: 'Gidiyor\u2026',   en: 'Sending\u2026' },
+    sent:    { tr: 'Gitti, sa\u011fol.', en: 'Sent, thanks.' },
+    failed:  { tr: 'Gitmedi. Bir daha dener misin?', en: "Didn't go through. Try again?" },
+    empty:   { tr: 'Bir \u015feyler yaz\u0131n.', en: 'Write something first.' },
+    unwired: { tr: 'Yorum kutusu hen\u00fcz ba\u011flanmad\u0131.', en: 'The comment box is not wired up yet.' }
+  };
+
+  function isTR() {
+    var b = document.querySelector('.langswitch button[data-lang="tr"]');
+    return !b || b.getAttribute('aria-pressed') === 'true';
+  }
+  function t(k) { return T[k][isTR() ? 'tr' : 'en']; }
+
+  /* ---- inline player ---------------------------------------------------- */
+  var box = null, current = null;
+
+  function closePlayer() {
+    if (box && box.parentNode) box.parentNode.removeChild(box);
+    if (current) current.classList.remove('playing');
+    box = null;
+    current = null;
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('.trax a') : null;
+    if (!a) return;
+    // a modified click still opens Suno in its own tab
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    e.preventDefault();
+    if (current === a) { closePlayer(); return; }
+    closePlayer();
+    var href = a.getAttribute('href') || '';
+    var id = href.split('/').pop();
+    if (!id) return;
+
+    box = document.createElement('div');
+    box.className = 'pbox';
+    var f = document.createElement('iframe');
+    f.src = 'https://suno.com/embed/' + id;
+    f.setAttribute('loading', 'lazy');
+    f.setAttribute('allow', 'autoplay; encrypted-media');
+    f.setAttribute('title', a.textContent);
+    box.appendChild(f);
+
+    var bar = document.createElement('div');
+    bar.className = 'pbox__bar';
+    var open = document.createElement('a');
+    open.href = href;
+    open.target = '_blank';
+    open.rel = 'noopener';
+    open.textContent = t('openOn');
+    var shut = document.createElement('button');
+    shut.type = 'button';
+    shut.textContent = t('close');
+    shut.addEventListener('click', closePlayer);
+    bar.appendChild(open);
+    bar.appendChild(shut);
+    box.appendChild(bar);
+
+    var row = a.parentNode;
+    row.parentNode.insertBefore(box, row.nextSibling);
+    a.classList.add('playing');
+    current = a;
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !box) return;
+    var modal = document.getElementById('notemodal');
+    var light = document.getElementById('lightbox');
+    if (modal && !modal.hidden) return;
+    if (light && !light.hidden) return;
+    closePlayer();
+  });
+
+  /* ---- the form --------------------------------------------------------- */
+  function buildForm(scope, onDone) {
+    var form = document.createElement('form');
+    form.className = 'cform';
+    form.setAttribute('novalidate', 'novalidate');
+
+    var l1 = document.createElement('label');
+    l1.className = 'cform__lab';
+    l1.textContent = t('yourName');
+    var name = document.createElement('input');
+    name.type = 'text';
+    name.autocomplete = 'off';
+    name.maxLength = 60;
+    l1.appendChild(name);
+
+    var l2 = document.createElement('label');
+    l2.className = 'cform__lab';
+    l2.textContent = t('yourWord');
+    var body = document.createElement('textarea');
+    body.maxLength = 4000;
+    l2.appendChild(body);
+
+    // a field no person can see: anything that fills it is a bot
+    var pot = document.createElement('div');
+    pot.className = 'cform__pot';
+    pot.setAttribute('aria-hidden', 'true');
+    var potIn = document.createElement('input');
+    potIn.type = 'text';
+    potIn.tabIndex = -1;
+    potIn.autocomplete = 'off';
+    potIn.name = 'website';
+    pot.appendChild(potIn);
+
+    var row = document.createElement('div');
+    row.className = 'btn-row';
+    var send = document.createElement('button');
+    send.type = 'submit';
+    send.className = 'btn';
+    send.textContent = t('send');
+    var state = document.createElement('span');
+    state.className = 'cform__state';
+    row.appendChild(send);
+    row.appendChild(state);
+
+    form.appendChild(l1);
+    form.appendChild(l2);
+    form.appendChild(pot);
+    form.appendChild(row);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!body.value.trim()) { state.textContent = t('empty'); return; }
+      if (!ENDPOINT) { state.textContent = t('unwired'); return; }
+      if (potIn.value) { state.textContent = t('sent'); return; }   // bot: swallow it
+      if (Date.now() - OPENED_AT < 3000) { state.textContent = t('sent'); return; }
+
+      send.disabled = true;
+      state.textContent = t('sending');
+      var payload = {
+        subject: scope,
+        name: name.value.trim() || '-',
+        message: body.value.trim(),
+        page: location.href
+      };
+      if (ACCESS_KEY) payload.access_key = ACCESS_KEY;
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (!r.ok) throw new Error(String(r.status));
+        state.textContent = t('sent');
+        body.value = '';
+        send.disabled = false;
+        if (onDone) onDone();
+      }).catch(function () {
+        state.textContent = t('failed');
+        send.disabled = false;
+      });
+    });
+
+    return form;
+  }
+
+  /* ---- per-song comment ------------------------------------------------- */
+  var cmodal = null;
+
+  function openComment(title) {
+    closeComment();
+    cmodal = document.createElement('div');
+    cmodal.className = 'modal';
+    var panel = document.createElement('div');
+    panel.className = 'modal__panel';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-modal', 'true');
+
+    var hd = document.createElement('div');
+    hd.className = 'modal__hd';
+    var left = document.createElement('div');
+    var kick = document.createElement('div');
+    kick.className = 'modal__kicker';
+    kick.textContent = t('cBtn');
+    var h = document.createElement('h2');
+    h.className = 'modal__t';
+    h.textContent = title;
+    left.appendChild(kick);
+    left.appendChild(h);
+    var x = document.createElement('button');
+    x.type = 'button';
+    x.className = 'btn btn--ghost';
+    x.textContent = '\u00d7';
+    x.addEventListener('click', closeComment);
+    hd.appendChild(left);
+    hd.appendChild(x);
+
+    var bd = document.createElement('div');
+    bd.className = 'modal__body';
+    bd.appendChild(buildForm(t('cAbout') + title));
+
+    panel.appendChild(hd);
+    panel.appendChild(bd);
+    cmodal.appendChild(panel);
+    cmodal.addEventListener('click', function (e) { if (e.target === cmodal) closeComment(); });
+    document.body.appendChild(cmodal);
+  }
+
+  function closeComment() {
+    if (cmodal && cmodal.parentNode) cmodal.parentNode.removeChild(cmodal);
+    cmodal = null;
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && cmodal) closeComment();
+  });
+
+  // the song tables are re-rendered on every language switch, so the buttons
+  // are put back whenever the rows change
+  function addButtons() {
+    var cells = document.querySelectorAll('td.t-title');
+    Array.prototype.forEach.call(cells, function (cell) {
+      if (cell.querySelector('.cmt-btn')) return;
+      var bar = cell.querySelector('.togs');
+      if (!bar) {
+        bar = document.createElement('div');
+        bar.className = 'togs';
+        var trax = cell.querySelector('.trax');
+        if (trax) cell.insertBefore(bar, trax);
+        else cell.appendChild(bar);
+      }
+      var title = (cell.childNodes[0] && cell.childNodes[0].nodeValue || '').trim();
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'notetoggle cmt-btn';
+      b.textContent = t('cBtn');
+      b.addEventListener('click', function () { openComment(title); });
+      bar.appendChild(b);
+    });
+  }
+
+  var mo = new MutationObserver(function () { addButtons(); });
+  Array.prototype.forEach.call(document.querySelectorAll('.songs .js-body'), function (tb) {
+    mo.observe(tb, { childList: true });
+  });
+  addButtons();
+
+  /* ---- the general section at the foot ---------------------------------- */
+  function buildSection() {
+    var wrap = document.querySelector('.wrap');
+    var foot = wrap ? wrap.querySelector('footer') : null;
+    if (!wrap) return;
+
+    var sec = document.createElement('section');
+    sec.className = 'section';
+    sec.id = 'yorum';
+    sec.setAttribute('style', '--accent: var(--c-neon);');
+
+    var head = document.createElement('div');
+    head.className = 'section__head';
+    var num = document.createElement('span');
+    num.className = 'section__num';
+    num.textContent = '06';
+    var h2 = document.createElement('h2');
+    h2.className = 'section__title js-ctitle';
+    h2.textContent = t('cTitle');
+    head.appendChild(num);
+    head.appendChild(h2);
+
+    var bodyWrap = document.createElement('div');
+    bodyWrap.className = 'section__body';
+    var q = document.createElement('p');
+    q.className = 'section__note cquestions js-cq';
+    q.textContent = QUESTIONS[isTR() ? 'tr' : 'en'];
+    bodyWrap.appendChild(q);
+    bodyWrap.appendChild(buildForm(isTR() ? 'Genel yorum' : 'General comment'));
+
+    sec.appendChild(head);
+    sec.appendChild(bodyWrap);
+    if (foot) wrap.insertBefore(sec, foot);
+    else wrap.appendChild(sec);
+  }
+  buildSection();
+
+  // keep the injected labels in step with the language buttons
+  Array.prototype.forEach.call(document.querySelectorAll('.langswitch button'), function (b) {
+    b.addEventListener('click', function () {
+      setTimeout(function () {
+        var h2 = document.querySelector('.js-ctitle');
+        if (h2) h2.textContent = t('cTitle');
+        var q = document.querySelector('.js-cq');
+        if (q) q.textContent = QUESTIONS[isTR() ? 'tr' : 'en'];
+        var sec = document.getElementById('yorum');
+        if (sec) {
+          var old = sec.querySelector('.cform');
+          if (old) old.parentNode.replaceChild(buildForm(isTR() ? 'Genel yorum' : 'General comment'), old);
+        }
+        closePlayer();
+        addButtons();
+      }, 60);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
