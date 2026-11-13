@@ -321,6 +321,14 @@
   .demonote { font-style: italic; }
   .lists { display: flex; flex-direction: column; gap: 0.8rem; }
   .trax { display: flex; flex-wrap: wrap; gap: 0.15rem 0.7rem; margin-top: 0.35rem; }
+  .trax__lab {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
   .trax a {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -1633,6 +1641,7 @@
     year:   { tr: 'Yıl', en: 'Year' },
     ops:    { tr: 'Sıra / Sil', en: 'Order / Delete' },
     open:   { tr: "Suno'da aç →", en: 'Open on Suno →' },
+    listen: { tr: 'Dinle', en: 'Listen' },
     more:   { tr: 'Devamını oku →', en: 'Read more →' },
     none:   { tr: 'Henüz kayıt yok.', en: 'Nothing here yet.' },
     emptyL: { tr: 'Liste boş.', en: 'The list is empty.' },
@@ -2144,6 +2153,10 @@
         if (lraw) {
           var lrow = document.createElement('div');
           lrow.className = 'trax';
+          var llab = document.createElement('span');
+          llab.className = 'trax__lab';
+          llab.textContent = t('listen');
+          lrow.appendChild(llab);
           lraw.split(';').forEach(function (pair) {
             var bits = pair.split('|');
             if (bits.length !== 2) return;
@@ -2813,6 +2826,19 @@
   }
 
   /* comments -------------------------------------------------------------- */
+  .cmt-btn {
+    color: var(--c-neon);
+    border: 1px solid var(--c-neon);
+    padding: 0.05rem 0.4rem 0.1rem;
+    line-height: 1.45;
+  }
+  .cmt-btn:hover, .cmt-btn:focus-visible {
+    background: var(--c-neon);
+    color: var(--paper);
+    text-decoration: none;
+  }
+  .cmt-btn:focus-visible { outline: 2px solid var(--c-neon); outline-offset: 2px; }
+
   .cform { display: flex; flex-direction: column; gap: 0.55rem; max-width: 36rem; }
   .cform input[type="text"], .cform textarea {
     width: 100%;
