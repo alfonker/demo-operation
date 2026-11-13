@@ -33,9 +33,11 @@
     --c-extra:  #55565B;
     --c-neon:   #D6007A;
     --c-civ:   #8A6D1F;
+    --c-cmt:   #9A7B52;
 
     --step--1: clamp(0.78rem, 0.76rem + 0.10vw, 0.84rem);
     --step-0:  clamp(0.96rem, 0.93rem + 0.15vw, 1.04rem);
+    --step-0h: clamp(1.06rem, 1.02rem + 0.20vw, 1.18rem);
     --step-1:  clamp(1.14rem, 1.08rem + 0.30vw, 1.32rem);
     --step-2:  clamp(1.42rem, 1.30rem + 0.60vw, 1.80rem);
     --step-3:  clamp(2.10rem, 1.70rem + 2.00vw, 3.40rem);
@@ -60,6 +62,7 @@
       --c-extra: #9B9B98;
       --c-neon:  #FF5FC8;
       --c-civ:  #C9A646;
+      --c-cmt:  #D3B48C;
     }
   }
 
@@ -76,6 +79,7 @@
     --c-extra: #9B9B98;
     --c-neon:  #FF5FC8;
     --c-civ:  #C9A646;
+    --c-cmt:  #D3B48C;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -135,6 +139,8 @@
     letter-spacing: 0.06em;
     color: var(--ink-2);
   }
+  .status { max-width: 44rem; }
+  .substatus { letter-spacing: 0.02em; }
   .status .dot {
     display: inline-block;
     width: 0.5em; height: 0.5em;
@@ -170,7 +176,7 @@
   }
 
   /* prose --------------------------------------------------------------- */
-  .prose { max-width: 38rem; font-family: var(--serif); font-size: var(--step-1); line-height: 1.62; }
+  .prose { max-width: 38rem; font-family: var(--sans); font-size: var(--step-0); line-height: 1.65; }
   .prose p { margin: 0 0 1rem; }
   .prose p:last-child { margin-bottom: 0; }
   .prose a {
@@ -213,6 +219,7 @@
     color: var(--accent, var(--ink-2));
   }
   .section__title {
+    white-space: pre-line;
     margin: 0;
     font-family: var(--cond);
     font-weight: 700;
@@ -237,7 +244,7 @@
     grid-template-columns: 4.6rem 1fr auto;
     align-items: baseline;
     gap: 0.9rem;
-    padding: 0.7rem 0.4rem 0.7rem 0;
+    padding: 0.3rem 0.4rem 0.3rem 0;
     border-bottom: 1px solid var(--rule-2);
     text-decoration: none;
     color: inherit;
@@ -256,7 +263,7 @@
   .row__name {
     font-family: var(--cond);
     font-weight: 600;
-    font-size: var(--step-1);
+    font-size: var(--step-0);
     letter-spacing: -0.005em;
     min-width: 0;
   }
@@ -291,7 +298,7 @@
   .tablewrap { overflow-x: auto; }
   table { border-collapse: collapse; width: 100%; min-width: 22rem; font-size: var(--step--1); }
   .songs table.editing { min-width: 46rem; }
-  th, td { text-align: left; padding: 0.5rem 1rem 0.5rem 0; vertical-align: baseline; }
+  th, td { text-align: left; padding: 0.4rem 1rem 0.4rem 0; vertical-align: baseline; }
   thead th {
     font-family: var(--mono);
     font-weight: 400;
@@ -303,9 +310,9 @@
   tbody td { border-bottom: 1px solid var(--rule-2); }
   tbody tr:hover td { background: var(--surface); }
   td.t-title {
-    font-family: var(--cond);
-    font-weight: 600;
-    font-size: var(--step-1);
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: var(--step-0h);
     color: var(--ink);
   }
   .t-note {
@@ -317,13 +324,38 @@
     margin-top: 0.15rem;
     max-width: 34rem;
   }
-  .togs { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 0.3rem; }
+  .togs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.9rem; }
+  .t-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.6rem 1.2rem;
+  }
+  .t-name { min-width: 0; }
+  @media (max-width: 30rem) {
+    .t-head { flex-wrap: wrap; }
+    .t-head > .t-name { flex: 1 1 100%; }
+  }
+  .ln2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1.2rem;
+    margin-top: 0.2rem;
+  }
   .demonote { font-style: italic; }
   .lists { display: flex; flex-direction: column; gap: 0.8rem; }
   .codekey { max-width: 34rem; }
+  .section__body > .section__note { font-size: var(--step-0); }
   .codekey p { margin: 0; line-height: 1.5; }
   .codekey p:empty { height: 0.95em; }
-  .trax { display: flex; flex-wrap: wrap; gap: 0.15rem 0.7rem; margin-top: 0.35rem; }
+  .codekey .section__note { font-size: var(--step-0); }
+  .hi { color: var(--c-cmt); font-weight: 600; }
+  .hi a { color: inherit; text-decoration: underline; text-underline-offset: 0.16em; }
+  .trax { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.7rem; }
+  .songgroup { display: contents; }
+  h4.songs__title { margin: 0.4rem 0 0; }
   .trax__lab {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -362,6 +394,9 @@
     text-transform: uppercase;
   }
   .notetoggle:hover { text-decoration: underline; }
+  .ln2 .notetoggle { font-size: 0.72rem; margin-top: 0; }
+  h3.songs__title:not(.rt) { font-size: var(--step-1); font-weight: 500; }
+  h4.songs__title { font-size: var(--step-0); font-weight: 500; }
   .notetoggle:focus-visible { outline: 2px solid var(--c-tr); outline-offset: 2px; }
   .notetoggle .caret { font-size: 0.8em; }
   .notepanel {
@@ -732,7 +767,7 @@
   <header class="masthead">
     <div>
       <h1 id="h1"></h1>
-      <p class="status"><span class="dot"></span><span class="rt" data-rt="status" data-kind="line"></span></p>
+      <p class="status"><span class="dot"></span><span class="rt" data-rt="status" data-kind="line"></span> · <span class="substatus rt" data-rt="sub" data-kind="line"></span></p>
     </div>
     <div class="mast-tools">
       <div class="langswitch" role="group" aria-label="Dil / Language">
@@ -764,15 +799,20 @@
     </div>
   </section>
 
-  <section class="section" style="--accent: var(--c-tr);">
+  <section class="section">
     <div class="section__head">
-      <span class="section__num">02 — TR</span>
-      <h2 class="section__title">Türkçe</h2>
+      <span class="section__num">02</span>
+      <h2 class="section__title rt" data-rt="hSONGS" data-kind="line"></h2>
     </div>
     <div class="section__body">
+      <div class="codekey">
+      <p class="section__note rt" data-rt="intro" data-kind="prose"></p>
+      </div>
+
+      <div class="songgroup" style="--accent: var(--c-tr);">
       <div class="songs" data-group="TR">
         <div class="songs__bar">
-          <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
+          <h3 class="songs__title">Türkçe</h3>
           <div class="btn-row js-editbar" hidden="">
             <span class="savestate js-state"></span>
             <button type="button" class="btn btn--ghost js-edit"></button>
@@ -780,9 +820,6 @@
             <button type="button" class="btn js-save" hidden=""></button>
             <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
           </div>
-        </div>
-        <div class="codekey">
-        <p class="section__note rt" data-rt="codesTR" data-kind="prose"></p>
         </div>
         <div class="tablewrap">
           <table>
@@ -798,17 +835,51 @@
           </table>
         </div>
         <div class="cards js-cards" hidden=""></div>
-        <p class="section__note rt" data-rt="lyr" data-kind="prose"></p>
         <div class="btn-row js-addbar" hidden="">
           <button type="button" class="btn btn--ghost js-add"></button>
         </div>
       </div>
+      </div>
 
-      <div class="lists">
+      <div class="songgroup" style="--accent: var(--c-eng);">
+      <div class="songs" data-group="ENG">
+        <div class="songs__bar">
+          <h3 class="songs__title" lang="en">English</h3>
+          <div class="btn-row js-editbar" hidden="">
+            <span class="savestate js-state"></span>
+            <button type="button" class="btn btn--ghost js-edit"></button>
+            <button type="button" class="btn btn--ghost js-bulk" hidden=""></button>
+            <button type="button" class="btn js-save" hidden=""></button>
+            <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
+          </div>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" class="js-th-title"></th>
+                <th scope="col" class="js-th-note" hidden=""></th>
+                <th scope="col" class="js-th-year"></th>
+                <th scope="col" class="js-thx" hidden=""></th>
+              </tr>
+            </thead>
+            <tbody class="js-body"></tbody>
+          </table>
+        </div>
+        <div class="cards js-cards" hidden=""></div>
+        <div class="btn-row js-addbar" hidden="">
+          <button type="button" class="btn btn--ghost js-add"></button>
+        </div>
+      </div>
+      </div>
+
+      <div class="lists" id="listeler">
       <div class="songs__bar">
         <h3 class="songs__title rt" data-rt="listsLabel" data-kind="line"></h3>
       </div>
       <p class="section__note rt" data-rt="nTR" data-kind="line"></p>
+      <div class="songgroup" style="--accent: var(--c-tr);">
+      <h4 class="songs__title">Türkçe</h4>
       <div class="index">
         <a class="row" href="https://suno.com/playlist/9c1d7926-fd18-460a-b1a7-a563b1e6e226" target="_blank" rel="noopener">
           <span class="row__code">DEMO</span><span class="row__name">Orijinal Demolar - TR</span>
@@ -844,54 +915,8 @@
         </a>
       </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section" style="--accent: var(--c-eng);">
-    <div class="section__head">
-      <span class="section__num">03 — ENG</span>
-      <h2 class="section__title">English</h2>
-    </div>
-    <div class="section__body">
-      <div class="songs" data-group="ENG">
-        <div class="songs__bar">
-          <h3 class="songs__title rt" data-rt="songsLabel" data-kind="line" data-dup="1"></h3>
-          <div class="btn-row js-editbar" hidden="">
-            <span class="savestate js-state"></span>
-            <button type="button" class="btn btn--ghost js-edit"></button>
-            <button type="button" class="btn btn--ghost js-bulk" hidden=""></button>
-            <button type="button" class="btn js-save" hidden=""></button>
-            <button type="button" class="btn btn--ghost js-cancel" hidden=""></button>
-          </div>
-        </div>
-        <div class="codekey">
-        <p class="section__note rt" data-rt="codesENG" data-kind="prose"></p>
-        </div>
-        <div class="tablewrap">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col" class="js-th-title"></th>
-                <th scope="col" class="js-th-note" hidden=""></th>
-                <th scope="col" class="js-th-year"></th>
-                <th scope="col" class="js-thx" hidden=""></th>
-              </tr>
-            </thead>
-            <tbody class="js-body"></tbody>
-          </table>
-        </div>
-        <div class="cards js-cards" hidden=""></div>
-        <p class="section__note rt" data-rt="lyr" data-kind="prose" data-dup="1"></p>
-        <div class="btn-row js-addbar" hidden="">
-          <button type="button" class="btn btn--ghost js-add"></button>
-        </div>
-      </div>
-
-      <div class="lists">
-      <div class="songs__bar">
-        <h3 class="songs__title rt" data-rt="listsLabel" data-kind="line" data-dup="1"></h3>
-      </div>
-      <p class="section__note rt" data-rt="nENG" data-kind="line"></p>
+      <div class="songgroup" style="--accent: var(--c-eng);">
+      <h4 class="songs__title" lang="en">English</h4>
       <div class="index">
         <a class="row" href="https://suno.com/playlist/f50b2344-f64e-4bab-a8f3-5660372531e8" target="_blank" rel="noopener">
           <span class="row__code">DEMO</span><span class="row__name">Original Demos - ENG</span>
@@ -927,12 +952,13 @@
         </a>
       </div>
       </div>
+      </div>
     </div>
   </section>
 
   <section class="section" style="--accent: var(--c-civ);">
     <div class="section__head">
-      <span class="section__num">04</span>
+      <span class="section__num">03</span>
       <h2 class="section__title rt" data-rt="hCIV" data-kind="line"></h2>
     </div>
     <div class="section__body">
@@ -965,7 +991,6 @@
           </table>
         </div>
         <div class="cards js-cards" hidden=""></div>
-        <p class="section__note rt" data-rt="lyrCIV" data-kind="prose"></p>
         <div class="btn-row js-addbar" hidden="">
           <button type="button" class="btn btn--ghost js-add"></button>
         </div>
@@ -999,7 +1024,7 @@
 
   <section class="section" style="--accent: var(--c-lul);">
     <div class="section__head">
-      <span class="section__num">05</span>
+      <span class="section__num">04</span>
       <h2 class="section__title rt" data-rt="h04" data-kind="line"></h2>
     </div>
     <div class="section__body">
@@ -1086,46 +1111,28 @@
   },
   "p01": {
    "tr": [
-    "**Orijinal demo** playlistlerinde her bestenin dikiş makinesiyle, bilemedin telefonla yapılmış kaydı var. Bazen de Cubase ya da Reaper'da tek take kaydedilmiş ve kötü mikslenmiş demolar mevcut. Yani, hayır, şarkıların ana melodileri, akor gidişatları, sözleri yapay zeka ürünü değil.",
-    "Diğer playlistlerde, bu orijinal bestelerin benim promptlarım üzerine yapılmış SUNO aranjmanları, benim sesimden yapılmış samplelar tarafından söyleniyor. Yani düzenlemeleri, evet, yapay zeka. [[kes]] Ama bu aranjmanları nihai versiyon olarak yayınlamak için değil, beste taslaklarını hale yola koyup, değişik janrlarda kulağa nasıl geldiğini test etmek için kullanıyorum. Aranjman fikri denemek için demo kaydetmeye vakit falan olmadığı için, elimizde bunlar var.*",
-    "Yapay zekâ benden tabii ki daha temiz söylüyor; daha güzel enstrüman çalıyor. Bu SUNO aranjmanlarını şöyle düşünmek mümkün: _bu şarkı bu janrda kulağa böyle geliyormuş, ama bizimki bunu tabii teknik olarak daha kolpa icra ederdi._",
-    "Sakin, temiz vokalleri [Ayran İçerdik](https://suno.com/s/bbLn6hhlLyAZG0ud) ya da [Do Not Love Too Long](https://suno.com/s/5TM6DRmB9BZlTIRS)'daki gibi; daha genizden, boyunda damar çıkarmalı vokalleri de [Scholars](https://suno.com/s/KUPgxj5MvJ5eZg4v) ya da [Fuck The Police](https://suno.com/s/ooICukZMBidYMxxr)'deki gibi söylediğimi varsayalım şimdilik (bu linkler orijinal demo kayıtlarına gidiyor).",
+    "**Orijinal demo** linklerinde her bestenin dikiş makinesiyle, bilemedin telefonla yapılmış kaydı var. Bazen de Cubase ya da Reaper'da tek take kaydedilmiş ve kötü mikslenmiş demolar mevcut. Yani, **hayır**, şarkıların ana melodileri, akor gidişatları, sözleri yapay zeka ürünü değil.",
+    "Diğer linklerde, bu orijinal bestelerin benim promptlarım üzerine yapılmış SUNO aranjmanları, benim sesimden yapılmış samplelar tarafından söyleniyor. Yani düzenlemeleri, **evet**, yapay zeka. Ama bu aranjmanları nihai versiyon olarak yayınlamak için değil, beste taslaklarını hale yola koyup, değişik janrlarda kulağa nasıl geldiğini test etmek için kullanıyorum. Aranjman fikri denemek için demo kaydetmeye vakit falan olmadığı için, elimizde bunlar var.* [[kes]]",
+    "Yapay zekâ benden tabii ki daha temiz söylüyor; daha güzel enstrüman çalıyor. Bu SUNO aranjmanlarını şöyle düşünmek mümkün: _bu şarkı bu janrda kulağa böyle geliyormuş, ama bizimki bunu tabii teknik olarak daha kolpa icra ederdi_",
+    "Sakin, temiz vokalleri [Ayran İçerdik](https://suno.com/song/ad1cc40d-21a4-4e87-a467-bd3e5a0d177b) ya da [Do Not Love Too Long](https://suno.com/song/46d33700-6eff-418d-847f-9fba5c8b30f2)'daki gibi; daha genizden, boyunda damar çıkarmalı vokalleri de [Scholars](https://suno.com/song/d742cc8b-61c5-4835-982f-0a4d5cbbcbf3) ya da [Fuck The Police](https://suno.com/song/36b737cb-3d2c-427c-bcb1-83dc94f74ec7)'deki gibi söylediğimi varsayalım şimdilik (bu linkler orijinal demo kayıtlarına gidiyor).",
     "Normal kayıtta, gönül isterdi ki Horn Metal ya da Jazz Quintet gibi gruplarla çalabileydim... Ama o olmayacağına göre, kayıtlar ya düz Rock olacak, ya da düz Akustik. Kısmet.",
     "Eğer vaktiniz varsa, orijinal demolardan başlayın, ya da en işinize gelen janrı seçip bütün şarkıları o janrda dinleyin. Herhalde en iyi fikri Akustik ya da Rock playlistleri verecektir, diğerlerinde bazen uçuk yerlere gidiyor aranjmanlar."
    ],
    "en": [
-    "In the **Original demo** playlists, every song has a recording made on a sewing machine, or, you know, a phone or something. Sometimes, demos are recorded in a single take in Cubase or Reaper and then badly mixed. So, no, the songs' main melodies, chord progressions and lyrics are not AI products.",
-    "In the other playlists, these original compositions get SUNO arrangements made from my prompts, sung by samples made from my voice. So the arrangements, yes, are AI. [[kes]] But I'm not using these arrangements to release as final versions. I use them to knock the rough song drafts into some kind of shape and test how they sound in different genres. Since there's no time or whatever to record a demo just to try out an arrangement idea, this is what we've got.*",
+    "In the **Original demo** links, every song has a recording made on a sewing machine, or, you know, a phone or something. Sometimes, demos are recorded in a single take in Cubase or Reaper and then badly mixed. So, **no**, the songs' main melodies, chord progressions and lyrics are not AI products.",
+    "In the other links, these original compositions get SUNO arrangements made from my prompts, sung by samples made from my voice. So the arrangements, **yes**, are AI. But I'm not using these arrangements to release as final versions. I use them to knock the rough song drafts into some kind of shape and test how they sound in different genres. Since there's no time or whatever to record a demo just to try out an arrangement idea, this is what we've got.* [[kes]]",
     "The AI sings cleaner than me, of course, and plays instruments better. One way to think of these SUNO arrangements: _so this is how the song sounds in this genre, but our guy would of course perform it in a technically shoddier way._",
-    "For now, let's just assume I sing the calm, clean vocals like in [Ayran İçerdik](https://suno.com/s/bbLn6hhlLyAZG0ud) or [Do Not Love Too Long](https://suno.com/s/5TM6DRmB9BZlTIRS), and the more nasal, neck-veins-bulging vocals like in [Scholars](https://suno.com/s/KUPgxj5MvJ5eZg4v) or [Fuck The Police](https://suno.com/s/ooICukZMBidYMxxr) (these links go to the original demo recordings).",
+    "For now, let's just assume I sing the calm, clean vocals like in [Ayran İçerdik](https://suno.com/song/ad1cc40d-21a4-4e87-a467-bd3e5a0d177b) or [Do Not Love Too Long](https://suno.com/song/46d33700-6eff-418d-847f-9fba5c8b30f2), and the more nasal, neck-veins-bulging vocals like in [Scholars](https://suno.com/song/d742cc8b-61c5-4835-982f-0a4d5cbbcbf3) or [Fuck The Police](https://suno.com/song/36b737cb-3d2c-427c-bcb1-83dc94f74ec7) (these links go to the original demo recordings).",
     "For the actual recording, I would have liked to play with bands like Horn Metal or Jazz Quintet... But since that's not going to happen, the recordings will be either straight Rock or straight Acoustic. Kismet.",
     "If you have the time, you can listen to the original demos, or pick whichever genre you fancy and listen to all the songs in that one. The Acoustic or Rock playlists will probably give the best idea; in the others, the arrangements may sometimes go somewhere pretty far out."
    ]
   },
   "nTR": {
    "tr": [
-    "Sekiz liste: Orijinal Demolar ve janra göre SUNO aranjmanları."
+    "On altı liste: Orijinal Demolar ve janra göre SUNO aranjmanları, Türkçe ve İngilizce."
    ],
    "en": [
-    "Eight playlists: the Original Demos and the SUNO arrangements by genre."
-   ]
-  },
-  "nENG": {
-   "tr": [
-    "Sekiz liste: Orijinal Demolar ve janra göre SUNO aranjmanları."
-   ],
-   "en": [
-    "Eight playlists: the Original Demos and the SUNO arrangements by genre."
-   ]
-  },
-  "lyr": {
-   "tr": [
-    "Parantez içindeki adlar söz yazarları. Kimi bizzat tanımadığım şair, kimi şair olmayan eş dost, kimi de hem şair hem eş dost. Parantez yoksa, ben yazmışım demek oluyor. Ama değişir yani güfteler. Güfte dediğin nedir... Turgut Uyar, Ahmatova, Borges kopiraytlı elbette -- demektir ki ilelebet ancak bu demo sayfasında kalacaklar.",
-    "(X _ile birlikte_) yazıyorsa, şarkının bestesinde ve/veya güftesinde birileriyle çalışmışım demek oluyor, o da..."
-   ],
-   "en": [
-    "Names in brackets are the lyricists. Some are poets I've never met, some are friends who aren't poets, some are both. No brackets means I wrote it. But lyrics change. And what is a lyric anyway... Uyar, Akhmatova, Borges are of course copyrighted, which means they will probably stay on this demo page forever.",
-    "If it says (_w/_ X), it means I worked with someone on the music and/or the words of that song."
+    "Sixteen playlists: the Original Demos and the SUNO arrangements by genre, in Turkish and in English."
    ]
   },
   "h04": {
@@ -1188,10 +1195,10 @@
   },
   "hCIV": {
    "tr": [
-    "Lakayıt Şarkılar - Daft Songs"
+    "Lakayıt Şarkılar -\nDaft Songs"
    ],
    "en": [
-    "Lakayıt Şarkılar - Daft Songs"
+    "Lakayıt Şarkılar -\nDaft Songs"
    ]
   },
   "nCIV": {
@@ -1202,92 +1209,12 @@
     "I've made six songs purely for haha and hoho purposes, and the lyrics were written either by my buddies or taken from reader-submitted poems in Posta newspaper (not sure if those are real, if they're people at all -- but if I ever record the songs properly and put them out somewhere, I'll try to track them down, of course). Language notwithstanding, here are the songs..."
    ]
   },
-  "lyrCIV": {
-   "tr": [
-    "Yine yukarıdakiler gibi, parantez içinde güftekarlar var, _ile birlikte_ yazıyorsa ortak beste/güfte demektir."
-   ],
-   "en": [
-    "Same as above: the names in brackets are the lyricists, and _w/_ means the music and/or the words were a joint effort."
-   ]
-  },
   "listsLabel": {
    "tr": [
     "Çalma Listeleri"
    ],
    "en": [
     "Playlists"
-   ]
-  },
-  "codesTR": {
-   "tr": [
-    "Şarkıların değişik versiyonları için ilgili koda tıklayın:",
-    "",
-    "**DEMO** - Orijinal demolar*",
-    "**S1** - Rock",
-    "**S2** - Akustik",
-    "**S3** - Horn Metal",
-    "**S4** - Akustik Alaturka",
-    "**S5** - Electronica",
-    "**S6** - Rock Alaturka",
-    "**S7** - Jazz Quintet",
-    "**S-extra** - genel sınıflandırmanın dışında kalanlar",
-    "",
-    "Bir şarkı hakkında özel olarak yorum yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun. Bir janrdaki bütün şarkıları bir batında dinlemek istiyorsanız, çalma listeleri aşağıda.",
-    "",
-    "*Orijinal Demo kayıtları bazen şarkının tamamı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla/mırıldanarak) çalınmış versiyonu olabilir."
-   ],
-   "en": [
-    "Click the relevant code to hear the different versions of a song:",
-    "",
-    "**DEMO** - Original demos*",
-    "**S1** - Rock",
-    "**S2** - Akustik",
-    "**S3** - Horn Metal",
-    "**S4** - Akustik Alaturka",
-    "**S5** - Electronica",
-    "**S6** - Rock Alaturka",
-    "**S7** - Jazz Quintet",
-    "**S-extra** - the ones outside the general classification",
-    "",
-    "To comment on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page. If you want to hear every song in one genre in one go, the playlists are below.",
-    "",
-    "*The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed)."
-   ]
-  },
-  "codesENG": {
-   "tr": [
-    "Şarkıların değişik versiyonları için ilgili koda tıklayın:",
-    "",
-    "**DEMO** - Orijinal demolar*",
-    "**S1** - Rock",
-    "**S2** - Acoustic",
-    "**S3** - Horn Metal",
-    "**S4** - Acoustic Allaturca",
-    "**S5** - Electronica",
-    "**S6** - Rock Allaturca",
-    "**S7** - Jazz Quintet",
-    "**S-extra** - genel sınıflandırmanın dışında kalanlar",
-    "",
-    "Bir şarkı hakkında özel olarak yorum yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun. Bir janrdaki bütün şarkıları bir batında dinlemek istiyorsanız, çalma listeleri aşağıda.",
-    "",
-    "*Orijinal Demo kayıtları bazen şarkının tamamı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla/mırıldanarak) çalınmış versiyonu olabilir."
-   ],
-   "en": [
-    "Click the relevant code to hear the different versions of a song:",
-    "",
-    "**DEMO** - Original demos*",
-    "**S1** - Rock",
-    "**S2** - Acoustic",
-    "**S3** - Horn Metal",
-    "**S4** - Acoustic Allaturca",
-    "**S5** - Electronica",
-    "**S6** - Rock Allaturca",
-    "**S7** - Jazz Quintet",
-    "**S-extra** - the ones outside the general classification",
-    "",
-    "To comment on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page. If you want to hear every song in one genre in one go, the playlists are below.",
-    "",
-    "*The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed)."
    ]
   },
   "codesCIV": {
@@ -1297,9 +1224,7 @@
     "**DEMO** - Orijinal demolar",
     "**C1** - Rock",
     "**C2** - Akustik - Acoustic",
-    "**C3** - Horn Metal",
-    "",
-    "Bir şarkı hakkında özel olarak yorum yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun. Bir janrdaki bütün şarkıları bir batında dinlemek istiyorsanız, çalma listeleri aşağıda."
+    "**C3** - Horn Metal"
    ],
    "en": [
     "Click the relevant code to hear the different versions of a song:",
@@ -1307,9 +1232,73 @@
     "**DEMO** - Original demos",
     "**C1** - Rock",
     "**C2** - Akustik - Acoustic",
-    "**C3** - Horn Metal",
+    "**C3** - Horn Metal"
+   ]
+  },
+  "hSONGS": {
+   "tr": [
+    "Şarkılar"
+   ],
+   "en": [
+    "Songs"
+   ]
+  },
+  "intro": {
+   "tr": [
+    "Şarkıların değişik versiyonları için ilgili koda tıklayın:",
     "",
-    "To comment on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page. If you want to hear every song in one genre in one go, the playlists are below."
+    "**DEMO** - Orijinal demolar*",
+    "**S1** - Rock",
+    "**S2** - Akustik",
+    "**S3** - Horn Metal",
+    "**S4** - Akustik Alaturka",
+    "**S5** - Electronica",
+    "**S6** - Rock Alaturka",
+    "**S7** - Jazz Quintet",
+    "**S-extra** - Genel sınıflandırmanın dışında kalanlar",
+    "_*Orijinal Demo kayıtları bazen şarkının tamamı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla/mırıldanarak) çalınmış versiyonu olabilir._",
+    "{{Bir janrdaki bütün şarkıları bir batında dinlemek istiyorsanız, [çalma listeleri](#listeler) aşağıda.}}",
+    "",
+    "",
+    "Parantez içindeki yekpare adlar **söz yazarları**. Kimi bizzat tanımadığım şair, kimi şair olmayan eş dost, kimi de hem şair hem eş dost.",
+    "",
+    "Parantez yoksa, ben yazmışım demek oluyor. Ama değişir yani güfteler. Güfte dediğin nedir... Turgut Uyar, Ahmatova, Borges kopiraytlı elbette -- demektir ki ilelebet ancak bu demo sayfasında kalacaklar.",
+    "",
+    "**(X ile birlikte)** yazıyorsa, şarkının bestesinde ve/veya güftesinde birileriyle çalışmışım demek oluyor, o da...",
+    "",
+    "Bir şarkı hakkında özel olarak **yorum** yazmak istiyorsanız, yanındaki butona tıklayın. Genel yorum ve tavsiyeler için sayfanın en altına buyrun."
+   ],
+   "en": [
+    "Click the relevant code to hear the different versions of a song:",
+    "",
+    "**DEMO** - Original demos*",
+    "**S1** - Rock",
+    "**S2** - Akustik / Acoustic",
+    "**S3** - Horn Metal",
+    "**S4** - Akustik Alaturka / Acoustic Allaturca",
+    "**S5** - Electronica",
+    "**S6** - Rock Alaturka / Rock Allaturca",
+    "**S7** - Jazz Quintet",
+    "**S-extra** - The ones outside the general classification",
+    "_*The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed)._",
+    "{{If you want to hear every song in one genre in one go, [the playlists](#listeler) are below.}}",
+    "",
+    "",
+    "The standalone names in brackets are the **lyricists**. Some are poets I have never met, some are friends who are not poets, some are both.",
+    "",
+    "No brackets means I wrote it. But lyrics change. And what is a lyric anyway... Turgut Uyar, Akhmatova, Borges are of course copyrighted -- which means they will stay on this demo page forever.",
+    "",
+    "If it says **(w/ X)**, it means I worked with someone on the music and/or the words of that song.",
+    "",
+    "To **comment** on one song in particular, click the button next to it. For general comments and advice, head to the bottom of the page."
+   ]
+  },
+  "sub": {
+   "tr": [
+    "Hangilerini kaydedeyim? Hangi şarkıyı hangi janrda kaydedeyim? Nasıl gruplayayım? İlk anınız ne? Diş ipi kullanıyor musunuz, ve diğer sorularım..."
+   ],
+   "en": [
+    "Which ones should I record? Which song should I record in which genre? How should I group them? What's your first memory? Do you floss, and other questions..."
    ]
   }
  },
@@ -1330,14 +1319,14 @@
     "lnk": "DEMO|0ef35eec-bbc8-44ce-bfd7-3ac6c6288325;S1|9ae98f13-0ee6-42a1-8edf-d0a0e9899275;S2|b0b0a419-dbc5-4e72-a460-320b811fd711;S3|f666b91b-7b42-4007-9825-d8b08932deed;S4|c067ebc1-5440-4416-aeee-5970425b5963;S5|9a71cc18-e297-4f4e-b481-f338972c1550;S6|03427989-0690-4c16-ab21-3e6ac377b265;S7|9235804f-15a3-4e88-81e5-eada380b1ae7"
    },
    {
-    "t": "Daüssıla - Enayi Gibi Geldim (Sabahattin Ali - w/ S. Dierkes)",
+    "t": "Daüssıla (Sabahattin Ali - w/ S. Dierkes)",
     "y": "2021",
     "n": "Yakın zamanda Almanya'ya taşınmış NCS nam bir kankitomun bulduğu bu nadir Sabahattin Ali şiiri, eski bir beste taslağına oturdu. Bazı kısımlarını kullandım sadece. Şiirin tamamı ekte, 1928'den.",
     "l": "Bugün de Potsdam'dan süzerken Potsdam'ı,\nYaktı yine içimi kimsesizliğin gamı.\nGözlerim inhinasız uzayan caddelerde,\nDedim: Bu soğuk şehir nerde, İstanbul nerde?..\n\nBurda her şey: Şehirler ve insanlar nursuzdur;\nAlamanlar, âdeta besili bir domuzdur.\nSokaklar saatlerce uzanır bükülmeden\nAlamanlar dolaşır üzerinde gülmeden...\n\nGitmeye alışmışken ben herkesin dikine,\nEnayi gibi geldim Frenk memâlikine.\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\n\nBurda tebessümün de günü, saati vardır;\nDükkânlar hep bir çeşit, evler hep bir karardır...\nGerçi bizim evlerden temizse de sokaklar,\nSüslese de muhteşem meydanlarını taklar;\n\nNe yıkık surlar gibi bu şehrin bir süsü var\nNe de - ah sormayınız - ne de bir köprüsü var...\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\n\nGitmeye alışmışken ben herkesin dikine,\nEnayi gibi geldim Frenk memâlikine.\n\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...\nTaşıyın şimdi benim gibi avanakları\nEy birbirinden nursuz Potsdam sokakları...",
     "lt": "Homesickness - I Came Like A Fool\n\nToday again, as I looked Potsdam over from Potsdam,\nThe sorrow of loneliness burned inside me once more.\nMy eyes on the avenues stretching on without a curve,\nI said: Where is this cold city, and where is Istanbul?..\n\nHere everything, the cities and the people, is lifeless;\nThe Germans are practically as fat as plumped-up pigs.\nThe streets stretch on for hours without bending\nThe Germans walk along them without smiling...\n\nThough I was used to going against everyone,\nLike a fool I came to the lands of the Franks.\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\n\nHere even smiling has its day and its hour;\nThe shops are all alike, the houses all the same...\nThough the streets are cleaner than our houses,\nThough arches adorn its magnificent squares;\n\nThis city has no ornament like ruined city walls\nNor, ah, don't ask, nor does it have a bridge...\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\n\nThough I was used to going against everyone,\nLike a fool I came to the lands of the Franks.\n\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...\nNow carry simpletons like me\nO streets of Potsdam, each more lifeless than the next...",
     "nt": "This rare Sabahattin Ali poem, found by a buddy of mine who goes by NCS and who recently moved to Germany, sat straight onto an old sketch of a tune. I only used some parts of it. The full poem, from 1928, is attached.",
     "img": [
-     "img/daussila-enayi-gibi-geldim-sabahattin-al-1.jpg"
+     "img/daussila-sabahattin-ali-w-s-dierkes-1.jpg"
     ],
     "lnk": "DEMO|34bdae53-8ebb-4d7d-b4be-41fa96536d8e;S1|d9a6a427-9140-470b-bad9-4a3016b0bab4;S2|99e6bbd5-b934-4783-a140-8f9a80c8b393;S3|e5c7b1c9-602c-4d12-a97e-ad6c1a034e06;S4|fad18e08-7575-431b-bdb2-b6f271aa4d48;S5|48d6c7de-45a4-4e31-9e41-b55c54254be1;S6|6ac7db8b-91ea-46a9-86bf-397d8b15be48;S7|fb819891-e1b0-4c2b-bd7c-a87774f885cb"
    },
@@ -1472,8 +1461,8 @@
     "n": "Not for a particular friend...",
     "l": "Congratulations on the anniversary of your\nparticipation in the ranks of the living\nIt's overrated, undoubtedly, but maybe\nHaving been born is not that bad a thing\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise\n\nYou're alive, unlike all the tables and the musketeers of the world\nYou're alive, that's the natural result of your successful birth\nYou're alive, in a way just out of sheer luck, one could say\nYou're you now, and you could easily have been someone else or merely dirt\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise\n\nIt's great that you managed to get out of that womb, unwillingly\nIt's nice though, truly, it is my opinion that you aced that shit\nYou did well! Now you walk about, no Roman general can do that\nYou did good! Born once, nothing you can do now to undo it\n\nYou were born, we all realize that\nyou were born and will probably stay here for a while\nYou were born, it's blatantly clear,\nwho knows where the hell you'd have been otherwise",
     "lt": "Yaşayanların saflarına katılışının\nyıldönümü kutlu olsun\nAbartılıyor, şüphesiz, ama belki de\nDoğmuş olmak o kadar da kötü bir şey değil\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun\n\nYaşıyorsun, dünyadaki bütün masaların ve silahşörlerin aksine\nYaşıyorsun, bu başarılı doğumunun doğal sonucu\nYaşıyorsun, bir bakıma sırf şans eseri, denebilir\nŞimdi sen sensin, oysa kolayca başka biri ya da sadece toprak olabilirdin\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun\n\nİstemeden de olsa, çıkmayı başardın ana karnından, harika\nGüzel oldu bayağı, gerçekten, bence o mevzuu süper hallettin\nİyi iş çıkardın! Artık ortalıkta dolaşıyorsun, hiçbir Romalı general bunu yapamaz\nAferin sana! Bir kez doğdun, artık geri dönüşü de yok.\n\nDoğdun, hepimiz bunun farkındayız\ndoğdun ve muhtemelen bir süre buralardasın\nDoğdun, apaçık ortada,\nyoksa kim bilir hangi cehennemde olurdun",
-    "lnk": "DEMO|c7f58513-007e-4241-b51a-2ee2c2f13967;S1|28fe0d69-7e47-45df-949c-a28f9b8b8f20;S2|3cbd12ce-b055-4e5d-919d-0bcba9a35b04;S3|d43f4a9e-0c4c-4158-8cea-661464c6b94e;S4|cf28efac-86fe-4361-9f5a-d11f511c9cd7;S5|e1371217-9c68-4d20-bfa8-19f67fbd9e54;S6|1a3bbc81-3cc9-4cf4-bab3-7bc41ae6fc63;S7|185d7e7f-4bcb-4ad1-a864-fed3b89ba44f;S-extra|2869afc8-f118-40c9-a499-ef651232893f",
-    "nt": "Belirli bir arkadaş için değil..."
+    "nt": "Belirli bir arkadaş için değil...",
+    "lnk": "DEMO|c7f58513-007e-4241-b51a-2ee2c2f13967;S1|28fe0d69-7e47-45df-949c-a28f9b8b8f20;S2|3cbd12ce-b055-4e5d-919d-0bcba9a35b04;S3|d43f4a9e-0c4c-4158-8cea-661464c6b94e;S4|cf28efac-86fe-4361-9f5a-d11f511c9cd7;S5|e1371217-9c68-4d20-bfa8-19f67fbd9e54;S6|1a3bbc81-3cc9-4cf4-bab3-7bc41ae6fc63;S7|185d7e7f-4bcb-4ad1-a864-fed3b89ba44f;S-extra|2869afc8-f118-40c9-a499-ef651232893f"
    },
    {
     "t": "Do Not Love Too Long (William Butler Yeats)",
@@ -1542,8 +1531,8 @@
     "y": "2015",
     "n": "",
     "l": "Bald heads forgetful of their sins,\nOld, learned, respectable bald heads\nEdit and annotate the lines\nThat young men, tossing on their beds,\nRhymed out in love's despair\nTo flatter beauty's ignorant ear.\n\nAll shuffle there; all cough in ink;\nAll wear the carpet with their shoes;\nAll think what other people think;\nAll know the man their neighbour knows.\nLord, what would they say\nDid their Catullus walk that way?",
-    "lnk": "DEMO|d742cc8b-61c5-4835-982f-0a4d5cbbcbf3;S1|7c7a1928-7a0d-4f0d-aede-6fe7f683c2d8;S2|347e8acc-1db9-4f33-b2ce-73f4216c6149;S3|dedf9a61-1e2d-4a85-86f5-d64492cb0a19;S4|3be25d29-6d13-4fdc-94d2-daf3964775ec;S5|545ad32b-bd1d-4bc1-afa1-6796f8fca75b;S6|974e0015-0568-4681-ae0b-f6a8587a8b94;S7|7bba1ecc-8569-4626-bcbf-35675785bebe",
-    "lt": "Günahlarını unutmuş kel kafalar,\nYaşlı, bilgili, saygıdeğer kel kafalar\nDizeleri düzenler, açıklamalar ekler;\nO dizeleri ki genç adamlar, yataklarında dönüp dururken,\nAşkın umutsuzluğu içinde uyaklarla yazmıştı\nGüzelliğin cahil kulağını okşamak için.\n\nHepsi orada ayak sürür; hepsi mürekkeple öksürür;\nHepsi ayakkabılarıyla halıyı aşındırır;\nHepsi başkalarının düşündüğünü düşünür;\nHepsi komşusunun tanıdığı adamı tanır.\nTanrım, ne derlerdi\nCatullus'ları o yoldan geçseydi?"
+    "lt": "Günahlarını unutmuş kel kafalar,\nYaşlı, bilgili, saygıdeğer kel kafalar\nDizeleri düzenler, açıklamalar ekler;\nO dizeleri ki genç adamlar, yataklarında dönüp dururken,\nAşkın umutsuzluğu içinde uyaklarla yazmıştı\nGüzelliğin cahil kulağını okşamak için.\n\nHepsi orada ayak sürür; hepsi mürekkeple öksürür;\nHepsi ayakkabılarıyla halıyı aşındırır;\nHepsi başkalarının düşündüğünü düşünür;\nHepsi komşusunun tanıdığı adamı tanır.\nTanrım, ne derlerdi\nCatullus'ları o yoldan geçseydi?",
+    "lnk": "DEMO|d742cc8b-61c5-4835-982f-0a4d5cbbcbf3;S1|7c7a1928-7a0d-4f0d-aede-6fe7f683c2d8;S2|347e8acc-1db9-4f33-b2ce-73f4216c6149;S3|dedf9a61-1e2d-4a85-86f5-d64492cb0a19;S4|3be25d29-6d13-4fdc-94d2-daf3964775ec;S5|545ad32b-bd1d-4bc1-afa1-6796f8fca75b;S6|974e0015-0568-4681-ae0b-f6a8587a8b94;S7|7bba1ecc-8569-4626-bcbf-35675785bebe"
    },
    {
     "t": "The Moon is Falling (w/ F. Dibble & J. Lillywhite)",
@@ -1567,8 +1556,8 @@
     "y": "2015",
     "n": "",
     "l": "Sang Solomon to Sheba,\nAnd kissed her dusky face,\n\"All day long from mid-day\nWe have talked in the one place,\nAll day long from shadowless noon\nWe have gone round and round\nIn the narrow theme of love\nLike an old horse in a pound.-\n\nTo Solomon sang Sheba,\nPlated on his knees,\n'If you had broached a matter\nThat might the learned please,\nYou had before the sun had thrown\nOur shadows on the ground\nDiscovered that my thoughts, not it,\nAre but a narrow pound.'\n\nSaid Solomon to Sheba,\nAnd kissed her Arab eyes,\n'There's not a man or woman\nBorn under the skies\nDare match in learning with us two,\nAnd all day long we have found\nThere's not a thing but love can make\nThe world a narrow pound.'",
-    "lnk": "DEMO|a92aa106-eaa4-426e-822d-55d2be50e15d;S1|e5b7dbaa-9607-472b-bd3c-46bf17ca8955;S2|65aa2b8d-144d-40ee-a969-efd8e51071f2;S3|64c590a9-1e0f-4664-908c-092868c2b130;S4|78d48394-94cf-4a66-8601-e7ba4a61e11f;S5|544b0ab3-ae58-4f79-b9b4-490fa9bdaee8;S6|95860ac5-049d-4f25-9c9e-b3ed142c5cc6;S7|3cd18a87-7c3f-4571-833e-ec060e9ea460",
-    "lt": "Süleyman Belkıs'a şarkı söyledi,\nVe onun esmer yüzünü öptü,\n\"Öğleden beri bütün gün\nAynı yerde konuştuk,\nGölgesiz öğleden beri bütün gün\nDönüp dolaştık durduk\nAşkın dar konusunda\nAğıldaki yaşlı bir at gibi.-\n\nSüleyman'a Belkıs şarkı söyledi,\nOnun dizlerine kurulmuş,\n'Eğer bir konu açsaydın\nBilginleri memnun edebilecek,\nGüneş daha atmadan önce\nGölgelerimizi yere,\nAnlardın ki o değil, düşüncelerim\nDar bir ağıldan ibaret.'\n\nSüleyman Belkıs'a dedi,\nVe onun Arap gözlerini öptü,\n'Hiçbir erkek ya da kadın yoktur\nGöklerin altında doğmuş\nBilgide ikimizle boy ölçüşmeye cüret edecek,\nVe bütün gün boyunca gördük ki\nAşktan başka hiçbir şey yoktur ki\nDünyayı dar bir ağıl yapabilsin.'"
+    "lt": "Süleyman Belkıs'a şarkı söyledi,\nVe onun esmer yüzünü öptü,\n\"Öğleden beri bütün gün\nAynı yerde konuştuk,\nGölgesiz öğleden beri bütün gün\nDönüp dolaştık durduk\nAşkın dar konusunda\nAğıldaki yaşlı bir at gibi.-\n\nSüleyman'a Belkıs şarkı söyledi,\nOnun dizlerine kurulmuş,\n'Eğer bir konu açsaydın\nBilginleri memnun edebilecek,\nGüneş daha atmadan önce\nGölgelerimizi yere,\nAnlardın ki o değil, düşüncelerim\nDar bir ağıldan ibaret.'\n\nSüleyman Belkıs'a dedi,\nVe onun Arap gözlerini öptü,\n'Hiçbir erkek ya da kadın yoktur\nGöklerin altında doğmuş\nBilgide ikimizle boy ölçüşmeye cüret edecek,\nVe bütün gün boyunca gördük ki\nAşktan başka hiçbir şey yoktur ki\nDünyayı dar bir ağıl yapabilsin.'",
+    "lnk": "DEMO|a92aa106-eaa4-426e-822d-55d2be50e15d;S1|e5b7dbaa-9607-472b-bd3c-46bf17ca8955;S2|65aa2b8d-144d-40ee-a969-efd8e51071f2;S3|64c590a9-1e0f-4664-908c-092868c2b130;S4|78d48394-94cf-4a66-8601-e7ba4a61e11f;S5|544b0ab3-ae58-4f79-b9b4-490fa9bdaee8;S6|95860ac5-049d-4f25-9c9e-b3ed142c5cc6;S7|3cd18a87-7c3f-4571-833e-ec060e9ea460"
    },
    {
     "t": "The Wheel (William Butler Yeats)",
@@ -1593,7 +1582,7 @@
     "y": "2008",
     "n": "It was the soundtrack of a short movie from 2008. The original lyrics were in Esperanto, and the theme was entirely different.",
     "l": "Lately I've been thinking about him\nThat old friend o'mine\nI haven't seen him in a long time\n\nI'll call him one of these days; we’ll become, I swear,\nThe drunk teenagers we once were, right away\n\nI often try to make up jokes for him,\nFor that old friend o'mine\nwho I'll call before too long, maybe next week\n\nYou see, it would be a shame\nNot to have anything funny to say\nTo that friend of mine, who I'll call one day.\n\nI'll call one day",
-    "lt": "Son zamanlarda onu düşünüyorum\nŞu eski kankitomu.\nUzun zaman oldu görmeyeli\n\n\nArayacağım bugünlerde, valla kesin \nsarhoş ergenlere döneriz saniyesinde\n\n\nOna şakalar uydurmaya çalışıyorum sık sık,\nŞu benim eski dostuma.\nÇok geçmeden ararım, muhtemel haftaya\n\n\nAyıp olur, anlayacağınız,\nsöyleyecek komik bir şeyim olmazsa\nşu dostuma, bir gün aradığımda\n\n\nBir gün aradığımda",
+    "lt": "Son zamanlarda onu düşünüyorum\nŞu eski kankitomu.\nUzun zaman oldu görmeyeli\n\n\nArayacağım bugünlerde, valla kesin \nsarhoş ergenlere döneriz saniyesinde\n\n\nOna şakalar uydurmaya çalışıyorum sık sık,\nŞu benim eski dostuma.\nÇok geçmeden ararım, muhtemel haftaya\n\nAyıp olur, anlayacağınız,\nsöyleyecek komik bir şeyim olmazsa\nşu dostuma, bir gün aradığımda\n\n\nBir gün aradığımda",
     "nt": "2008'den bir kısa film müziğiydi. Sözlerin aslı Esperanto'ydu, konu da bambaşkaydı.",
     "lnk": "DEMO|35b90263-5b92-4fac-8309-c22eeb8e1ac1;S1|9da84f0b-2c69-4588-b931-12ca0faf6221;S2|68de15de-1fe0-4fbd-98df-ee58ea6cab5b;S3|3a463a5c-fc78-437d-8633-b648eca18b4f;S4|5d246521-cc95-47e7-aa31-a9b202925000;S5|177bcc11-1fac-4bce-b924-214ba3738e42;S6|e7a56d40-5002-454d-87bf-0f8b2e8c9436;S7|011270f6-5383-462c-a199-65893fbb08c3"
    }
@@ -1963,6 +1952,8 @@
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
       .replace(/(^|[^\w*])\*([^*\n]+)\*(?![\w*])/g, '$1<em>$2</em>')
       .replace(/(^|[^\w_])_([^_\n]+)_(?![\w_])/g, '$1<em>$2</em>')
+      .replace(/\{\{([^{}\n]+)\}\}/g, '<b class="hi">$1</b>')
+      .replace(/\[([^\]]+)\]\((#[A-Za-z0-9_-]+)\)/g, '<a href="$2">$1</a>')
       .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
         '<a href="$2" target="_blank" rel="noopener">$1</a>');
   }
@@ -2128,7 +2119,13 @@
 
         var cT = document.createElement('td');
         cT.className = 't-title';
-        cT.appendChild(document.createTextNode(dispTitle(s.t)));
+        var head = document.createElement('div');
+        head.className = 't-head';
+        var nm = document.createElement('span');
+        nm.className = 't-name';
+        nm.textContent = dispTitle(s.t);
+        head.appendChild(nm);
+        cT.appendChild(head);
 
         var imgs = Array.isArray(s.img) ? s.img : [];
         // a note may exist only in the other language: then it shows only there
@@ -2253,10 +2250,19 @@
             a.textContent = bits[0];
             lrow.appendChild(a);
           });
-          // the toggles' panels live in the same cell: keep the links above them
-          var firstPanel = cT.querySelector('.notepanel');
-          if (firstPanel) cT.insertBefore(lrow, firstPanel);
-          else cT.appendChild(lrow);
+          cT.appendChild(lrow);
+        }
+        // one line for the codes (left) and the toggles (right)
+        var ln2 = document.createElement('div');
+        ln2.className = 'ln2';
+        var lrowEl = cT.querySelector('.trax');
+        var tbarEl = cT.querySelector('.togs');
+        if (lrowEl) ln2.appendChild(lrowEl);
+        if (tbarEl) ln2.appendChild(tbarEl);
+        if (ln2.childNodes.length) {
+          var panel0 = cT.querySelector('.notepanel');
+          if (panel0) cT.insertBefore(ln2, panel0);
+          else cT.appendChild(ln2);
         }
         tr.appendChild(cT);
 
@@ -2912,13 +2918,17 @@
   }
 
   /* comments -------------------------------------------------------------- */
-  :root { --c-cmt: #9A7B52; --c-cmt-soft: #D9C4A6; }
+  /* --c-cmt comes from the page itself; only the soft tone is local */
+  :root { --c-cmt-soft: #D9C4A6; }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --c-cmt: #D3B48C; --c-cmt-soft: #6B573C; }
+    :root:not([data-theme="light"]) { --c-cmt-soft: #6B573C; }
   }
-  :root[data-theme="dark"] { --c-cmt: #D3B48C; --c-cmt-soft: #6B573C; }
+  :root[data-theme="dark"] { --c-cmt-soft: #6B573C; }
 
   .cmt-btn {
+    font-size: var(--step--1);
+    white-space: nowrap;
+    flex: 0 0 auto;
     color: var(--c-cmt);
     border: 1px solid var(--c-cmt-soft);
     padding: 0.05rem 0.4rem 0.1rem;
@@ -3003,7 +3013,9 @@
   }
 
   document.addEventListener('click', function (e) {
-    var a = e.target && e.target.closest ? e.target.closest('.trax a') : null;
+    var a = e.target && e.target.closest
+      ? e.target.closest('a[href*="suno.com/song/"]')
+      : null;
     if (!a) return;
     // a modified click still opens Suno in its own tab
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
@@ -3038,7 +3050,7 @@
     bar.appendChild(shut);
     box.appendChild(bar);
 
-    var row = a.parentNode;
+    var row = a.closest('.ln2') || a.closest('p') || a.parentNode;
     row.parentNode.insertBefore(box, row.nextSibling);
     a.classList.add('playing');
     current = a;
@@ -3195,15 +3207,10 @@
     var cells = document.querySelectorAll('td.t-title');
     Array.prototype.forEach.call(cells, function (cell) {
       if (cell.querySelector('.cmt-btn')) return;
-      var bar = cell.querySelector('.togs');
-      if (!bar) {
-        bar = document.createElement('div');
-        bar.className = 'togs';
-        var trax = cell.querySelector('.trax');
-        if (trax) cell.insertBefore(bar, trax);
-        else cell.appendChild(bar);
-      }
-      var title = (cell.childNodes[0] && cell.childNodes[0].nodeValue || '').trim();
+      var bar = cell.querySelector('.t-head');
+      if (!bar) return;
+      var nameEl = bar.querySelector('.t-name');
+      var title = (nameEl ? nameEl.textContent : '').trim();
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'notetoggle cmt-btn';
@@ -3213,11 +3220,31 @@
     });
   }
 
-  var mo = new MutationObserver(function () { addButtons(); });
+  // on a phone the button would squeeze the title, so it rides the second line
+  function placeButtons() {
+    var narrow = window.matchMedia('(max-width: 30rem)').matches;
+    Array.prototype.forEach.call(document.querySelectorAll('td.t-title'), function (cell) {
+      var b = cell.querySelector('.cmt-btn');
+      if (!b) return;
+      var target = narrow
+        ? (cell.querySelector('.ln2 .togs') || cell.querySelector('.ln2'))
+        : cell.querySelector('.t-head');
+      if (target && b.parentNode !== target) target.appendChild(b);
+    });
+  }
+
+  var rt = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(placeButtons, 150);
+  });
+
+  var mo = new MutationObserver(function () { addButtons(); placeButtons(); });
   Array.prototype.forEach.call(document.querySelectorAll('.songs .js-body'), function (tb) {
     mo.observe(tb, { childList: true });
   });
   addButtons();
+  placeButtons();
 
   /* ---- the general section at the foot ---------------------------------- */
   function buildSection() {
@@ -3234,7 +3261,7 @@
     head.className = 'section__head';
     var num = document.createElement('span');
     num.className = 'section__num';
-    num.textContent = '06';
+    num.textContent = '05';
     var h2 = document.createElement('h2');
     h2.className = 'section__title js-ctitle';
     h2.textContent = t('cTitle');
