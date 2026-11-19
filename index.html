@@ -373,6 +373,13 @@
     text-decoration: none;
     border-bottom: 1px solid var(--rule);
   }
+  .trax a.demo {
+    color: var(--c-neon);
+    font-weight: 500;
+    border-bottom-color: var(--c-neon);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
   .trax a:hover, .trax a:focus-visible {
     color: var(--accent, var(--ink));
     border-bottom-color: var(--accent, var(--ink));
@@ -1256,7 +1263,8 @@
     "**S6** - Rock Alaturka",
     "**S7** - Jazz Quintet",
     "**S-extra** - Genel sınıflandırmanın dışında kalanlar",
-    "_*Orijinal Demo kayıtları bazen şarkının tamamı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla/mırıldanarak) çalınmış versiyonu olabilir._",
+    "_*Orijinal Demo kayıtları bazen şarkının tamamı, bazen de sadece ana melodilerin sözlü ya da sözsüz (ıslıkla/mırıldanarak) çalınmış versiyonu olabilir. Önce bunları dinlerseniz en güzeli, şahanesi olur._",
+    "",
     "{{Bir janrdaki bütün şarkıları bir batında dinlemek istiyorsanız, [çalma listeleri](#listeler) aşağıda.}}",
     "",
     "",
@@ -1280,7 +1288,8 @@
     "**S6** - Rock Alaturka / Rock Allaturca",
     "**S7** - Jazz Quintet",
     "**S-extra** - The ones outside the general classification",
-    "_*The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed)._",
+    "_*The Original Demo recordings are sometimes the whole song, and sometimes only the main melody played with or without words (whistled or hummed). Listening to those first would be the most bestly awesomest thing._",
+    "",
     "{{If you want to hear every song in one genre in one go, [the playlists](#listeler) are below.}}",
     "",
     "",
@@ -2248,6 +2257,7 @@
             a.target = '_blank';
             a.rel = 'noopener';
             a.textContent = bits[0];
+            if (bits[0].indexOf('DEMO') === 0) a.className = 'demo';
             lrow.appendChild(a);
           });
           cT.appendChild(lrow);
